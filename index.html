@@ -1,1097 +1,123 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#0F4C5C">
-    <meta name="application-name" content="EHCP Parent Compass">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="EHCP Compass">
-    <meta name="description" content="UK SEND, EHCP 20-week statutory timeline, picture evidence vault, SENCO & council directories, top 20 childhood conditions, crisis & bullying law support, and AES-GCM 256-bit local vault.">
-    <link id="pwa-icon-link" rel="icon" type="image/png" href="">
-    <link id="pwa-apple-icon" rel="apple-touch-icon" href="">
-    <link id="pwa-manifest-link" rel="manifest" href="">
-    <title>EHCP Parent Compass | UK SEND, Conditions, Crisis &amp; Bullying Law, Evidence &amp; Legal Toolkit</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        try {
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        fontFamily: {
-                            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                            display: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
-                            serif: ['Lora', 'Georgia', 'serif'],
-                        },
-                        colors: {
-                            cream: '#FAF8F5',
-                            warmSurface: '#F3EFEA',
-                            civicTeal: {
-                                50: '#EFF7F8',
-                                100: '#D6EBEE',
-                                200: '#AED7DD',
-                                600: '#1D6B7D',
-                                700: '#145868',
-                                800: '#0F4C5C',
-                                900: '#0A3540',
-                            },
-                            forest: {
-                                50: '#F0F9F4',
-                                100: '#DCF2E5',
-                                200: '#B8E4CA',
-                                600: '#1E7A4B',
-                                700: '#16653C',
-                                800: '#114F2F',
-                            },
-                            statAmber: {
-                                50: '#FFFBEB',
-                                100: '#FEF3C7',
-                                200: '#FDE68A',
-                                600: '#D97706',
-                                700: '#B45309',
-                            },
-                            statCrimson: {
-                                50: '#FEF2F2',
-                                100: '#FEE2E2',
-                                200: '#FECACA',
-                                700: '#B91C1C',
-                                800: '#991B1B',
-                            }
-                        }
-                    }
-                }
-            };
-        } catch (e) {
-            console.warn('Tailwind config guard:', e);
-        }
-    </script>
-    <style>
-        :root {
-            --safe-top: env(safe-area-inset-top, 0px);
-            --safe-bottom: env(safe-area-inset-bottom, 0px);
-            --safe-left: env(safe-area-inset-left, 0px);
-            --safe-right: env(safe-area-inset-right, 0px);
-        }
-        body {
-            background-color: #FAF8F5;
-            color: #0F172A;
-            padding-left: var(--safe-left);
-            padding-right: var(--safe-right);
-            padding-bottom: var(--safe-bottom);
-        }
-        header.sticky {
-            padding-top: var(--safe-top);
-        }
-        footer {
-            padding-bottom: calc(1.25rem + var(--safe-bottom));
-        }
-        .hidden {
-            display: none !important;
-        }
-        ::-webkit-scrollbar {
-            width: 7px;
-            height: 7px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #F3EFEA;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #CBD5E1;
-            border-radius: 9999px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94A3B8;
-        }
-        .view-panel {
-            animation: panelFade 0.18s ease-out;
-        }
-        @keyframes panelFade {
-            from { opacity: 0; transform: translateY(4px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @media print {
-            body * { visibility: hidden !important; }
-            #printable-letter-area, #printable-letter-area * { visibility: visible !important; }
-            #printable-letter-area {
-                position: fixed !important; left: 0 !important; top: 0 !important;
-                width: 100% !important; max-height: none !important; overflow: visible !important;
-                padding: 24px 32px !important; margin: 0 !important;
-                background: #FFFFFF !important; color: #000000 !important;
-                border: none !important; box-shadow: none !important;
-                font-size: 11.5pt !important; line-height: 1.55 !important;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — EHCP Parent Compass</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+      color: #1e293b;
+      background: #f8fafc;
+      margin: 0;
+      padding: 24px 16px;
+    }
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 28px 24px;
+    }
+    h1 {
+      margin-top: 0;
+      font-size: 1.75rem;
+      color: #0f172a;
+    }
+    h2 {
+      margin-top: 24px;
+      font-size: 1.2rem;
+      color: #0f172a;
+    }
+    .notice {
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+      padding: 14px 16px;
+      border-radius: 6px;
+      margin: 16px 0;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .meta {
+      color: #475569;
+      font-size: 0.95rem;
+    }
+  </style>
 </head>
-<body class="min-h-screen flex flex-col font-sans antialiased selection:bg-civicTeal-100 selection:text-civicTeal-900 overflow-x-hidden">
+<body>
+  <main>
+    <h1>Privacy Policy for EHCP Parent Compass</h1>
+    <p class="meta">
+      <strong>Last updated:</strong> [Insert Date, e.g., November 2026]<br />
+      <strong>App / Service Name:</strong> EHCP Parent Compass<br />
+      <strong>Provider / Publisher:</strong> [Insert Your Name, Trading Name, or Organisation Name]
+    </p>
 
-    <!-- Toast Notification Stack -->
-    <div id="toast-stack" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
-
-    <!-- =========================================================================
-         LOCK SCREEN OVERLAY (WHEN AES-GCM 256-BIT PASSCODE LOCK IS ENABLED)
-         ========================================================================= -->
-    <div id="vault-lock-screen" class="fixed inset-0 z-50 bg-civicTeal-900/95 backdrop-blur-md hidden items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full p-7 border border-slate-200 shadow-2xl space-y-5 text-center">
-            <div class="w-16 h-16 rounded-2xl overflow-hidden mx-auto border border-slate-200 shadow-sm bg-civicTeal-800 flex items-center justify-center">
-                <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20256%20256%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27bg%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%230F4C5C%27%2F%3E%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%2316653C%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%27256%27%20height%3D%27256%27%20rx%3D%2754%27%20fill%3D%27url(%23bg)%27%2F%3E%3Ccircle%20cx%3D%27128%27%20cy%3D%27112%27%20r%3D%2756%27%20fill%3D%27none%27%20stroke%3D%27%23FFFFFF%27%20stroke-width%3D%278%27%20stroke-opacity%3D%270.9%27%2F%3E%3Cpolygon%20points%3D%27128%2C62%20141%2C112%20128%2C125%20115%2C112%27%20fill%3D%27%23FDE68A%27%2F%3E%3Cpolygon%20points%3D%27128%2C162%20115%2C112%20128%2C99%20141%2C112%27%20fill%3D%27%23FFFFFF%27%2F%3E%3Ccircle%20cx%3D%27128%27%20cy%3D%27112%27%20r%3D%277%27%20fill%3D%27%230F4C5C%27%2F%3E%3Ccircle%20cx%3D%2796%27%20cy%3D%27186%27%20r%3D%2714%27%20fill%3D%27%23DCF2E5%27%2F%3E%3Cpath%20d%3D%27M74%20222c0-13%2010-22%2022-22s22%209%2022%2022%27%20fill%3D%27%23DCF2E5%27%2F%3E%3Ccircle%20cx%3D%27128%27%20cy%3D%27182%27%20r%3D%2716%27%20fill%3D%27%23FEF3C7%27%2F%3E%3Cpath%20d%3D%27M102%20222c0-15%2012-25%2026-25s26%2010%2026%2025%27%20fill%3D%27%23FEF3C7%27%2F%3E%3Ccircle%20cx%3D%27160%27%20cy%3D%27186%27%20r%3D%2714%27%20fill%3D%27%23D6EBEE%27%2F%3E%3Cpath%20d%3D%27M138%20222c0-13%2010-22%2022-22s22%209%2022%2022%27%20fill%3D%27%23D6EBEE%27%2F%3E%3C%2Fsvg%3E" alt="EHCP Parent Compass Icon" data-compass-icon="true" class="w-full h-full object-cover">
-            </div>
-            <div class="space-y-1.5">
-                <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[11px] font-bold bg-forest-50 text-forest-800 border border-forest-200">
-                    <i class="fa-solid fa-lock"></i> AES-GCM 256-Bit Encrypted Vault
-                </span>
-                <h2 class="font-display text-2xl font-extrabold text-slate-900">EHCP Parent Compass Locked</h2>
-                <p class="text-xs text-slate-600 leading-relaxed">
-                    Enter your local passcode to decrypt and unlock your child's records, photos, and notes on this device.
-                </p>
-            </div>
-            <form onsubmit="handleUnlockSubmit(event)" class="space-y-3 text-left">
-                <div>
-                    <label for="unlock-passcode-input" class="block text-xs font-bold text-slate-700 mb-1">Device Vault Passcode</label>
-                    <input type="password" id="unlock-passcode-input" required autocomplete="current-password" placeholder="Enter your passcode..." class="w-full bg-cream border border-slate-300 rounded-xl px-4 py-3 text-sm font-semibold focus:bg-white focus:ring-2 focus:ring-civicTeal-700 focus:outline-none">
-                </div>
-                <p id="unlock-error-msg" class="hidden text-xs font-bold text-statCrimson-700 bg-statCrimson-50 border border-statCrimson-200 rounded-xl px-3 py-2"></p>
-                <button type="submit" class="w-full bg-civicTeal-800 hover:bg-civicTeal-900 text-white font-bold py-3 rounded-xl text-sm shadow-sm transition-all">
-                    <i class="fa-solid fa-unlock-keyhole mr-1.5"></i>Unlock My Records
-                </button>
-            </form>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                <span>Forgot passcode?</span>
-                <button type="button" onclick="openResetModal()" class="font-bold text-statCrimson-700 hover:underline">Wipe Encrypted Vault</button>
-            </div>
-        </div>
+    <div class="notice">
+      <strong>Plain-English Summary:</strong> EHCP Parent Compass is designed so that notes, timelines, letters, and evidence photos you enter stay stored locally on your own device unless you choose to export, share, or send them yourself. This app provides information and organisational tools only—it is not regulated legal, medical, or educational advice.
     </div>
 
-    <!-- =========================================================================
-         PHOTO EVIDENCE LIGHTBOX MODAL
-         ========================================================================= -->
-    <div id="photo-lightbox-modal" onclick="closePhotoLightbox(event)" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-xs hidden items-center justify-center p-4">
-        <div onclick="event.stopPropagation()" class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden border border-slate-200 shadow-2xl">
-            <div class="bg-civicTeal-900 text-white px-5 py-3.5 flex items-center justify-between gap-3">
-                <div class="min-w-0">
-                    <h3 id="lightbox-title" class="font-display font-extrabold text-sm sm:text-base truncate">Evidence Photo</h3>
-                    <p id="lightbox-meta" class="text-[11px] text-civicTeal-100 truncate">Date &bull; Area &bull; Setting</p>
-                </div>
-                <button type="button" onclick="closePhotoLightbox()" class="w-8 h-8 rounded-lg bg-white/15 hover:bg-white/25 text-white flex items-center justify-center shrink-0" aria-label="Close photo preview">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="bg-slate-900 flex items-center justify-center max-h-[60vh] overflow-hidden">
-                <img id="lightbox-img" src="" alt="Full size evidence preview" class="max-h-[60vh] w-auto object-contain">
-            </div>
-            <div class="p-5 bg-cream space-y-2">
-                <div class="text-[11px] font-extrabold uppercase tracking-wider text-slate-500">Context &amp; Impact Notes</div>
-                <p id="lightbox-caption" class="text-xs sm:text-sm text-slate-800 leading-relaxed"></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- =========================================================================
-         STICKY TOP BAR
-         ========================================================================= -->
-    <header class="sticky top-0 z-30 bg-white border-b border-slate-200 shadow-2xs">
-        <div class="max-w-[1560px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2">
-            <!-- Brand -->
-            <div class="flex items-center gap-2.5 min-w-0">
-                <div class="w-10 h-10 rounded-xl overflow-hidden border border-slate-200 shadow-2xs shrink-0 bg-civicTeal-800 flex items-center justify-center">
-                    <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20256%20256%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27bg%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%230F4C5C%27%2F%3E%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%2316653C%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%27256%27%20height%3D%27256%27%20rx%3D%2754%27%20fill%3D%27url(%23bg)%27%2F%3E%3Ccircle%20cx%3D%27128%27%20cy%3D%27112%27%20r%3D%2756%27%20fill%3D%27none%27%20stroke%3D%27%23FFFFFF%27%20stroke-width%3D%278%27%20stroke-opacity%3D%270.9%27%2F%3E%3Cpolygon%20points%3D%27128%2C62%20141%2C112%20128%2C125%20115%2C112%27%20fill%3D%27%23FDE68A%27%2F%3E%3Cpolygon%20points%3D%27128%2C162%20115%2C112%20128%2C99%20141%2C112%27%20fill%3D%27%23FFFFFF%27%2F%3E%3Ccircle%20cx%3D%27128%27%20cy%3D%27112%27%20r%3D%277%27%20fill%3D%27%230F4C5C%27%2F%3E%3Ccircle%20cx%3D%2796%27%20cy%3D%27186%27%20r%3D%2714%27%20fill%3D%27%23DCF2E5%27%2F%3E%3Cpath%20d%3D%27M74%20222c0-13%2010-22%2022-22s22%209%2022%2022%27%20fill%3D%27%23DCF2E5%27%2F%3E%3Ccircle%20cx%3D%27128%27%20cy%3D%27182%27%20r%3D%2716%27%20fill%3D%27%23FEF3C7%27%2F%3E%3Cpath%20d%3D%27M102%20222c0-15%2012-25%2026-25s26%2010%2026%2025%27%20fill%3D%27%23FEF3C7%27%2F%3E%3Ccircle%20cx%3D%27160%27%20cy%3D%27186%27%20r%3D%2714%27%20fill%3D%27%23D6EBEE%27%2F%3E%3Cpath%20d%3D%27M138%20222c0-13%2010-22%2022-22s22%209%2022%2022%27%20fill%3D%27%23D6EBEE%27%2F%3E%3C%2Fsvg%3E" alt="EHCP Parent Compass App Icon" data-compass-icon="true" class="w-full h-full object-cover">
-                </div>
-                <div class="min-w-0">
-                    <div class="flex items-center gap-2">
-                        <h1 class="font-display font-extrabold text-base sm:text-lg text-slate-900 tracking-tight truncate">EHCP Parent Compass</h1>
-                        <span id="network-status-pill" class="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-forest-50 text-forest-800 border border-forest-200" title="Works offline with local storage">
-                            <span class="w-1.5 h-1.5 rounded-full bg-forest-600"></span><span id="network-status-text">Offline Ready</span>
-                        </span>
-                    </div>
-                    <p class="text-[11px] text-slate-500 hidden xl:block truncate">Cheshire East parent of 4 EHCP children &bull; PWA Store-Ready &bull; AES-256 local vault</p>
-                </div>
-            </div>
-
-            <!-- Right Controls -->
-            <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
-                <button type="button" onclick="switchWorkspace('timeline')" id="header-countdown-pill" class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-statAmber-50 text-statAmber-700 border border-statAmber-200 hover:bg-statAmber-100 transition-colors">
-                    <i class="fa-regular fa-clock"></i>
-                    <span id="header-countdown-text">Set Week 0 Start Date</span>
-                </button>
-
-                <button type="button" onclick="openPwaModal()" id="header-pwa-btn" class="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-civicTeal-50 hover:bg-civicTeal-100 text-civicTeal-900 border border-civicTeal-200 transition-colors" title="Install App or Export Store Files">
-                    <i class="fa-solid fa-mobile-screen-button text-civicTeal-700"></i>
-                    <span class="hidden sm:inline">Install / App Kit</span>
-                </button>
-
-                <button type="button" onclick="openSecurityModal()" id="header-security-btn" class="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-forest-50 hover:bg-forest-100 text-forest-800 border border-forest-200 transition-colors" title="AES-GCM 256-bit Encryption, Auto-Lock &amp; Wipe">
-                    <i id="header-security-icon" class="fa-solid fa-shield-halved"></i>
-                    <span id="header-security-label" class="hidden md:inline">Security Vault</span>
-                </button>
-
-                <button type="button" onclick="lockVaultNow()" id="header-lock-now-btn" class="hidden items-center gap-1.5 px-2.5 py-2 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-900 text-white transition-colors" title="Lock Vault Immediately">
-                    <i class="fa-solid fa-lock"></i>
-                </button>
-
-                <button type="button" onclick="loadDemoData()" class="hidden xl:inline-flex items-center gap-1.5 px-2.5 py-2 rounded-xl text-xs font-semibold bg-warmSurface hover:bg-slate-200 text-slate-700 border border-slate-200 transition-colors">
-                    <i class="fa-solid fa-wand-magic-sparkles text-civicTeal-700"></i>Demo
-                </button>
-
-                <button type="button" onclick="toggleEmergencyDrawer(true)" class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-civicTeal-800 hover:bg-civicTeal-900 text-white shadow-xs transition-all">
-                    <i class="fa-solid fa-life-ring text-statAmber-200"></i>
-                    <span>Crisis &amp; Help</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Horizontal Scrollable Navigation (9 Tabs) -->
-        <nav class="lg:hidden bg-warmSurface border-t border-slate-200 overflow-x-auto" aria-label="Mobile Tabs">
-            <div class="flex items-center gap-1.5 px-3 py-2 min-w-max">
-                <button type="button" onclick="switchWorkspace('story')" data-nav="story" class="mobile-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-civicTeal-800 text-white shadow-2xs">
-                    <i class="fa-solid fa-heart"></i><span>1. Story &amp; Legal</span>
-                </button>
-                <button type="button" onclick="switchWorkspace('timeline')" data-nav="timeline" class="mobile-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-white">
-                    <i class="fa-solid fa-timeline"></i><span>2. 20-Week Timeline</span>
-                </button>
-                <button type="button" onclick="switchWorkspace('school')" data-nav="school" class="mobile-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-white">
-                    <i class="fa-solid fa-school"></i><span>3. School &amp; SENCO</span>
-                </button>
-                <button type="button" onclick="switchWorkspace('directory')" data-nav="directory" class="mobile-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-white">
-                    <i class="fa-solid fa-address-book"></i><span>4. Councils &amp; Aid</span>
-                </button>
-                <button type="button" onclick="switchWorkspace('conditions')" data-nav="conditions" class="mobile-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-white">
-                    <i class="fa-solid fa-shield-heart"></i><span>5. Conditions &amp; Crisis</span>
-                </button>
-                <button type="button" onclick="switchWorkspace('evidence')" data-nav="evidence" class="mobile-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-white">
-                    <i class="fa-solid fa-camera"></i><span>6. Picture Evidence</span>
-                </button>
-                <button type="button" onclick="switchWorkspace('checklist')" data-nav="checklist" class="mobile-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-white">
-                    <i class="fa-solid fa-list-check"></i><span>7. Checklist &amp; Log</span>
-                </button>
-                <button type="button" onclick="switchWorkspace('letter')" data-nav="letter" class="mobile-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-white">
-                    <i class="fa-solid fa-file-signature"></i><span>8. Letter &amp; Sec F</span>
-                </button>
-                <button type="button" onclick="switchWorkspace('community')" data-nav="community" class="mobile-nav-btn flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-white">
-                    <i class="fa-solid fa-comments"></i><span>9. Community &amp; AI</span>
-                </button>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Offline Mode Notice Banner -->
-    <div id="offline-banner" class="hidden bg-statAmber-100 border-b border-statAmber-200 px-4 py-2 text-xs text-slate-900">
-        <div class="max-w-[1560px] mx-auto flex flex-wrap items-center justify-between gap-2">
-            <span class="font-semibold">
-                <i class="fa-solid fa-plane-slash text-statAmber-700 mr-1.5"></i>
-                <strong>Offline Mode Active:</strong> Your saved records, photos, 20-week calculator, SENCO templates, 122-council directory, and Top 20 Conditions guide continue working offline.
-            </span>
-            <span class="text-[11px] text-slate-600">External charity links &amp; online AI require a network connection.</span>
-        </div>
-    </div>
-
-    <!-- =========================================================================
-         MAIN LAYOUT: SIDEBAR (DESKTOP) + WORKSPACE CONTENT
-         ========================================================================= -->
-    <div class="flex-grow max-w-[1560px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col lg:flex-row gap-6">
-
-        <!-- Desktop Left Sidebar (9 Tabs) -->
-        <aside class="hidden lg:flex lg:w-72 shrink-0 flex-col justify-between">
-            <div class="sticky top-22 space-y-4">
-                <nav class="bg-white rounded-2xl p-3 border border-slate-200 shadow-2xs space-y-1" aria-label="Main Navigation">
-                    <div class="px-3 pt-1 pb-1 text-[10px] font-extrabold uppercase tracking-wider text-slate-400">Start Here &amp; Support</div>
-
-                    <button type="button" onclick="switchWorkspace('story')" data-nav="story" class="sidebar-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-bold bg-civicTeal-800 text-white shadow-2xs transition-all text-left">
-                        <span class="flex items-center gap-2.5"><i class="fa-solid fa-heart w-4 text-center"></i><span>1. My Story &amp; Legal Info</span></span>
-                    </button>
-
-                    <button type="button" onclick="switchWorkspace('timeline')" data-nav="timeline" class="sidebar-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-warmSurface transition-all text-left">
-                        <span class="flex items-center gap-2.5"><i class="fa-solid fa-timeline w-4 text-center text-civicTeal-700"></i><span>2. 20-Week Timeline</span></span>
-                        <span id="sidebar-stage-badge" class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-warmSurface text-slate-600">0/7</span>
-                    </button>
-
-                    <button type="button" onclick="switchWorkspace('school')" data-nav="school" class="sidebar-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-warmSurface transition-all text-left">
-                        <span class="flex items-center gap-2.5"><i class="fa-solid fa-school w-4 text-center text-civicTeal-700"></i><span>3. School &amp; SENCO</span></span>
-                    </button>
-
-                    <button type="button" onclick="switchWorkspace('directory')" data-nav="directory" class="sidebar-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-warmSurface transition-all text-left">
-                        <span class="flex items-center gap-2.5"><i class="fa-solid fa-address-book w-4 text-center text-civicTeal-700"></i><span>4. Councils, Charities &amp; Aid</span></span>
-                    </button>
-
-                    <button type="button" onclick="switchWorkspace('conditions')" data-nav="conditions" class="sidebar-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-warmSurface transition-all text-left">
-                        <span class="flex items-center gap-2.5"><i class="fa-solid fa-shield-heart w-4 text-center text-statCrimson-700"></i><span>5. Conditions &amp; Crisis/Law</span></span>
-                        <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-forest-50 text-forest-700 border border-forest-200">20</span>
-                    </button>
-
-                    <div class="px-3 pt-2 pb-1 text-[10px] font-extrabold uppercase tracking-wider text-slate-400 border-t border-slate-100 mt-2">Evidence, Letters &amp; Community</div>
-
-                    <button type="button" onclick="switchWorkspace('evidence')" data-nav="evidence" class="sidebar-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-warmSurface transition-all text-left">
-                        <span class="flex items-center gap-2.5"><i class="fa-solid fa-camera w-4 text-center text-civicTeal-700"></i><span>6. Picture Evidence Vault</span></span>
-                        <span id="sidebar-photo-badge" class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-warmSurface text-slate-600">0</span>
-                    </button>
-
-                    <button type="button" onclick="switchWorkspace('checklist')" data-nav="checklist" class="sidebar-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-warmSurface transition-all text-left">
-                        <span class="flex items-center gap-2.5"><i class="fa-solid fa-list-check w-4 text-center text-civicTeal-700"></i><span>7. Checklist &amp; Impact Log</span></span>
-                        <span id="sidebar-ev-badge" class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-warmSurface text-slate-600">0/12</span>
-                    </button>
-
-                    <button type="button" onclick="switchWorkspace('letter')" data-nav="letter" class="sidebar-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:bg-warmSurface transition-all text-left">
-                        <span class="flex items-center gap-2.5"><i class="fa-solid fa-file-signature w-4 text-center text-civicTeal-700"></i><span>8. Letter &amp; Sec F Scanner</span></span>
-                    </button>
-
-                    <button type="button" onclick="switchWorkspace('community')" data-nav="community" class="sidebar-nav-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold text-civicTeal-800 bg-civicTeal-50/70 hover:bg-civicTeal-100/70 border border-civicTeal-200/70 transition-all text-left">
-                        <span class="flex items-center gap-2.5"><i class="fa-solid fa-comments w-4 text-center text-statAmber-600"></i><span>9. Community &amp; Advisor</span></span>
-                    </button>
-                </nav>
-
-                <!-- Active Case & Vault Status Card -->
-                <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-2xs space-y-3">
-                    <div class="flex items-center justify-between">
-                        <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400">Active Case Profile</span>
-                        <button type="button" onclick="switchWorkspace('school')" class="text-xs font-bold text-civicTeal-700 hover:underline">Edit</button>
-                    </div>
-                    <div class="space-y-1.5 text-xs">
-                        <div class="flex justify-between gap-2"><span class="text-slate-500">Child:</span><span id="sidebar-child-name" class="font-bold text-slate-900 truncate">Not set yet</span></div>
-                        <div class="flex justify-between gap-2"><span class="text-slate-500">School:</span><span id="sidebar-school-name" class="font-semibold text-slate-800 truncate">—</span></div>
-                        <div class="flex justify-between gap-2"><span class="text-slate-500">Council:</span><span id="sidebar-la-name" class="font-semibold text-slate-800 truncate">—</span></div>
-                    </div>
-                    <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
-                        <button type="button" onclick="openSecurityModal()" class="font-bold text-forest-700 hover:underline flex items-center gap-1">
-                            <i class="fa-solid fa-shield-halved"></i> <span id="sidebar-vault-status">Local Vault</span>
-                        </button>
-                        <button type="button" onclick="openResetModal()" class="font-bold text-statCrimson-700 hover:underline">
-                            1-Tap Wipe
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Main Workspace Container -->
-        <main class="flex-grow min-w-0 space-y-5">
-
-            <!-- Persistent Urgent Crisis & PWA Strip -->
-            <div class="bg-white rounded-2xl px-4 py-3 border border-slate-200 shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-2 text-xs">
-                <div class="flex items-center gap-2 text-slate-700 flex-wrap">
-                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg font-bold bg-statCrimson-50 text-statCrimson-800 border border-statCrimson-200 shrink-0">
-                        <i class="fa-solid fa-heart-pulse"></i> Urgent Help
-                    </span>
-                    <span>
-                        24/7 Free UK Crisis Lines: <a href="tel:111" class="font-bold text-civicTeal-800 underline">NHS 111 (option 2)</a> &bull;
-                        <a href="tel:116123" class="font-bold text-civicTeal-800 underline">Samaritans 116 123</a> &bull;
-                        <span class="font-bold text-civicTeal-800">Shout text 85258</span> &bull;
-                        <a href="tel:08001111" class="font-bold text-civicTeal-800 underline">Childline 0800 1111</a>
-                    </span>
-                </div>
-                <div class="flex items-center gap-3 shrink-0">
-                    <button type="button" onclick="openPwaModal()" class="font-bold text-civicTeal-800 hover:underline">
-                        <i class="fa-solid fa-download mr-1"></i>Install / Store Files
-                    </button>
-                    <span class="text-slate-300">|</span>
-                    <button type="button" onclick="openSecurityModal()" class="font-semibold text-forest-800 hover:underline">
-                        <i class="fa-solid fa-lock mr-1"></i>AES-256 Vault
-                    </button>
-                </div>
-            </div>
-
-            <!-- =================================================================
-                 TAB 1: MY STORY & LEGAL INFO
-                 ================================================================= -->
-            <section id="workspace-story" class="workspace-section view-panel space-y-6">
-                <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-xs">
-                    <div class="grid grid-cols-1 lg:grid-cols-12">
-                        <!-- Left Warm Visual & Cheshire East Roots Panel -->
-                        <div class="lg:col-span-5 bg-gradient-to-br from-civicTeal-900 via-civicTeal-800 to-forest-800 text-white p-6 sm:p-8 flex flex-col justify-between">
-                            <div class="space-y-3">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-12 h-12 rounded-2xl overflow-hidden border border-white/25 shadow-md shrink-0 bg-civicTeal-900 flex items-center justify-center">
-                                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20256%20256%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27bg%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%230F4C5C%27%2F%3E%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%2316653C%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%27256%27%20height%3D%27256%27%20rx%3D%2754%27%20fill%3D%27url(%23bg)%27%2F%3E%3Ccircle%20cx%3D%27128%27%20cy%3D%27112%27%20r%3D%2756%27%20fill%3D%27none%27%20stroke%3D%27%23FFFFFF%27%20stroke-width%3D%278%27%20stroke-opacity%3D%270.9%27%2F%3E%3Cpolygon%20points%3D%27128%2C62%20141%2C112%20128%2C125%20115%2C112%27%20fill%3D%27%23FDE68A%27%2F%3E%3Cpolygon%20points%3D%27128%2C162%20115%2C112%20128%2C99%20141%2C112%27%20fill%3D%27%23FFFFFF%27%2F%3E%3Ccircle%20cx%3D%27128%27%20cy%3D%27112%27%20r%3D%277%27%20fill%3D%27%230F4C5C%27%2F%3E%3Ccircle%20cx%3D%2796%27%20cy%3D%27186%27%20r%3D%2714%27%20fill%3D%27%23DCF2E5%27%2F%3E%3Cpath%20d%3D%27M74%20222c0-13%2010-22%2022-22s22%209%2022%2022%27%20fill%3D%27%23DCF2E5%27%2F%3E%3Ccircle%20cx%3D%27128%27%20cy%3D%27182%27%20r%3D%2716%27%20fill%3D%27%23FEF3C7%27%2F%3E%3Cpath%20d%3D%27M102%20222c0-15%2012-25%2026-25s26%2010%2026%2025%27%20fill%3D%27%23FEF3C7%27%2F%3E%3Ccircle%20cx%3D%27160%27%20cy%3D%27186%27%20r%3D%2714%27%20fill%3D%27%23D6EBEE%27%2F%3E%3Cpath%20d%3D%27M138%20222c0-13%2010-22%2022-22s22%209%2022%2022%27%20fill%3D%27%23D6EBEE%27%2F%3E%3C%2Fsvg%3E" alt="EHCP Parent Compass Emblem" data-compass-icon="true" class="w-full h-full object-cover">
-                                    </div>
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-white/15 text-white border border-white/20">
-                                        <i class="fa-solid fa-user-secret"></i> From One Parent to Another &bull; Anonymous
-                                    </span>
-                                </div>
-                                <h2 class="font-display text-2xl sm:text-3xl font-extrabold leading-tight">
-                                    I Understand — Because I Have Walked This Road Four Times
-                                </h2>
-                                <p class="text-sm text-civicTeal-100 leading-relaxed">
-                                    Built by a Cheshire East parent of four children with EHCPs, for every parent sitting at the kitchen table wondering how to keep going.
-                                </p>
-                            </div>
-
-                            <!-- Custom SVG Illustration -->
-                            <div class="my-6 bg-white/10 rounded-2xl p-4 border border-white/15">
-                                <svg viewBox="0 0 360 124" class="w-full h-auto" role="img" aria-label="Four guiding stars representing four children in Cheshire East supported by a parent compass">
-                                    <rect x="0" y="0" width="360" height="124" rx="14" fill="rgba(255,255,255,0.05)" />
-                                    <path d="M 35 84 Q 180 54 325 84" stroke="rgba(253,230,138,0.55)" stroke-width="2.5" fill="none" stroke-dasharray="5 5" />
-                                    <circle cx="66" cy="48" r="19" fill="#DCF2E5" />
-                                    <text x="66" y="53" text-anchor="middle" font-size="13" font-weight="800" fill="#114F2F">1</text>
-                                    <text x="66" y="104" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">EHCP 1</text>
-
-                                    <circle cx="142" cy="42" r="19" fill="#FEF3C7" />
-                                    <text x="142" y="47" text-anchor="middle" font-size="13" font-weight="800" fill="#92400E">2</text>
-                                    <text x="142" y="104" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">EHCP 2</text>
-
-                                    <circle cx="218" cy="42" r="19" fill="#D6EBEE" />
-                                    <text x="218" y="47" text-anchor="middle" font-size="13" font-weight="800" fill="#0F4C5C">3</text>
-                                    <text x="218" y="104" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">EHCP 3</text>
-
-                                    <circle cx="294" cy="48" r="19" fill="#FEE2E2" />
-                                    <text x="294" y="53" text-anchor="middle" font-size="13" font-weight="800" fill="#991B1B">4</text>
-                                    <text x="294" y="104" text-anchor="middle" font-size="10" font-weight="700" fill="#FFFFFF">EHCP 4</text>
-                                </svg>
-                            </div>
-
-                            <div class="text-xs text-civicTeal-100 flex items-center justify-between border-t border-white/15 pt-3">
-                                <span><i class="fa-solid fa-location-dot mr-1 text-statAmber-200"></i>Cheshire East, England</span>
-                                <span>Developer stays strictly anonymous</span>
-                            </div>
-                        </div>
-
-                        <!-- Right Warm Peer-to-Peer Story -->
-                        <div class="lg:col-span-7 p-6 sm:p-8 space-y-4 font-serif text-slate-800 leading-relaxed text-sm sm:text-base">
-                            <div class="font-sans inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-forest-50 text-forest-800 border border-forest-200">
-                                <i class="fa-solid fa-quote-left"></i> My Story — Why I Built This For You
-                            </div>
-
-                            <p>
-                                If you are reading this while exhausted, overwhelmed, or wondering whether anyone is truly listening to you—please take a breath and know you are not alone. I have <strong>four children living in the Cheshire East area and schooled/schooling in the area, all four of whom have EHCPs</strong>, and I understand firsthand the enormous stress this situation and process can weigh on both parents and children. That is why I created this app—to help families in every way possible.
-                            </p>
-
-                            <p>
-                                I truly understand how daunting this whole situation feels when you are trying to hold family life together while learning a system full of jargon, deadlines, and paperwork. Unfortunately, along this journey, you will more than likely come across some very unhelpful, dismissive, and insensitive "professionals." You may be made to feel like <em>"it's all your fault,"</em> told <em>"it's not that bad,"</em> or handed lines like <em>"funding is tight"</em>—basically any excuse not to put the right support in place.
-                            </p>
-
-                            <div class="bg-statAmber-50 border-l-4 border-statAmber-600 rounded-r-2xl p-4 font-sans text-xs sm:text-sm text-slate-900 space-y-1.5">
-                                <div class="font-extrabold text-statAmber-700 uppercase tracking-wider text-xs">
-                                    <i class="fa-solid fa-shield-halved mr-1"></i> Hold Onto This Truth
-                                </div>
-                                <p class="font-semibold leading-relaxed">
-                                    NEVER allow ANYONE within the education sector who is not a medical expert or specialist to downplay your concerns pertaining to your child, their health, mental health, or education—and what they are entitled to under UK law.
-                                </p>
-                            </div>
-
-                            <p>
-                                You know your child when the school gates close. You see the exhaustion, the anxiety, the masking, and the tears that nobody else in a meeting room witnesses. Keep everything in writing, save your photos and daily logs, lean on the free charities and helplines inside this app, and take things one step at a time. You are doing an extraordinary job for your child.
-                            </p>
-
-                            <div class="font-sans pt-2 flex flex-wrap gap-2.5">
-                                <button type="button" onclick="switchWorkspace('timeline')" class="px-4 py-2 rounded-xl text-xs font-bold bg-civicTeal-800 hover:bg-civicTeal-900 text-white shadow-2xs">
-                                    Start 20-Week Roadmap &rarr;
-                                </button>
-                                <button type="button" onclick="switchWorkspace('evidence')" class="px-4 py-2 rounded-xl text-xs font-bold bg-forest-50 hover:bg-forest-100 text-forest-800 border border-forest-200">
-                                    Open Picture Evidence Vault
-                                </button>
-                                <button type="button" onclick="openPwaModal()" class="px-4 py-2 rounded-xl text-xs font-bold bg-civicTeal-50 hover:bg-civicTeal-100 text-civicTeal-900 border border-civicTeal-200">
-                                    <i class="fa-solid fa-mobile-screen-button mr-1"></i>Install / Store Packaging Kit
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Legal Boundaries, Non-Reliance & UK GDPR / ICO Transparency -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-2xs space-y-3.5">
-                        <div class="flex items-center gap-2.5">
-                            <div class="w-9 h-9 rounded-xl bg-statAmber-50 text-statAmber-700 flex items-center justify-center border border-statAmber-200">
-                                <i class="fa-solid fa-scale-balanced"></i>
-                            </div>
-                            <div>
-                                <span class="text-[10px] font-extrabold uppercase tracking-wider text-statAmber-700">Legal Boundaries &amp; Non-Reliance</span>
-                                <h3 class="font-display text-lg font-extrabold text-slate-900">Information &amp; Organisational Tool Only</h3>
-                            </div>
-                        </div>
-                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-700 leading-relaxed">
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-circle-info text-civicTeal-700 mt-1 shrink-0"></i>
-                                <span><strong>Not Regulated Legal or Medical Advice:</strong> This app provides general educational information, templates, directories, and organisation tools. It is not a solicitor, regulated legal adviser, or medical service, and cannot guarantee outcomes. Always verify statutory deadlines and wording before sending official correspondence.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-circle-info text-civicTeal-700 mt-1 shrink-0"></i>
-                                <span><strong>England Statutory Framework:</strong> EHCP and SENCO sections reflect the framework in <strong>England</strong> (<em>Children and Families Act 2014</em> and <em>SEND Code of Practice 2015</em>). Families in Wales, Scotland, or Northern Ireland should check their devolved education systems.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-circle-info text-civicTeal-700 mt-1 shrink-0"></i>
-                                <span><strong>Independent Specialist Support:</strong> For free, independent casework or legal advice, contact your local <strong>SENDIASS</strong> (e.g., Cheshire East CEIAS on <strong>0300 123 5166</strong>), <strong>IPSEA</strong> (<strong>0300 222 5899</strong>), or <strong>SOS!SEN</strong>.</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-2xs space-y-3.5">
-                        <div class="flex items-center gap-2.5">
-                            <div class="w-9 h-9 rounded-xl bg-forest-50 text-forest-800 flex items-center justify-center border border-forest-200">
-                                <i class="fa-solid fa-shield-halved"></i>
-                            </div>
-                            <div>
-                                <span class="text-[10px] font-extrabold uppercase tracking-wider text-forest-700">UK GDPR, ICO &amp; Device Security</span>
-                                <h3 class="font-display text-lg font-extrabold text-slate-900">Device-Only Storage &amp; AES-256 Vault</h3>
-                            </div>
-                        </div>
-                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-700 leading-relaxed">
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-hard-drive text-forest-700 mt-1 shrink-0"></i>
-                                <span><strong>No Central Developer Server:</strong> Your child's details, photos, logs, and letters are stored locally in your own browser on your phone or computer—not uploaded to a central database operated by the anonymous developer.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-lock text-forest-700 mt-1 shrink-0"></i>
-                                <span><strong>Optional Web Crypto AES-GCM 256-Bit Lock:</strong> Open <strong>Security Vault</strong> in the top bar to set a passcode that encrypts your stored records on-device using PBKDF2 + AES-GCM 256-bit encryption, with automatic inactivity lock and 1-tap wipe.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-user-shield text-statAmber-600 mt-1 shrink-0"></i>
-                                <span><strong>Consent &amp; ICO Guidance:</strong> Never upload photos of other children or staff without consent, keep your device screen lock enabled, review <strong>ICO</strong> UK GDPR guidance for special category/children's data if distributing publicly, and host the included <code>privacy-policy.html</code> for app store listings.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- =================================================================
-                 TAB 2: 20-WEEK TIMELINE
-                 ================================================================= -->
-            <section id="workspace-timeline" class="workspace-section hidden view-panel space-y-6">
-                <div class="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-2xs">
-                    <div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-center">
-                        <div class="xl:col-span-7 space-y-3">
-                            <div class="flex flex-wrap items-center gap-2">
-                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-civicTeal-50 text-civicTeal-800 border border-civicTeal-200">
-                                    <i class="fa-solid fa-scale-balanced"></i> Children and Families Act 2014 (England)
-                                </span>
-                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-forest-50 text-forest-800 border border-forest-200">
-                                    SEND Regulations 2014
-                                </span>
-                            </div>
-                            <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900">Your 20-Week Statutory EHCP Roadmap</h2>
-                            <p class="text-sm text-slate-600 leading-relaxed">
-                                Once an English Local Authority receives an EHC Needs Assessment request, strict statutory deadlines apply (subject to narrow statutory exceptions in the SEND Regulations 2014). Enter your submission date below to calculate every milestone.
-                            </p>
-                        </div>
-
-                        <!-- Statutory Calculator -->
-                        <div class="xl:col-span-5 bg-civicTeal-50/70 rounded-2xl p-5 border border-civicTeal-200 space-y-4">
-                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                                <label for="submission-date" class="text-xs font-bold uppercase tracking-wider text-civicTeal-900">
-                                    <i class="fa-regular fa-calendar-check mr-1 text-civicTeal-700"></i>Request Sent (Week 0)
-                                </label>
-                                <input type="date" id="submission-date" onchange="handleSubmissionDateChange()" class="bg-white border border-civicTeal-200 rounded-xl px-3 py-2 text-sm font-semibold text-slate-900 focus:ring-2 focus:ring-civicTeal-700 focus:outline-none">
-                            </div>
-
-                            <div class="grid grid-cols-3 gap-2.5 pt-2 border-t border-civicTeal-200/70">
-                                <div class="bg-white p-3 rounded-xl border border-slate-200 text-center">
-                                    <div class="text-[10px] font-extrabold uppercase tracking-wider text-statAmber-700">Week 6</div>
-                                    <div id="date-week6" class="text-xs sm:text-sm font-bold text-slate-900 mt-1">—</div>
-                                    <div class="text-[10px] text-slate-500 mt-0.5">Assess Decision</div>
-                                </div>
-                                <div class="bg-white p-3 rounded-xl border border-slate-200 text-center">
-                                    <div class="text-[10px] font-extrabold uppercase tracking-wider text-civicTeal-700">Week 16</div>
-                                    <div id="date-week16" class="text-xs sm:text-sm font-bold text-slate-900 mt-1">—</div>
-                                    <div class="text-[10px] text-slate-500 mt-0.5">Refusal Notice</div>
-                                </div>
-                                <div class="bg-white p-3 rounded-xl border border-slate-200 text-center">
-                                    <div class="text-[10px] font-extrabold uppercase tracking-wider text-forest-700">Week 20</div>
-                                    <div id="date-week20" class="text-xs sm:text-sm font-bold text-slate-900 mt-1">—</div>
-                                    <div class="text-[10px] text-slate-500 mt-0.5">Final EHCP</div>
-                                </div>
-                            </div>
-
-                            <div id="active-week-callout" class="text-xs text-civicTeal-900 bg-white/85 rounded-xl px-3.5 py-2.5 border border-civicTeal-200/80 flex items-center gap-2">
-                                <i class="fa-solid fa-circle-info text-civicTeal-700"></i>
-                                <span>Set Week 0 above to activate your countdown &amp; 15-day draft review reminder.</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 pt-5 border-t border-slate-200">
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Journey Stage Progress</span>
-                            <span id="timeline-progress-text" class="text-xs sm:text-sm font-bold text-forest-700">0 of 7 Stages Completed</span>
-                        </div>
-                        <div class="w-full bg-warmSurface rounded-full h-2.5 overflow-hidden border border-slate-200/60">
-                            <div id="timeline-progress-bar" class="bg-forest-700 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="timeline-stages-container" class="space-y-4"></div>
-            </section>
-
-            <!-- =================================================================
-                 TAB 3: SCHOOL & SENCO
-                 ================================================================= -->
-            <section id="workspace-school" class="workspace-section hidden view-panel space-y-6">
-                <div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
-                    <div class="xl:col-span-7 space-y-6">
-                        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-2xs space-y-5">
-                            <div class="space-y-2">
-                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-forest-50 text-forest-800 border border-forest-200">
-                                    <i class="fa-solid fa-graduation-cap"></i> SEND Code of Practice (2015) — Chapter 6
-                                </span>
-                                <h2 class="font-display text-2xl font-extrabold text-slate-900">How the EHCP Process Works Inside UK Schools</h2>
-                                <p class="text-sm text-slate-600 leading-relaxed">
-                                    Mainstream schools use a 4-stage cycle called <strong>SEN Support (The Graduated Approach)</strong>. Recording each cycle builds clear evidence of whether school adjustments are meeting your child's needs.
-                                </p>
-                            </div>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                                <div class="bg-cream p-4 rounded-xl border border-slate-200">
-                                    <div class="flex items-center gap-2 mb-1">
-                                        <span class="w-6 h-6 rounded-full bg-civicTeal-800 text-white text-xs font-bold flex items-center justify-center">1</span>
-                                        <h3 class="font-display font-bold text-sm text-slate-900">ASSESS</h3>
-                                    </div>
-                                    <p class="text-xs text-slate-600 leading-relaxed">Class teacher and SENCO analyse needs using observations, assessments, and parent/child views.</p>
-                                </div>
-                                <div class="bg-cream p-4 rounded-xl border border-slate-200">
-                                    <div class="flex items-center gap-2 mb-1">
-                                        <span class="w-6 h-6 rounded-full bg-civicTeal-800 text-white text-xs font-bold flex items-center justify-center">2</span>
-                                        <h3 class="font-display font-bold text-sm text-slate-900">PLAN</h3>
-                                    </div>
-                                    <p class="text-xs text-slate-600 leading-relaxed">Agree adjustments, interventions, and review dates in a SEN Support plan, Pupil Passport, or Provision Map.</p>
-                                </div>
-                                <div class="bg-cream p-4 rounded-xl border border-slate-200">
-                                    <div class="flex items-center gap-2 mb-1">
-                                        <span class="w-6 h-6 rounded-full bg-civicTeal-800 text-white text-xs font-bold flex items-center justify-center">3</span>
-                                        <h3 class="font-display font-bold text-sm text-slate-900">DO</h3>
-                                    </div>
-                                    <p class="text-xs text-slate-600 leading-relaxed">Class/subject teachers carry day-to-day responsibility for teaching and adaptations, supported by TAs or specialists.</p>
-                                </div>
-                                <div class="bg-cream p-4 rounded-xl border border-slate-200">
-                                    <div class="flex items-center gap-2 mb-1">
-                                        <span class="w-6 h-6 rounded-full bg-civicTeal-800 text-white text-xs font-bold flex items-center justify-center">4</span>
-                                        <h3 class="font-display font-bold text-sm text-slate-900">REVIEW</h3>
-                                    </div>
-                                    <p class="text-xs text-slate-600 leading-relaxed">Review impact and progress with parents (typically termly) and adjust support or request an EHC Needs Assessment.</p>
-                                </div>
-                            </div>
-
-                            <div class="bg-statAmber-50 border border-statAmber-200 rounded-xl p-4 text-xs text-slate-900 space-y-1">
-                                <div class="font-bold text-statAmber-700 text-sm"><i class="fa-solid fa-triangle-exclamation mr-1"></i>You Do Not Need School Permission or a Diagnosis to Apply</div>
-                                <p class="leading-relaxed text-slate-700">
-                                    Under <strong>Section 36(1) of the Children and Families Act 2014</strong>, a parent has an independent legal right to request an EHC Needs Assessment directly from their Local Authority at any time. Schools must publish their SENCO contact details and <strong>SEN Information Report</strong> on their website.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- My School & LA Contact Card -->
-                    <div class="xl:col-span-5">
-                        <div class="bg-white rounded-2xl p-6 border border-civicTeal-200 shadow-2xs space-y-4">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-forest-700">Auto-Fill Profile</span>
-                                    <h3 class="font-display text-xl font-extrabold text-slate-900">My School &amp; LA Contact Card</h3>
-                                </div>
-                                <div class="w-10 h-10 rounded-xl bg-civicTeal-50 text-civicTeal-800 flex items-center justify-center border border-civicTeal-200">
-                                    <i class="fa-solid fa-id-card"></i>
-                                </div>
-                            </div>
-                            <p class="text-xs text-slate-600">Stored locally (and encrypted if passcode lock is active). Auto-fills your SENCO emails and EHC Request Letter.</p>
-
-                            <div class="space-y-3">
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <div>
-                                        <label for="cc-child-name" class="block text-xs font-semibold text-slate-700 mb-1">Child's Full Name</label>
-                                        <input type="text" id="cc-child-name" oninput="syncContactCard()" placeholder="e.g., Leo Jenkins" class="w-full bg-cream border border-slate-200 rounded-xl px-3 py-2 text-sm focus:bg-white focus:ring-2 focus:ring-civicTeal-700 focus:outline-none">
-                                    </div>
-                                    <div>
-                                        <label for="cc-child-dob" class="block text-xs font-semibold text-slate-700 mb-1">Child's Date of Birth</label>
-                                        <input type="date" id="cc-child-dob" onchange="syncContactCard()" class="w-full bg-cream border border-slate-200 rounded-xl px-3 py-2 text-sm focus:bg-white focus:ring-2 focus:ring-civicTeal-700 focus:outline-none">
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <div>
-                                        <label for="cc-school-name" class="block text-xs font-semibold text-slate-700 mb-1">School / Setting Name</label>
-                                        <input type="text" id="cc-school-name" oninput="syncContactCard()" placeholder="e.g., Oakwood Primary" class="w-full bg-cream border border-slate-200 rounded-xl px-3 py-2 text-sm focus:bg-white focus:ring-2 focus:ring-civicTeal-700 focus:outline-none">
-                                    </div>
-                                    <div>
-                                        <label for="cc-senco-name" class="block text-xs font-semibold text-slate-700 mb-1">SENCO Name</label>
-                                        <input type="text" id="cc-senco-name" oninput="syncContactCard()" placeholder="e.g., Mrs Claire Bennett" class="w-full bg-cream border border-slate-200 rounded-xl px-3 py-2 text-sm focus:bg-white focus:ring-2 focus:ring-civicTeal-700 focus:outline-none">
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <div>
-                                        <label for="cc-senco-email" class="block text-xs font-semibold text-slate-700 mb-1">SENCO / School Email</label>
-                                        <input type="email" id="cc-senco-email" oninput="syncContactCard()" placeholder="senco@school.sch.uk" class="w-full bg-cream border border-slate-200 rounded-xl px-3 py-2 text-sm focus:bg-white focus:ring-2 focus:ring-civicTeal-700 focus:outline-none">
-                                    </div>
-                                    <div>
-                                        <label for="cc-senco-phone" class="block text-xs font-semibold text-slate-700 mb-1">SENCO / School Phone</label>
-                                        <input type="tel" id="cc-senco-phone" oninput="syncContactCard()" placeholder="e.g., 01270 000 000" class="w-full bg-cream border border-slate-200 rounded-xl px-3 py-2 text-sm focus:bg-white focus:ring-2 focus:ring-civicTeal-700 focus:outline-none">
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <div>
-                                        <label for="cc-la-name" class="block text-xs font-semibold text-slate-700 mb-1">Local Authority Name</label>
-                                        <input type="text" id="cc-la-name" oninput="syncContactCard()" placeholder="e.g., Cheshire East Council" class="w-full bg-cream border border-slate-200 rounded-xl px-3 py-2 text-sm focus:bg-white focus:ring-2 focus:ring-civicTeal-700 focus:outline-none">
-                                    </div>
-                                    <div>
-                                        <label for="cc-la-email" class="block text-xs font-semibold text-slate-700 mb-1">LA SEND Team Email</label>
-                                        <input type="email" id="cc-la-email" oninput="syncContactCard()" placeholder="senteameast@cheshireeast.gov.uk" class="w-full bg-cream border border-slate-200 rounded-xl px-3 py-2 text-sm focus:bg-white focus:ring-2 focus:ring-civicTeal-700 focus:outline-none">
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <div>
-                                        <label for="cc-la-phone" class="block text-xs font-semibold text-slate-700 mb-1">LA SEND Team Phone</label>
-                                        <input type="tel" id="cc-la-phone" oninput="syncContactCard()" placeholder="e.g., 01625 378042" class="w-full bg-cream border border-slate-200 rounded-xl px-3 py-2 text-sm focus:bg-white focus:ring-2 focus:ring-civicTeal-700 focus:outline-none">
-                                    </div>
-                                    <div>
-                                        <label for="cc-sendiass-phone" class="block text-xs font-semibold text-slate-700 mb-1">Local SENDIASS Phone</label>
-                                        <input type="tel" id="cc-sendiass-phone" oninput="syncContactCard()" placeholder="e.g., 0300 123 5166" class="w-full bg-cream border border-slate-200 rounded-xl px-3 py-2 text-sm focus:bg-white focus:ring-2 focus:ring-civicTeal-700 focus:outline-none">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
-                                <button type="button" onclick="switchWorkspace('directory')" class="text-xs font-bold text-civicTeal-700 hover:underline">
-                                    <i class="fa-solid fa-magnifying-glass mr-1"></i>Browse 122 Councils
-                                </button>
-                                <button type="button" onclick="showToast('Contact Card saved locally.')" class="bg-civicTeal-800 hover:bg-civicTeal-900 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-2xs">
-                                    <i class="fa-solid fa-check mr-1"></i>Save Profile
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4 Copy-Ready SENCO Email Templates -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-2xs space-y-5">
-                    <div>
-                        <h3 class="font-display text-xl sm:text-2xl font-extrabold text-slate-900">4 Copy-Ready SENCO Email Templates</h3>
-                        <p class="text-sm text-slate-600 mt-1">Keep a dated written paper trail with school. Select a template below to auto-fill from your Contact Card.</p>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <button type="button" onclick="selectSencoTemplate(0)" id="senco-tpl-btn-0" class="senco-tpl-btn px-3.5 py-2 rounded-xl text-xs font-bold bg-civicTeal-800 text-white shadow-2xs">1. Request SEN Support Meeting</button>
-                        <button type="button" onclick="selectSencoTemplate(1)" id="senco-tpl-btn-1" class="senco-tpl-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-warmSurface text-slate-700 hover:bg-slate-200">2. Request SEN Records &amp; Provision Map</button>
-                        <button type="button" onclick="selectSencoTemplate(2)" id="senco-tpl-btn-2" class="senco-tpl-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-warmSurface text-slate-700 hover:bg-slate-200">3. Ask About EHC Needs Assessment</button>
-                        <button type="button" onclick="selectSencoTemplate(3)" id="senco-tpl-btn-3" class="senco-tpl-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-warmSurface text-slate-700 hover:bg-slate-200">4. Post-Meeting Written Summary</button>
-                    </div>
-
-                    <div class="bg-cream border border-slate-200 rounded-2xl p-5 space-y-3">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200">
-                            <div class="text-xs space-y-1">
-                                <div><span class="font-bold text-slate-500">To:</span> <span id="senco-email-to" class="font-semibold text-slate-900">[SENCO Email]</span></div>
-                                <div><span class="font-bold text-slate-500">Subject:</span> <span id="senco-email-subject" class="font-semibold text-slate-900">[Subject]</span></div>
-                            </div>
-                            <div class="flex items-center gap-2 shrink-0">
-                                <button type="button" onclick="copySencoEmail()" class="bg-forest-700 hover:bg-forest-800 text-white px-3.5 py-2 rounded-xl text-xs font-bold shadow-2xs flex items-center gap-1.5">
-                                    <i class="fa-regular fa-copy"></i> Copy Email
-                                </button>
-                                <a id="senco-mailto-link" href="#" class="bg-civicTeal-800 hover:bg-civicTeal-900 text-white px-3.5 py-2 rounded-xl text-xs font-bold shadow-2xs flex items-center gap-1.5">
-                                    <i class="fa-regular fa-envelope"></i> Open Mail App
-                                </a>
-                            </div>
-                        </div>
-                        <pre id="senco-email-body" class="font-sans text-sm text-slate-800 whitespace-pre-wrap leading-relaxed"></pre>
-                    </div>
-                </div>
-            </section>
-
-            <!-- =================================================================
-                 TAB 4: COUNCILS, CHARITIES, SEN ACTIVITIES & FAMILY AID
-                 ================================================================= -->
-            <section id="workspace-directory" class="workspace-section hidden view-panel space-y-6">
-                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-2xs space-y-5">
-                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                        <div>
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-forest-50 text-forest-800 border border-forest-200 mb-2">
-                                <i class="fa-solid fa-hand-holding-heart"></i> Free Children's SEN Activities, Grants, Aid &amp; Parent Forums
-                            </span>
-                            <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900">SEN Activity Groups, Charity Grants &amp; Parent Support</h2>
-                            <p class="text-sm text-slate-600 mt-1">
-                                Free and subsidised UK resources for struggling families: inclusive children's activities, cinema/days-out concessions, household &amp; disability grants, and local Parent Carer Forums.
-                            </p>
-                        </div>
-
-                        <div class="bg-cream p-3.5 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 shrink-0">
-                            <input type="text" id="local-aid-area-input" placeholder="Town/Council (e.g. Cheshire East, Crewe)..." class="bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-800 focus:ring-2 focus:ring-civicTeal-700 focus:outline-none">
-                            <button type="button" onclick="openLocalAreaAidSearch()" class="bg-civicTeal-800 hover:bg-civicTeal-900 text-white px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap">
-                                <i class="fa-solid fa-magnifying-glass mr-1"></i>Find Local Groups
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-100">
-                        <button type="button" onclick="filterSupportAid('all')" data-aidcat="all" class="aid-cat-btn px-3.5 py-1.5 rounded-xl text-xs font-bold bg-civicTeal-800 text-white">All Resources</button>
-                        <button type="button" onclick="filterSupportAid('activities')" data-aidcat="activities" class="aid-cat-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-warmSurface text-slate-700 hover:bg-slate-200">Children's SEN Activity Groups &amp; Cards</button>
-                        <button type="button" onclick="filterSupportAid('grants')" data-aidcat="grants" class="aid-cat-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-warmSurface text-slate-700 hover:bg-slate-200">Family Grants &amp; Government Aid</button>
-                        <button type="button" onclick="filterSupportAid('parents')" data-aidcat="parents" class="aid-cat-btn px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-warmSurface text-slate-700 hover:bg-slate-200">Parent Carer Forums &amp; SEND Advice</button>
-                    </div>
-
-                    <div id="family-aid-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
-                </div>
-
-                <!-- 122 English Local Authorities Directory -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-2xs space-y-5">
-                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                        <div class="max-w-3xl">
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-civicTeal-50 text-civicTeal-800 border border-civicTeal-200 mb-2">
-                                <i class="fa-solid fa-landmark"></i> 122 English Local Authorities
-                            </span>
-                            <h3 class="font-display text-xl sm:text-2xl font-extrabold text-slate-900">Council SEND &amp; SENDIASS Contact Directory</h3>
-                            <p class="text-sm text-slate-600 mt-1">
-                                Search any English council or borough to view SEND team contacts, open their Local Offer or SENDIASS lookup, or click <strong>"Use This Council"</strong> to auto-fill your Contact Card and Request Letter.
-                            </p>
-                        </div>
-                        <div class="flex flex-col sm:flex-row lg:flex-col gap-2 shrink-0">
-                            <button type="button" onclick="quickSelectCheshireEast()" class="inline-flex items-center justify-center gap-2 bg-forest-700 hover:bg-forest-800 text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-2xs">
-                                <i class="fa-solid fa-star"></i> Quick Fill: Cheshire East &amp; CEIAS
-                            </button>
-                            <a href="https://www.gov.uk/find-local-council" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-civicTeal-800 hover:bg-civicTeal-900 text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow-2xs">
-                                <i class="fa-solid fa-location-dot"></i> Check Council by Postcode (GOV.UK)
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col sm:flex-row gap-3 pt-2 border-t border-slate-100">
-                        <div class="relative flex-grow">
-                            <i class="fa-solid fa-search absolute left-3.5 top-3 text-slate-400 text-sm"></i>
-                            <input type="text" id="council-search" oninput="renderCouncilDirectory()" placeholder="Search council or borough (e.g. Cheshire East, Manchester, Kent, Camden)..." class="w-full bg-cream border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm focus:bg-white focus:ring-2 focus:ring-civicTeal-700 focus:outline-none">
-                        </div>
-                        <select id="council-region-filter" onchange="renderCouncilDirectory()" class="bg-cream border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-800 focus:bg-white focus:ring-2 focus:ring-civicTeal-700 focus:outline-none">
-                            <option value="all">All Regions (122 Councils)</option>
-                            <option value="North West">North West (incl. Cheshire East)</option>
-                            <option value="London">London</option>
-                            <option value="South East">South East</option>
-                            <option value="South West">South West</option>
-                            <option value="East of England">East of England</option>
-                            <option value="East Midlands">East Midlands</option>
-                            <option value="West Midlands">West Midlands</option>
-                            <option value="Yorkshire & Humber">Yorkshire &amp; Humber</option>
-                            <option value="North East">North East</option>
-                        </select>
-                    </div>
-
-                    <div class="flex items-center justify-between text-xs text-slate-500">
-                        <span id="council-results-count">Showing councils</span>
-                        <span>Click <strong>"Use This Council"</strong> to populate your profile.</span>
-                    </div>
-
-                    <div id="council-directory-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 max-h-[500px] overflow-y-auto pr-1"></div>
-                </div>
-            </section>
-
-            <!-- =================================================================
-                 TAB 5: TOP 20 CONDITIONS & MENTAL HEALTH / BULLYING LAW
-                 ================================================================= -->
-            <section id="workspace-conditions" class="workspace-section hidden view-panel space-y-6">
-                <!-- Mental Health & Suicide Prevention Support -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-2xs space-y-5">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-slate-100 pb-4">
-                        <div>
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-statCrimson-50 text-statCrimson-800 border border-statCrimson-200 mb-2">
-                                <i class="fa-solid fa-heart-pulse"></i> Free 24/7 Crisis, Mental Health &amp; Suicide Prevention
-                            </span>
-                            <h2 class="font-display text-2xl font-extrabold text-slate-900">Mental Health &amp; Suicide Support (Children, Young People &amp; Parents)</h2>
-                            <p class="text-sm text-slate-600 mt-1">
-                                If you or your child are overwhelmed, in emotional distress, or having thoughts of self-harm or suicide, free, confidential help is available day and night.
-                            </p>
-                        </div>
-                        <div class="bg-statCrimson-50 border border-statCrimson-200 rounded-xl p-3.5 text-xs text-statCrimson-950 shrink-0">
-                            <div class="font-extrabold"><i class="fa-solid fa-phone-volume mr-1"></i>Immediate Danger?</div>
-                            <div>Call <strong>999</strong> or go to your nearest <strong>A&amp;E</strong>.</div>
-                        </div>
-                    </div>
-
-                    <div id="crisis-helplines-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
-                </div>
-
-                <!-- Bullying Laws, Equality Act & School Statutory Duties -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-2xs space-y-5">
-                    <div>
-                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-civicTeal-50 text-civicTeal-800 border border-civicTeal-200 mb-2">
-                            <i class="fa-solid fa-gavel"></i> UK Law &amp; School Statutory Duties
-                        </span>
-                        <h3 class="font-display text-xl sm:text-2xl font-extrabold text-slate-900">Bullying Laws, Equality Act Duties &amp; School Responsibilities</h3>
-                        <p class="text-sm text-slate-600 mt-1">
-                            Children with SEND are disproportionately targeted by bullying or unfair exclusion. Schools in England have strict statutory responsibilities.
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-cream p-5 rounded-2xl border border-slate-200 space-y-1.5">
-                            <h4 class="font-display font-bold text-base text-slate-900">1. Equality Act 2010 — Disability &amp; Reasonable Adjustments</h4>
-                            <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                                Schools must not discriminate against, harass, or victimise disabled pupils (including many neurodivergent, mental health, or chronic medical conditions). Under the <strong>anticipatory duty to make reasonable adjustments</strong>, schools must take reasonable steps so disabled pupils are not placed at a substantial disadvantage—and cannot charge parents for adjustments.
-                            </p>
-                        </div>
-                        <div class="bg-cream p-5 rounded-2xl border border-slate-200 space-y-1.5">
-                            <h4 class="font-display font-bold text-base text-slate-900">2. Education and Inspections Act 2006 (Section 89)</h4>
-                            <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                                Headteachers have a legal duty to determine measures in the school behaviour policy to encourage good behaviour and <strong>prevent all forms of bullying among pupils</strong>, communicate those measures to parents/pupils/staff, and address bullying including online or outside-school incidents affecting pupils.
-                            </p>
-                        </div>
-                        <div class="bg-cream p-5 rounded-2xl border border-slate-200 space-y-1.5">
-                            <h4 class="font-display font-bold text-base text-slate-900">3. Children &amp; Families Act 2014 &amp; Keeping Children Safe in Education</h4>
-                            <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                                Schools must use their <strong>"best endeavours"</strong> to secure special educational provision, safeguard pupils from child-on-child abuse and online harm under statutory safeguarding guidance (<em>KCSIE</em>), and where an EHCP is in place, the Local Authority must secure Section F provision (Section 42).
-                            </p>
-                        </div>
-                        <div class="bg-cream p-5 rounded-2xl border border-slate-200 space-y-1.5">
-                            <h4 class="font-display font-bold text-base text-slate-900">4. Complaints Escalation: Governors, Ofsted &amp; EASS</h4>
-                            <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                                Keep a dated log of every bullying/safeguarding report. If a school fails to act, follow its formal <strong>Complaints Procedure</strong> (to Headteacher, then Governors/Academy Trust), escalate systemic safeguarding concerns to the Local Authority/DfE/Ofsted, and contact <strong>EASS</strong>, <strong>SENDIASS</strong>, or <strong>IPSEA</strong>.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-2 text-xs">
-                        <a href="https://www.gov.uk/bullying-at-school" target="_blank" rel="noopener noreferrer" class="bg-civicTeal-50/70 hover:bg-civicTeal-100/70 border border-civicTeal-200 rounded-xl p-3 font-bold text-civicTeal-900 flex items-center justify-between">
-                            <span>Bullying at School: Law &amp; Advice (GOV.UK)</span><i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <a href="https://www.legislation.gov.uk/ukpga/2010/15/contents" target="_blank" rel="noopener noreferrer" class="bg-civicTeal-50/70 hover:bg-civicTeal-100/70 border border-civicTeal-200 rounded-xl p-3 font-bold text-civicTeal-900 flex items-center justify-between">
-                            <span>Equality Act 2010 (legislation.gov.uk)</span><i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <a href="https://www.equalityadvisoryservice.com/" target="_blank" rel="noopener noreferrer" class="bg-forest-50 hover:bg-forest-100 border border-forest-200 rounded-xl p-3 font-bold text-forest-800 flex items-center justify-between">
-                            <span>Equality Advisory &amp; Support Service (EASS)</span><i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <a href="https://anti-bullyingalliance.org.uk/" target="_blank" rel="noopener noreferrer" class="bg-forest-50 hover:bg-forest-100 border border-forest-200 rounded-xl p-3 font-bold text-forest-800 flex items-center justify-between">
-                            <span>Anti-Bullying Alliance (SEND Bullying)</span><i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <a href="https://www.gov.uk/complain-about-school" target="_blank" rel="noopener noreferrer" class="bg-civicTeal-50/70 hover:bg-civicTeal-100/70 border border-civicTeal-200 rounded-xl p-3 font-bold text-civicTeal-900 flex items-center justify-between">
-                            <span>Complain About a School (GOV.UK)</span><i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <a href="https://www.gov.uk/government/publications/keeping-children-safe-in-education--2" target="_blank" rel="noopener noreferrer" class="bg-civicTeal-50/70 hover:bg-civicTeal-100/70 border border-civicTeal-200 rounded-xl p-3 font-bold text-civicTeal-900 flex items-center justify-between">
-                            <span>Keeping Children Safe in Education (GOV.UK)</span><i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Top 20 Childhood Conditions Guide -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-2xs space-y-5">
-                    <div class="max-w-3xl">
-                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-forest-50 text-forest-800 border border-forest-200 mb-2">
-                            <i class="fa-solid fa-stethoscope"></i> 20 Common Conditions Facing Children &amp; Families
-                        </span>
-                        <h3 class="font-display text-xl sm:text-2xl font-extrabold text-slate-900">Top 20 Childhood Conditions: Accommodations, Tips &amp; Free Charities</h3>
-                        <p class="text-sm text-slate-600 mt-1">
-                            Plain-English school accommodations, EHCP tips, and free UK charity links for 20 common childhood conditions. <em>Remember: under UK law, EHCP entitlement is based on special educational needs and required provision—not strictly on having a formal diagnosis.</em>
-                        </p>
-                    </div>
-
-                    <div class="flex flex-col sm:flex-row gap-3 pt-2 border-t border-slate-100">
-                        <div class="relative flex-grow">
-                            <i class="fa-solid fa-search absolute left-3.5 top-3 text-slate-400 text-sm"></i>
-                            <input type="text" id="condition-search" oninput="renderConditions()" placeholder="Search condition or charity (e.g. Autism, ADHD, PDA, ARFID, Dyslexia, Epilepsy, Asthma)..." class="w-full bg-cream border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm focus:bg-white focus:ring-2 focus:ring-civicTeal-700 focus:outline-none">
-                        </div>
-                        <select id="condition-category-filter" onchange="renderConditions()" class="bg-cream border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-800 focus:bg-white focus:ring-2 focus:ring-civicTeal-700 focus:outline-none">
-                            <option value="all">All 20 Conditions</option>
-                            <option value="Neurodevelopmental & Learning">Neurodevelopmental &amp; Learning</option>
-                            <option value="Mental Health & Emotional">Mental Health &amp; Emotional</option>
-                            <option value="Medical & Sensory">Medical, Sensory &amp; Physical</option>
-                        </select>
-                    </div>
-
-                    <div id="conditions-results-count" class="text-xs text-slate-500">Showing 20 conditions</div>
-                    <div id="conditions-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-                </div>
-            </section>
-
-            <!-- =================================================================
-                 TAB 6: PICTURE EVIDENCE VAULT
-                 ================================================================= -->
-            <section id="workspace-evidence" class="workspace-section hidden view-panel space-y-6">
-                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-2xs space-y-5">
-                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-100 pb-4">
-                        <div>
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-civicTeal-50 text-civicTeal-800 border border-civicTeal-200 mb-2">
-                                <i class="fa-solid fa-camera"></i> Visual Proof &amp; Context Vault
-                            </span>
-                            <h2 class="font-display text-2xl font-extrabold text-slate-900">Picture-Based Evidence Vault</h2>
-                            <p class="text-sm text-slate-600 mt-1">
-                                Capture or upload images locally (automatically compressed for smooth browser storage), tagged with Area of Need, Setting, Date, and structured context notes. Tap any saved photo to inspect full size.
-                            </p>
-                        </div>
-                        <div class="bg-statAmber-50 border border-statAmber-200 rounded-xl p-3 text-xs text-slate-800 max-w-md">
-                            <strong class="text-statAmber-700"><i class="fa-solid fa-user-shield mr-1"></i>Consent &amp; Privacy Reminder:</strong>
-                            Do NOT photograph other children or school staff without permission. Enable your Security Vault passcode for extra device protection.
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
-                        <form id="photo-evidence-form" onsubmit="addPhotoEvidence(event)" class="xl:col-span-5 bg-cream p-4 sm:p-5 rounded-2xl border border-slate-200 space-y-3">
-                            <div>
-                                <label for="photo-file-input" class="block text-xs font-bold text-slate-800 mb-1">Choose / Take Photo</label>
-                                <input type="file" id="photo-file-input" accept="image/*" required onchange="previewSelectedPhotoFile()" class="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-civicTeal-800 file:text-white">
-                            </div>
-
-                            <div id="photo-live-preview-wrap" class="hidden bg-white p-2 rounded-xl border border-slate-200">
-                                <img id="photo-live-preview-img" src="" alt="Preview of selected photo" class="w-full h-36 object-cover rounded-lg">
-                            </div>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                                <div>
-                                    <label for="photo-date" class="block text-xs font-semibold text-slate-700 mb-1">Date</label>
-                                    <input type="date" id="photo-date" required class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-2 text-xs">
-                                </div>
-                                <div>
-                                    <label for="photo-area" class="block text-xs font-semibold text-slate-700 mb-1">Area of Need</label>
-                                    <select id="photo-area" class="w-full bg-white border border-slate-200 rounded-lg px-2 py-2 text-xs">
-                                        <option value="Cognition & Learning">Cognition &amp; Learning</option>
-                                        <option value="Communication & Interaction">Communication &amp; Interaction</option>
-                                        <option value="SEMH">SEMH / Wellbeing</option>
-                                        <option value="Sensory & Physical">Sensory &amp; Physical</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label for="photo-setting" class="block text-xs font-semibold text-slate-700 mb-1">Setting</label>
-                                    <select id="photo-setting" class="w-full bg-white border border-slate-200 rounded-lg px-2 py-2 text-xs">
-                                        <option value="Home">Home</option>
-                                        <option value="School">School</option>
-                                        <option value="Community">Community</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div>
-                                <label for="photo-title" class="block text-xs font-semibold text-slate-700 mb-1">Title</label>
-                                <input type="text" id="photo-title" required placeholder="e.g., Visual timetable / sensory calm corner / homework struggle" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs">
-                            </div>
-
-                            <div>
-                                <label for="photo-caption" class="block text-xs font-semibold text-slate-700 mb-1">Context Notes (What happened, adjustment tried &amp; impact)</label>
-                                <textarea id="photo-caption" rows="2" required placeholder="Explain what occurred before, what support was tried, and how it affected your child..." class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs"></textarea>
-                            </div>
-
-                            <button type="submit" class="w-full bg-civicTeal-800 hover:bg-civicTeal-900 text-white font-bold py-2.5 rounded-xl text-xs shadow-2xs">
-                                <i class="fa-solid fa-plus mr-1"></i>Save Photo to Vault
-                            </button>
-                        </form>
-
-                        <div class="xl:col-span-7 space-y-3">
-                            <div class="flex flex-wrap items-center justify-between gap-2">
-                                <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-500">Saved Evidence Photos (<span id="photo-vault-count">0</span>)</h3>
-                                <div class="flex items-center gap-2">
-                                    <select id="photo-area-filter" onchange="renderPhotoVault()" class="bg-cream border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-semibold text-slate-700">
-                                        <option value="all">All Areas</option>
-                                        <option value="Cognition & Learning">Cognition &amp; Learning</option>
-                                        <option value="Communication & Interaction">Communication &amp; Interaction</option>
-                                        <option value="SEMH">SEMH / Wellbeing</option>
-                                        <option value="Sensory & Physical">Sensory &amp; Physical</option>
-                                    </select>
-                                    <button type="button" onclick="copyPhotoSummary()" class="text-xs font-bold text-civicTeal-800 bg-civicTeal-50 hover:bg-civicTeal-100 border border-civicTeal-200 px-3 py-1.5 rounded-lg">
-                                        <i class="fa-regular fa-copy mr-1"></i>Copy Notes
-                                    </button>
-                                </div>
-                            </div>
-                            <div id="photo-vault-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[480px] overflow-y-auto pr-1"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- =================================================================
-                 TAB 7: CHECKLIST, DAILY IMPACT LOG & BACKUP
-                 ================================================================= -->
-            <section id="workspace-checklist" class="workspace-section hidden view-panel space-y-6">
-                <div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
-                    <div class="xl:col-span-7 bg-white rounded-2xl p-6 border border-slate-200 shadow-2xs space-y-4">
-                        <div class="flex items-center justify-between gap-3">
-                            <div>
-                                <h2 class="font-display text-xl sm:text-2xl font-extrabold text-slate-900">12-Item EHCP Document Checklist</h2>
-                                <p class="text-xs text-slate-600">Track APDR records, medical/therapy reports, and parent/child views.</p>
-                            </div>
-                            <div class="bg-forest-50 px-3.5 py-2 rounded-xl border border-forest-200 text-center shrink-0">
-                                <span id="evidence-count-badge" class="text-base font-extrabold text-forest-800">0/12</span>
-                                <span class="block text-[10px] text-forest-700 font-semibold">Ready</span>
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap gap-1.5 pb-2 border-b border-slate-200">
-                            <button type="button" 
+    <h2>1. Who We Are and How to Contact Us</h2>
+    <p>
+      EHCP Parent Compass is provided by <strong>[Insert Your Name or Organisation Name]</strong> ("we", "our", or "us") to help parents and carers in England organise information around Special Educational Needs and Disabilities (SEND) and Education, Health and Care Plans (EHCPs).
+    </p>
+    <p>
+      If you have questions about this privacy policy or how the app handles data, you can contact us at: <strong>[Insert Support Email Address or Contact Page URL]</strong>.
+    </p>
+
+    <h2>2. What Information You Enter and Where It Is Stored</h2>
+    <p>
+      Depending on how you use the app, you may type or upload information such as:
+    </p>
+    <ul>
+      <li>Timelines, dates, checklists, daily logs, and draft letters or notes</li>
+      <li>Contact details for schools, SENCOs, local authorities, or support services</li>
+      <li>Photographs or evidence notes you add to your local evidence area</li>
+      <li>Optional passcode lock settings (if enabled on your device)</li>
+    </ul>
+    <p>
+      <strong>Local Device Storage:</strong> Information you enter into the app is stored locally in your browser or device storage (such as <code>localStorage</code> or <code>IndexedDB</code>), rather than being uploaded automatically to a central database operated by us. <em>[Update this paragraph if you add cloud sync, analytics, or backend servers.]</em>
+    </p>
+    <p>
+      Because data is stored on your device, <strong>clearing your browser/app data, uninstalling the app, or losing access to your device</strong> may permanently delete saved records unless you keep your own exported backup. Likewise, anyone with access to an unlocked device may be able to view what is stored on it.
+    </p>
+
+    <h2>3. Children's Privacy and Sensitive Details</h2>
+    <p>
+      EHCP Parent Compass is intended for use by <strong>parents, carers, and adults</strong>—not as a social network or direct service for young children. Because SEND and EHCP records can involve sensitive information about a child's needs, health, or wellbeing, please take care when saving records or photos on shared devices.
+    </p>
+    <p>
+      Please do not upload photos or personal details of other children, school staff, or third parties without appropriate permission or consent.
+    </p>
+
+    <h2>4. Third-Party Links, External Tools, and App Stores</h2>
+    <ul>
+      <li><strong>External links and directories:</strong> The app may link to external websites, helplines, charities, councils, or legal/information resources. Those third-party services have their own privacy policies, which we do not control.</li>
+      <li><strong>App stores and web hosting:</strong> If you download the app from Google Play or the Apple App Store, or open it via a web host, those platforms may collect standard technical, diagnostic, or store-related data under their own policies.</li>
+      <li><strong>Optional external features:</strong> If any optional feature (such as an external AI tool, email client, or share sheet) is triggered by you, that action interacts with the chosen external tool or app on your device.</li>
+    </ul>
+
+    <h2>5. UK GDPR and Data Protection</h2>
+    <p>
+      Where UK data protection law (including the UK GDPR and the Data Protection Act 2018) applies to how we operate or distribute the app, we aim to keep data collection minimal and transparent. You can find independent UK data-protection guidance from the <strong>Information Commissioner's Office (ICO)</strong> at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a>.
+    </p>
+
+    <h2>6. Your Choices and Controls</h2>
+    <ul>
+      <li>You can review, edit, export, or delete locally saved items inside the app or clear your browser/app storage at any time.</li>
+      <li>You choose whether to enable device passcodes or screen locks on your phone or computer.</li>
+    </ul>
+
+    <h2>7. Changes to This Privacy Policy</h2>
+    <p>
+      We may update this privacy policy from time to time as features or store requirements change. When we do, we will update the "Last updated" date at the top of this page.
+    </p>
+  </main>
+</body>
+</html>
