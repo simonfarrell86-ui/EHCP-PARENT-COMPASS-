@@ -7,8 +7,8 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="description" content="EHCP Parent Compass — Practical SEND and EHCP statutory navigation Progressive Web App for parents and carers in Cheshire East and across England." />
-  <title>EHCP Parent Compass | Cheshire East &amp; England SEND Guide</title>
+  <meta name="description" content="EHCP Parent Compass — Self-contained UK SEND and EHCP navigation Progressive Web App for parents and carers under the Children and Families Act 2014." />
+  <title>EHCP Parent Compass | UK SEND &amp; EHCP Guide</title>
 
   <style>
     :root {
@@ -37,8 +37,8 @@
       --radius-lg: 16px;
       --radius-md: 12px;
       --radius-sm: 8px;
-      --shadow-sm: 0 2px 7px rgba(15, 41, 66, 0.06);
-      --shadow-lg: 0 16px 38px rgba(15, 41, 66, 0.18);
+      --shadow-sm: 0 2px 8px rgba(15, 41, 66, 0.06);
+      --shadow-lg: 0 18px 42px rgba(15, 41, 66, 0.22);
     }
 
     *, *::before, *::after {
@@ -57,6 +57,18 @@
       overflow-x: hidden;
     }
 
+    a {
+      color: var(--teal-700);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    a:hover {
+      color: var(--navy-900);
+    }
+
+    /* Header */
     .app-header {
       background: linear-gradient(135deg, var(--navy-950) 0%, var(--navy-900) 58%, var(--navy-800) 100%);
       color: #ffffff;
@@ -65,7 +77,7 @@
     }
 
     .header-inner {
-      max-width: 1160px;
+      max-width: 1260px;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
@@ -148,11 +160,12 @@
       border-color: #fda4af;
     }
 
-    .hdr-btn.kit-pill {
+    .hdr-btn.ai-pill {
       background: var(--teal-700);
       border-color: #5eead4;
     }
 
+    /* Sticky Tab Navigation */
     .tab-nav-wrapper {
       position: sticky;
       top: 0;
@@ -163,7 +176,7 @@
     }
 
     .tab-nav {
-      max-width: 1160px;
+      max-width: 1260px;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -180,7 +193,7 @@
       color: var(--navy-900);
       border-radius: 999px;
       padding: 8px 13px;
-      font-size: 0.84rem;
+      font-size: 0.83rem;
       font-weight: 700;
       white-space: nowrap;
       cursor: pointer;
@@ -216,10 +229,11 @@
       border-radius: 999px;
     }
 
+    /* Main Layout */
     .main-container {
-      max-width: 1160px;
+      max-width: 1260px;
       margin: 0 auto;
-      padding: 18px 14px calc(52px + env(safe-area-inset-bottom));
+      padding: 18px 14px calc(56px + env(safe-area-inset-bottom));
     }
 
     .tab-panel {
@@ -260,23 +274,23 @@
       gap: 8px;
     }
 
-    .hero-card {
+    /* Standalone Personal Story */
+    .story-hero {
       display: grid;
       grid-template-columns: auto 1fr;
       gap: 18px;
-      align-items: center;
+      align-items: start;
     }
 
     @media (max-width: 640px) {
-      .hero-card {
+      .story-hero {
         grid-template-columns: 1fr;
-        text-align: left;
       }
     }
 
-    .hero-emblem-box {
-      width: 118px;
-      height: 118px;
+    .story-emblem-box {
+      width: 124px;
+      height: 124px;
       border-radius: 22px;
       overflow: hidden;
       background: #ffffff;
@@ -285,11 +299,15 @@
       flex-shrink: 0;
     }
 
-    .hero-emblem-box img {
+    .story-emblem-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+    }
+
+    .standalone-story-gap {
+      height: 210px;
     }
 
     .grid-2 {
@@ -364,6 +382,16 @@
       background: #ffffff;
       margin-bottom: 12px;
       min-height: 44px;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      padding: 8px;
+      border: 1.5px dashed #94a3b8;
+      border-radius: var(--radius-sm);
+      background: #f8fafc;
+      margin-bottom: 12px;
+      font-size: 0.88rem;
     }
 
     input:focus, select:focus, textarea:focus {
@@ -525,7 +553,7 @@
 
     .evidence-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
       gap: 14px;
       margin-top: 14px;
     }
@@ -538,13 +566,17 @@
       box-shadow: var(--shadow-sm);
     }
 
-    .evidence-item img {
+    .evidence-item img,
+    .evidence-item video {
       width: 100%;
-      height: 165px;
+      height: 170px;
       object-fit: cover;
       display: block;
+      background: #0f172a;
+    }
+
+    .evidence-item img {
       cursor: zoom-in;
-      background: #e2e8f0;
     }
 
     .evidence-meta {
@@ -559,6 +591,59 @@
       padding: 1px 5px;
       border-radius: 4px;
       border-bottom: 2px solid #d97706;
+    }
+
+    .ai-chat-log {
+      background: #f8fafc;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      max-height: 440px;
+      overflow-y: auto;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .chat-bubble {
+      padding: 12px 15px;
+      border-radius: 12px;
+      font-size: 0.92rem;
+      max-width: 94%;
+    }
+
+    .chat-bubble.user {
+      align-self: flex-end;
+      background: var(--navy-900);
+      color: #ffffff;
+    }
+
+    .chat-bubble.bot {
+      align-self: flex-start;
+      background: #ffffff;
+      color: var(--slate-800);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .ai-jump-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 9px;
+    }
+
+    .ai-jump-btn {
+      appearance: none;
+      border: 1px solid var(--teal-600);
+      background: var(--teal-50);
+      color: var(--teal-700);
+      border-radius: 999px;
+      padding: 5px 11px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      min-height: 34px;
     }
 
     .modal-backdrop {
@@ -580,7 +665,7 @@
     .modal-box {
       background: #ffffff;
       border-radius: var(--radius-lg);
-      max-width: 580px;
+      max-width: 680px;
       width: 100%;
       padding: 20px;
       box-shadow: var(--shadow-lg);
@@ -638,17 +723,40 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    .star-btn {
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-      color: #cbd5e1;
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
     }
 
-    .star-btn.lit {
-      color: var(--amber-500);
+    .data-table th,
+    .data-table td {
+      border: 1px solid #e2e8f0;
+      padding: 9px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--navy-900);
+      font-weight: 800;
+    }
+
+    .star-btn {
+      appearance: none;
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 6px 11px;
+      font-size: 1.05rem;
+      cursor: pointer;
+      min-height: 40px;
+    }
+
+    .star-btn.selected {
+      background: var(--amber-100);
+      border-color: var(--amber-600);
     }
 
     @media print {
@@ -666,7 +774,7 @@
   </style>
 
   <script>
-    /* High-contrast SVG emblem matching EHCP Parent Compass badge */
+    /* Inline compass-and-family SVG fallback emblem when ./1000166861.png is missing or offline */
     window.COMPASS_LOGO_SVG = "data:image/svg+xml;utf8," + encodeURIComponent(
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">' +
       '<defs>' +
@@ -723,15 +831,18 @@
       "overview",
       "timeline",
       "senco",
-      "local-support",
-      "crisis-conditions",
-      "evidence",
-      "daily-log",
-      "rights-letters",
-      "community",
-      "store-launch"
+      "local-grants",
+      "crisis-send",
+      "evidence-vault",
+      "daily-masking",
+      "ehcp-letters-law",
+      "community-chat",
+      "ai-compass",
+      "app-store-kit",
+      "privacy-security"
     ];
 
+    /* Layer 1: Global tab switcher defined in <head> */
     window.switchTab = function (tabId, btnEl) {
       try {
         if (!tabId || window.VALID_TABS.indexOf(tabId) === -1) {
@@ -773,7 +884,7 @@
           localStorage.setItem("ehcp_compass_active_tab", tabId);
         } catch (storageErr) {}
       } catch (err) {
-        console.error("Tab switch fallback:", err);
+        console.error("Tab switch error:", err);
       }
       return false;
     };
@@ -804,52 +915,52 @@
 </head>
 <body>
 
-  <!-- PIN Lock Screen Overlay -->
+  <!-- PIN Vault Lock Overlay -->
   <div id="vault-lock-screen" class="lock-overlay" role="dialog" aria-modal="true" aria-labelledby="lock-title">
     <div class="lock-card">
-      <div style="width:74px;height:74px;margin:0 auto 12px;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
-        <img src="./1000166861.png" alt="EHCP Parent Compass Emblem" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="window.applyEmblemFallback(this);" />
+      <div style="width:82px;height:82px;margin:0 auto 12px;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+        <img src="./1000166861.png" alt="EHCP Parent Compass Emblem" onerror="window.applyEmblemFallback(this);" style="width:100%;height:100%;object-fit:cover;display:block;" />
       </div>
-      <h2 id="lock-title" style="margin:0 0 6px;color:#0f2942;">Security Vault Locked</h2>
-      <p style="font-size:0.88rem;color:#475569;margin:0 0 14px;">Enter your 4–8 digit parent PIN to unlock your local EHCP notes, dates, and picture evidence.</p>
+      <h2 id="lock-title" style="margin:0 0 6px;color:#0f2942;">Compass Vault Locked</h2>
+      <p style="font-size:0.88rem;color:#475569;margin:0 0 14px;">Enter your 4–8 digit PIN to unlock your local EHCP notes, checklists, and photo/video evidence.</p>
       <input type="password" id="unlock-pin-input" inputmode="numeric" maxlength="8" placeholder="Enter PIN" style="text-align:center;font-size:1.25rem;letter-spacing:0.25em;" />
       <p id="unlock-error" style="color:#be123c;font-size:0.84rem;font-weight:700;min-height:20px;margin:0 0 10px;"></p>
       <button type="button" class="btn btn-primary" style="width:100%;margin-bottom:10px;" onclick="attemptUnlockVault()">Unlock Compass</button>
-      <button type="button" class="btn btn-outline" style="width:100%;font-size:0.8rem;" onclick="emergencyWipeAllData()">Forgot PIN? Wipe Local Data &amp; Reset</button>
+      <button type="button" class="btn btn-outline" style="width:100%;font-size:0.8rem;" onclick="clearAllLocalStorageAndMedia()">Forgot PIN? Wipe Local Data &amp; Reset</button>
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- Top Header -->
   <header class="app-header">
     <div class="header-inner">
       <div class="brand-group">
         <div class="brand-logo-wrap">
-          <img id="header-logo-img" src="./1000166861.png" alt="EHCP Parent Compass Logo" onerror="window.applyEmblemFallback(this);" />
+          <img id="header-logo-img" src="./1000166861.png" alt="EHCP Parent Compass Emblem" onerror="window.applyEmblemFallback(this);" />
         </div>
         <div class="brand-text">
           <h1>EHCP Parent Compass</h1>
-          <p>Cheshire East &amp; England SEND Statutory Navigation</p>
+          <p>Children &amp; Families Act 2014 • UK SEND &amp; EHCP Navigation for Parents &amp; Carers</p>
         </div>
       </div>
       <div class="header-actions">
-        <button type="button" class="hdr-btn" onclick="openModal('vault-modal')" title="Privacy &amp; PIN Security Vault">
-          <span>🔒</span> <span>Vault</span>
+        <button type="button" class="hdr-btn" onclick="window.switchTab('privacy-security')" title="Privacy & Security">
+          <span>🔒</span> <span>Privacy &amp; Security</span>
         </button>
-        <button type="button" class="hdr-btn crisis-pill" onclick="window.switchTab('crisis-conditions'); setTimeout(function(){ var el = document.getElementById('crisis-anchor'); if(el) el.scrollIntoView({behavior:'smooth'}); }, 80);" title="24/7 UK Crisis &amp; Mental Health Support">
-          <span>🆘</span> <span>24/7 Help</span>
+        <button type="button" class="hdr-btn crisis-pill" onclick="window.switchTab('crisis-send')" title="Crisis & SEND">
+          <span>🆘</span> <span>Crisis &amp; SEND</span>
         </button>
-        <button type="button" class="hdr-btn kit-pill" onclick="window.switchTab('store-launch')" title="App &amp; Store Kit">
-          <span>📲</span> <span>App &amp; Store Kit</span>
+        <button type="button" class="hdr-btn ai-pill" onclick="window.switchTab('ai-compass')" title="AI Compass">
+          <span>💬</span> <span>AI Compass</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Sticky 10 Single-Subject Tab Bar -->
-  <nav class="tab-nav-wrapper" aria-label="EHCP Compass Single-Subject Sections">
+  <!-- 12 Dedicated Single-Subject Tabs (Layer 2: Inline onclick + Layer 3: Container Delegation) -->
+  <nav class="tab-nav-wrapper" aria-label="EHCP Parent Compass Sections">
     <div class="tab-nav" id="main-tab-nav" role="tablist">
       <button type="button" role="tab" class="tab-btn active" data-tab="overview" aria-selected="true" aria-controls="panel-overview" onclick="return window.switchTab('overview', this)">
-        <span>🧭</span> Overview
+        <span>📖</span> Overview
       </button>
       <button type="button" role="tab" class="tab-btn" data-tab="timeline" aria-selected="false" aria-controls="panel-timeline" onclick="return window.switchTab('timeline', this)">
         <span>📅</span> 20-Week Clock
@@ -857,624 +968,701 @@
       <button type="button" role="tab" class="tab-btn" data-tab="senco" aria-selected="false" aria-controls="panel-senco" onclick="return window.switchTab('senco', this)">
         <span>🏫</span> School &amp; SENCO
       </button>
-      <button type="button" role="tab" class="tab-btn" data-tab="local-support" aria-selected="false" aria-controls="panel-local-support" onclick="return window.switchTab('local-support', this)">
+      <button type="button" role="tab" class="tab-btn" data-tab="local-grants" aria-selected="false" aria-controls="panel-local-grants" onclick="return window.switchTab('local-grants', this)">
         <span>🏛️</span> Local &amp; Grants
       </button>
-      <button type="button" role="tab" class="tab-btn" data-tab="crisis-conditions" aria-selected="false" aria-controls="panel-crisis-conditions" onclick="return window.switchTab('crisis-conditions', this)">
-        <span>🩺</span> Crisis &amp; SEND
+      <button type="button" role="tab" class="tab-btn" data-tab="crisis-send" aria-selected="false" aria-controls="panel-crisis-send" onclick="return window.switchTab('crisis-send', this)">
+        <span>🆘</span> Crisis &amp; SEND
       </button>
-      <button type="button" role="tab" class="tab-btn" data-tab="evidence" aria-selected="false" aria-controls="panel-evidence" onclick="return window.switchTab('evidence', this)">
-        <span>📸</span> Evidence Vault <span class="tab-badge" id="evidence-count-badge">0</span>
+      <button type="button" role="tab" class="tab-btn" data-tab="evidence-vault" aria-selected="false" aria-controls="panel-evidence-vault" onclick="return window.switchTab('evidence-vault', this)">
+        <span>🎬</span> Evidence Vault <span class="tab-badge" id="media-count-badge">0</span>
       </button>
-      <button type="button" role="tab" class="tab-btn" data-tab="daily-log" aria-selected="false" aria-controls="panel-daily-log" onclick="return window.switchTab('daily-log', this)">
+      <button type="button" role="tab" class="tab-btn" data-tab="daily-masking" aria-selected="false" aria-controls="panel-daily-masking" onclick="return window.switchTab('daily-masking', this)">
         <span>📓</span> Daily &amp; Masking
       </button>
-      <button type="button" role="tab" class="tab-btn" data-tab="rights-letters" aria-selected="false" aria-controls="panel-rights-letters" onclick="return window.switchTab('rights-letters', this)">
-        <span>✉️</span> EHCP Letters &amp; Law
+      <button type="button" role="tab" class="tab-btn" data-tab="ehcp-letters-law" aria-selected="false" aria-controls="panel-ehcp-letters-law" onclick="return window.switchTab('ehcp-letters-law', this)">
+        <span>📜</span> EHCP Letters &amp; Law
       </button>
-      <button type="button" role="tab" class="tab-btn" data-tab="community" aria-selected="false" aria-controls="panel-community" onclick="return window.switchTab('community', this)">
-        <span>💬</span> Community &amp; Chat
+      <button type="button" role="tab" class="tab-btn" data-tab="community-chat" aria-selected="false" aria-controls="panel-community-chat" onclick="return window.switchTab('community-chat', this)">
+        <span>🤝</span> Community &amp; Chat
       </button>
-      <button type="button" role="tab" class="tab-btn" data-tab="store-launch" aria-selected="false" aria-controls="panel-store-launch" onclick="return window.switchTab('store-launch', this)">
-        <span>📲</span> App &amp; Store Kit
+      <button type="button" role="tab" class="tab-btn" data-tab="ai-compass" aria-selected="false" aria-controls="panel-ai-compass" onclick="return window.switchTab('ai-compass', this)">
+        <span>💬</span> AI Compass
+      </button>
+      <button type="button" role="tab" class="tab-btn" data-tab="app-store-kit" aria-selected="false" aria-controls="panel-app-store-kit" onclick="return window.switchTab('app-store-kit', this)">
+        <span>📱</span> App &amp; Store Kit
+      </button>
+      <button type="button" role="tab" class="tab-btn" data-tab="privacy-security" aria-selected="false" aria-controls="panel-privacy-security" onclick="return window.switchTab('privacy-security', this)">
+        <span>🛡️</span> Privacy &amp; Security
       </button>
     </div>
   </nav>
 
-  <!-- Main Content Panels -->
   <main class="main-container">
 
-    <!-- TAB 1: OVERVIEW -->
+    <!-- 1. OVERVIEW (STANDALONE PERSONAL STORY + TRANSPARENCY & QUICK ACCESS) -->
     <section id="panel-overview" data-panel="overview" class="tab-panel active" role="tabpanel">
       <div class="card">
-        <div class="hero-card">
-          <div class="hero-emblem-box">
+        <div class="story-hero">
+          <div class="story-emblem-box">
             <img src="./1000166861.png" alt="EHCP Parent Compass Emblem" onerror="window.applyEmblemFallback(this);" />
           </div>
           <div>
-            <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:6px;">
-              <h2 class="card-title" style="font-size:1.25rem;">Cheshire East Parent Story &amp; Compass Guide</h2>
-              <span class="tag-pill teal">Parent of 4 EHCP Children</span>
-            </div>
-            <p style="margin:0 0 8px;">Navigating the Education, Health and Care Plan (EHCP) process in <strong>Cheshire East</strong> and across England can feel relentless when you are supporting children with complex needs. Having walked this road as a parent of <strong>four EHCP children</strong>, I built <strong>EHCP Parent Compass</strong> so families can calculate statutory deadlines under the <strong>Children and Families Act 2014</strong>, draft clear letters and SENCO emails, log home impact and photo evidence, and keep key contacts in one calm place.</p>
-            <p style="margin:0;font-size:0.9rem;color:#475569;"><strong>Single-subject tabs:</strong> Every topic has its own dedicated tab—use <strong>20-Week Clock</strong> for statutory dates, <strong>School &amp; SENCO</strong> for APDR &amp; email templates, <strong>Local &amp; Grants</strong> for councils/forums/grants, <strong>Crisis &amp; SEND</strong> for 24/7 support &amp; conditions, <strong>Evidence Vault</strong> for photos, <strong>Daily &amp; Masking</strong> for logs &amp; checklists, and <strong>EHCP Letters &amp; Law</strong> for Section 36 letters &amp; Section F checks.</p>
+            <h2 class="card-title" style="font-size:1.25rem;margin-bottom:8px;">My Story</h2>
+            <p style="margin:0 0 12px;">I am a parent of four children with Education, Health and Care Plans (EHCPs). Going through the SEND and EHCP process four times showed me first-hand how overwhelming, fragmented, and exhausting the paperwork, statutory deadlines, school meetings, and day-to-day battles can be when you are fighting for your children.</p>
+            <p style="margin:0 0 12px;">Cheshire East is simply my own personal example from walking this road with my family—every child, family, and Local Authority is different, so nothing here forces a default council onto your records.</p>
+            <p style="margin:0;">I built EHCP Parent Compass so parents and carers can keep SEND guidance, timelines, school and council points of contact, letters, checklists, daily notes, and photo or video evidence organised in one calm place.</p>
           </div>
-        </div>
-        <div class="btn-row" style="margin-top:14px;">
-          <button type="button" class="btn btn-primary" onclick="window.switchTab('timeline')">Open 20-Week Clock →</button>
-          <button type="button" class="btn btn-teal" onclick="window.switchTab('rights-letters')">Build Section 36 Letter →</button>
-          <button type="button" class="btn btn-outline" onclick="window.switchTab('local-support')">Cheshire East &amp; Councils</button>
         </div>
       </div>
 
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title"><span>⚖️</span> Legal Information Disclaimer</h3>
-          </div>
-          <div class="callout amber">
-            <h4>Practical Information Tool — Not Formal Legal Advice</h4>
-            <p>EHCP Parent Compass provides statutory guidance, templates, and personal record-keeping tools for parents and carers in England. It is <strong>not</strong> regulated legal advice, clinical diagnosis, or medical therapy.</p>
-          </div>
-          <ul style="padding-left:20px;margin:8px 0 0;font-size:0.92rem;">
-            <li>Statutory timescales refer to England under the <strong>Children and Families Act 2014</strong> and <strong>SEND Regulations 2014</strong>.</li>
-            <li>For formal advice on your child's case, contact your local <strong>SENDIASS</strong> (such as <strong>CEIAS</strong> in Cheshire East), <strong>IPSEA</strong>, or <strong>SOS!SEN</strong>.</li>
-            <li>In an urgent safety or mental health emergency, call <strong>999</strong> or <strong>NHS 111 (Option 2)</strong>.</li>
-          </ul>
-        </div>
+      <div class="standalone-story-gap" aria-hidden="true"></div>
 
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title"><span>🛡️</span> UK GDPR, ICO &amp; Local Data Privacy</h3>
-          </div>
-          <div class="callout teal">
-            <h4>Local-First Privacy • No Central Cloud Database</h4>
-            <p>Your entries are stored locally in your browser/device storage (with optional PIN lock and AES-GCM encryption support where available), rather than being uploaded to an external server operated by this app.</p>
-          </div>
-          <ul style="padding-left:20px;margin:8px 0 0;font-size:0.92rem;">
-            <li><strong>You stay in control:</strong> Export a JSON backup anytime in <strong>Daily &amp; Masking</strong> or wipe local data via the <strong>🔒 Vault</strong> button.</li>
-            <li><strong>ICO Guidance:</strong> Learn more about UK data protection rights at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a> and review our <a href="./privacy-policy.html">Privacy Policy</a>.</li>
-          </ul>
+      <div class="grid-2">
+        <div class="callout teal" style="margin:0;">
+          <h4>UK GDPR &amp; ICO Local-First Transparency</h4>
+          <p>Your notes, checklists, custom contacts, and photos/videos are stored locally on your device in browser storage (<code>localStorage</code> and <code>IndexedDB</code>). Review <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ICO UK GDPR guidance</a> or open <a href="./privacy-policy.html">privacy-policy.html</a>.</p>
+        </div>
+        <div class="callout" style="margin:0;">
+          <h4>Legal Framework &amp; Scope</h4>
+          <p>Grounded in the <strong>Children and Families Act 2014</strong> and <strong>SEND Code of Practice (0–25)</strong> for practical parent navigation—not formal legal representation. For advice, contact SENDIASS, <a href="https://www.ipsea.org.uk" target="_blank" rel="noopener noreferrer">IPSEA</a>, or <a href="https://www.sossen.org.uk" target="_blank" rel="noopener noreferrer">SOS!SEN</a>.</p>
         </div>
       </div>
     </section>
 
-    <!-- TAB 2: 20-WEEK CLOCK -->
+    <!-- 2. 20-WEEK CLOCK -->
     <section id="panel-timeline" data-panel="timeline" class="tab-panel" role="tabpanel" hidden>
       <div class="card">
         <div class="card-header">
-          <h2 class="card-title"><span>📅</span> Statutory 20-Week EHCP Clock (England)</h2>
-          <span class="tag-pill">SEND Regulations 2014</span>
+          <h2 class="card-title"><span>📅</span> 20-Week Statutory EHCP Clock &amp; Milestones</h2>
+          <span class="tag-pill">Children &amp; Families Act 2014</span>
         </div>
-        <p style="margin-top:0;">Enter the date the Local Authority received your written request for an <strong>EHC Needs Assessment (Section 36)</strong> to calculate statutory milestones.</p>
+        <p style="margin-top:0;">Enter your child's name and the date your written EHC needs assessment request was received by the Local Authority to calculate statutory milestones across the 20-week process.</p>
 
         <div class="grid-2" style="align-items:end;">
           <div>
-            <label for="ehcp-child-name">Child / Young Person's Name (Saved locally)</label>
-            <input type="text" id="ehcp-child-name" placeholder="e.g., Leo" oninput="saveTimelineState()" />
+            <label for="tl-child-name">Child / Young Person's Name (Saved locally)</label>
+            <input type="text" id="tl-child-name" placeholder="Enter child or young person's name" oninput="saveTimelineState()" />
           </div>
           <div>
-            <label for="ehcp-request-date">Date LA Received EHC Assessment Request</label>
-            <input type="date" id="ehcp-request-date" onchange="calculateEhcpDeadlines()" />
+            <label for="tl-request-date">Date Local Authority Received Assessment Request</label>
+            <input type="date" id="tl-request-date" onchange="calculateTimeline()" />
           </div>
         </div>
 
-        <div id="timeline-results" class="milestone-grid">
+        <div class="milestone-grid">
           <div class="milestone-box">
-            <div class="milestone-week">Day 0 • Clock Starts</div>
-            <div class="milestone-date" id="ms-day0">Select request date</div>
-            <div style="font-size:0.84rem;color:#475569;">LA acknowledges receipt and confirms statutory timeline.</div>
+            <div class="milestone-week">Day 0 • Statutory Clock Start</div>
+            <div class="milestone-date" id="ms-start">Select a date</div>
+            <div style="font-size:0.84rem;color:#475569;">20-week statutory clock starts on receipt of request.</div>
           </div>
           <div class="milestone-box highlight">
             <div class="milestone-week">Week 6 • Assessment Decision</div>
-            <div class="milestone-date" id="ms-week6">—</div>
-            <div style="font-size:0.84rem;color:#475569;">LA must decide whether to assess (or issue mediation/Tribunal rights).</div>
+            <div class="milestone-date" id="ms-wk6">—</div>
+            <div style="font-size:0.84rem;color:#475569;">Local Authority decides whether to assess or refuse (with mediation/appeal rights).</div>
           </div>
           <div class="milestone-box highlight">
-            <div class="milestone-week">Week 16 • Draft EHCP / Refusal</div>
-            <div class="milestone-date" id="ms-week16">—</div>
-            <div style="font-size:0.84rem;color:#475569;">Draft EHCP issued with 15 calendar days to comment &amp; name school.</div>
+            <div class="milestone-week">Week 16 • Draft EHCP</div>
+            <div class="milestone-date" id="ms-wk16">—</div>
+            <div style="font-size:0.84rem;color:#475569;">Draft EHCP issued with 15 calendar days to comment and name preferred setting.</div>
           </div>
           <div class="milestone-box highlight">
-            <div class="milestone-week">Week 20 • Final EHCP Issued</div>
-            <div class="milestone-date" id="ms-week20">—</div>
-            <div style="font-size:0.84rem;color:#475569;">Final EHCP issued naming setting in Section I.</div>
+            <div class="milestone-week">Week 20 • Final EHCP</div>
+            <div class="milestone-date" id="ms-wk20">—</div>
+            <div style="font-size:0.84rem;color:#475569;">Final EHCP issued naming the setting in Section I.</div>
           </div>
         </div>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><span>🪜</span> 7-Stage EHCP Progress Tracker</h3>
-          <span id="stage-progress-label" class="tag-pill teal">0 / 7 Completed</span>
+          <h3 class="card-title"><span>🪜</span> 7-Stage Statutory Milestone Tracker</h3>
+          <span id="tl-stage-badge" class="tag-pill teal">0 / 7 Completed</span>
         </div>
-        <div id="ehcp-stages-list"></div>
+        <div id="tl-stages-list"></div>
       </div>
     </section>
 
-    <!-- TAB 3: SCHOOL & SENCO -->
+    <!-- 3. SCHOOL & SENCO -->
     <section id="panel-senco" data-panel="senco" class="tab-panel" role="tabpanel" hidden>
       <div class="grid-2">
         <div class="card">
           <div class="card-header">
             <h2 class="card-title"><span>🏫</span> School &amp; SENCO Contact Card</h2>
-            <span class="tag-pill teal">Auto-Saved</span>
+            <span class="tag-pill teal">Saved Locally</span>
           </div>
-          <label for="senco-school-name">School / Nursery / College Name</label>
-          <input type="text" id="senco-school-name" placeholder="e.g., St Anne's Primary School" oninput="saveSencoCard()" />
+          <label for="senco-school">School / Nursery / College Name</label>
+          <input type="text" id="senco-school" placeholder="Enter school or setting name" oninput="saveSencoState()" />
 
-          <label for="senco-person-name">SENCO Name</label>
-          <input type="text" id="senco-person-name" placeholder="e.g., Mrs Sarah Jenkins" oninput="saveSencoCard()" />
+          <label for="senco-name">SENCO Name</label>
+          <input type="text" id="senco-name" placeholder="Enter SENCO name" oninput="saveSencoState()" />
 
           <label for="senco-email">SENCO Email Address</label>
-          <input type="email" id="senco-email" placeholder="senco@school.example.sch.uk" oninput="saveSencoCard()" />
+          <input type="email" id="senco-email" placeholder="senco@school.example.org.uk" oninput="saveSencoState()" />
 
           <label for="senco-phone">School / SENCO Phone</label>
-          <input type="tel" id="senco-phone" placeholder="01625 ..." oninput="saveSencoCard()" />
+          <input type="tel" id="senco-phone" placeholder="Enter school or SENCO phone" oninput="saveSencoState()" />
 
-          <label for="senco-apdr-notes">Current APDR / SEN Support Notes</label>
-          <textarea id="senco-apdr-notes" placeholder="Record current interventions, sensory adjustments, and review dates..." oninput="saveSencoCard()"></textarea>
+          <label for="senco-notes">SEN Support / APDR Notes</label>
+          <textarea id="senco-notes" placeholder="Record Assess-Plan-Do-Review cycles, support adjustments, and meeting dates..." oninput="saveSencoState()"></textarea>
         </div>
 
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title"><span>🔄</span> Assess – Plan – Do – Review (APDR)</h3>
+            <h3 class="card-title"><span>🔄</span> SEN Support: Assess – Plan – Do – Review (APDR)</h3>
           </div>
           <div class="callout">
             <h4>Assess &amp; Plan</h4>
-            <p>Identify barriers using school data, specialist observations, and parent views; set clear outcomes and review dates under the SEND Code of Practice.</p>
+            <p>Schools must identify needs early, involve parents and the child, set clear targets and adjustments, and agree review dates under the SEND Code of Practice.</p>
           </div>
           <div class="callout teal">
             <h4>Do &amp; Review</h4>
-            <p>Deliver agreed support consistently and review progress together. If needs are complex or progress stalls, you can request an EHC needs assessment directly.</p>
+            <p>Agreed support is carried out consistently and reviewed together to evaluate impact. If needs remain significant or progress is limited, parents can request a Section 36 EHC needs assessment directly.</p>
           </div>
         </div>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><span>📧</span> 4 SENCO Email Templates</h3>
-          <span class="tag-pill">Copy or Open Email App</span>
+          <h3 class="card-title"><span>📧</span> Copy / Mailto SENCO Email Templates</h3>
+          <span class="tag-pill">Ready to Copy or Send</span>
         </div>
         <div class="grid-2">
           <div>
-            <label for="senco-template-select">Select Template</label>
-            <select id="senco-template-select" onchange="renderSencoTemplate()">
-              <option value="meeting">1. Requesting Initial SEN Support / APDR Meeting</option>
-              <option value="followup">2. Following Up on Agreed SEN Support</option>
-              <option value="ep">3. Requesting Educational Psychologist / Specialist Referral</option>
-              <option value="review">4. Pre-Annual Review Parent Views &amp; Evidence</option>
+            <label for="senco-tpl-select">Choose Email Template</label>
+            <select id="senco-tpl-select" onchange="updateSencoTemplate()">
+              <option value="apdr">1. Request SEN Support / APDR Review Meeting</option>
+              <option value="summary">2. Confirm Agreed Support After a Call/Meeting</option>
+              <option value="specialist">3. Request Specialist / EP Involvement Details</option>
+              <option value="annual">4. Share Parent Views Before Annual Review</option>
             </select>
           </div>
           <div>
-            <label for="senco-template-subject">Subject Line</label>
-            <input type="text" id="senco-template-subject" />
+            <label for="senco-tpl-subject">Email Subject</label>
+            <input type="text" id="senco-tpl-subject" />
           </div>
         </div>
-        <label for="senco-template-body">Editable Email Draft</label>
-        <textarea id="senco-template-body" style="min-height:185px;"></textarea>
+        <label for="senco-tpl-body">Email Draft</label>
+        <textarea id="senco-tpl-body" style="min-height:175px;"></textarea>
         <div class="btn-row">
-          <button type="button" class="btn btn-primary" onclick="copyTextFromId('senco-template-body', 'SENCO email copied!')">📋 Copy Email</button>
-          <button type="button" class="btn btn-teal" onclick="openSencoMailto()">✉️ Open Email App</button>
+          <button type="button" class="btn btn-primary" onclick="copyField('senco-tpl-body', 'SENCO email copied!')">📋 Copy Email</button>
+          <button type="button" class="btn btn-teal" onclick="sendSencoMailto()">✉️ Open Email App</button>
         </div>
       </div>
     </section>
 
-    <!-- TAB 4: LOCAL & GRANTS -->
-    <section id="panel-local-support" data-panel="local-support" class="tab-panel" role="tabpanel" hidden>
+    <!-- 4. LOCAL & GRANTS: UK LOCAL AUTHORITIES, SCHOOL SEARCH & LINKING, ALL SCHOOL & LA POINTS OF CONTACT, SEN CARDS & GRANTS -->
+    <section id="panel-local-grants" data-panel="local-grants" class="tab-panel" role="tabpanel" hidden>
       <div class="card">
         <div class="card-header">
-          <h2 class="card-title"><span>🏛️</span> Local Councils, SEN Groups, Grants &amp; Forums</h2>
-          <button type="button" class="btn btn-amber" onclick="applyCheshireEastPreset()">⚡ Quick-Fill Cheshire East</button>
+          <h2 class="card-title"><span>🏫</span> School Search &amp; Local Authority Linking</h2>
+          <span class="tag-pill teal">Zero Default Council Autofill</span>
         </div>
+        <p style="margin-top:0;font-size:0.9rem;">Search by school name, town, postcode, or local authority to link a school to its responsible Local Authority, inspect school-level and council-level points of contact, or save your own custom school and Local Authority contacts locally.</p>
+
         <div class="grid-2">
           <div>
-            <label for="dir-search">Search Councils, Groups, DLA, Grants, or Forums</label>
-            <input type="search" id="dir-search" placeholder="e.g., Cheshire East, IPSEA, DLA, sensory, forum..." oninput="renderDirectory()" />
+            <label for="school-search-input">Search Child's School, Town, Postcode, or Council</label>
+            <input type="search" id="school-search-input" placeholder="Type school name, town, or local authority..." oninput="renderSchoolLinks()" />
           </div>
           <div>
-            <label for="dir-category">Category Filter</label>
-            <select id="dir-category" onchange="renderDirectory()">
-              <option value="all">All Categories</option>
-              <option value="council">Local Authorities &amp; SENDIASS</option>
-              <option value="charity">Free SEND Charities &amp; Legal Help</option>
-              <option value="aid">DLA &amp; Family Grants</option>
-              <option value="groups">SEN Activity Groups &amp; Cards</option>
-              <option value="forum">Parent Carer Forums</option>
+            <label for="la-selector-dropdown">Select Any UK Local Authority (Optional Filter)</label>
+            <select id="la-selector-dropdown" onchange="onSelectLocalAuthority()">
+              <option value="">— Choose a Local Authority (None selected by default) —</option>
             </select>
           </div>
         </div>
-        <div id="directory-grid" class="grid-2" style="margin-top:8px;"></div>
+
+        <div id="school-link-results" class="grid-2" style="margin-top:6px;"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title"><span>📇</span> School &amp; Local Authority Points of Contact (Plus Personal Contact Saver)</h3>
+          <span id="poc-active-la-badge" class="tag-pill">All School &amp; Local Authority Roles</span>
+        </div>
+        <p style="margin-top:0;font-size:0.88rem;">Every key point of contact across both the <strong>school</strong> and the <strong>Local Authority</strong> is listed below. Save your own school, SENCO, and Local Authority contact details locally on your device.</p>
+
+        <div class="grid-3" style="background:#f8fafc;padding:12px;border-radius:12px;border:1px solid #e2e8f0;margin-bottom:14px;">
+          <div>
+            <label for="custom-poc-school">Your School Name</label>
+            <input type="text" id="custom-poc-school" placeholder="Enter school name" oninput="saveCustomPoc()" />
+          </div>
+          <div>
+            <label for="custom-poc-senco">School SENCO Name &amp; Direct Contact</label>
+            <input type="text" id="custom-poc-senco" placeholder="Name, email or phone" oninput="saveCustomPoc()" />
+          </div>
+          <div>
+            <label for="custom-poc-la">Your Local Authority &amp; Case Officer</label>
+            <input type="text" id="custom-poc-la" placeholder="Council name &amp; officer contact" oninput="saveCustomPoc()" />
+          </div>
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table class="data-table" id="poc-table">
+            <thead>
+              <tr>
+                <th>Side</th>
+                <th>Point of Contact Role</th>
+                <th>What They Handle</th>
+                <th>Contact Details / Lookup</th>
+              </tr>
+            </thead>
+            <tbody id="poc-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title"><span>🏛️</span> All UK Local Authorities Directory</h3>
+          <span id="la-count-badge" class="tag-pill teal">UK Councils</span>
+        </div>
+        <label for="la-dir-search">Filter UK Local Authorities (England, Wales, Scotland &amp; Northern Ireland)</label>
+        <input type="search" id="la-dir-search" placeholder="Search any council or local authority..." oninput="renderAllLocalAuthorities()" />
+        <div id="la-dir-list" class="grid-3"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title"><span>🎟️</span> Free SEN Cards, Activities, Forums &amp; Family Grants</h3>
+          <span class="tag-pill">Practical Support</span>
+        </div>
+        <div id="sen-cards-grants-list" class="grid-2"></div>
       </div>
     </section>
 
-    <!-- TAB 5: CRISIS & SEND -->
-    <section id="panel-crisis-conditions" data-panel="crisis-conditions" class="tab-panel" role="tabpanel" hidden>
-      <div id="crisis-anchor" class="card" style="border:2px solid #be123c;">
+    <!-- 5. CRISIS & SEND -->
+    <section id="panel-crisis-send" data-panel="crisis-send" class="tab-panel" role="tabpanel" hidden>
+      <div class="card" style="border:2px solid #be123c;">
         <div class="card-header">
-          <h2 class="card-title" style="color:#9f1239;"><span>🆘</span> 24/7 UK Crisis &amp; Mental Health Support</h2>
-          <span class="tag-pill" style="background:#ffe4e6;color:#9f1239;">Free &amp; Confidential</span>
+          <h2 class="card-title" style="color:#9f1239;"><span>🆘</span> 24/7 Crisis &amp; Mental Health Helplines (UK)</h2>
+          <span class="tag-pill" style="background:#ffe4e6;color:#9f1239;">Urgent Support</span>
         </div>
         <div class="grid-3">
           <div class="callout rose" style="margin:0;">
-            <h4>NHS 111 — Mental Health (Option 2)</h4>
-            <p><strong>Call 111 (Option 2)</strong> • 24/7 urgent mental health support across England.</p>
+            <h4>Emergency — 999</h4>
+            <p><strong>Call 999</strong> if there is an immediate threat to life or severe safety risk.</p>
           </div>
           <div class="callout rose" style="margin:0;">
-            <h4>Emergency (999)</h4>
-            <p><strong>Call 999</strong> if there is immediate danger to life or severe harm.</p>
+            <h4>NHS 111 Mental Health (Option 2)</h4>
+            <p><strong>Call 111 and select Option 2</strong> for 24/7 urgent mental health support in England.</p>
           </div>
           <div class="callout" style="margin:0;">
             <h4>Shout 85258</h4>
-            <p><strong>Text SHOUT to 85258</strong> • Free 24/7 confidential text support.</p>
+            <p><strong>Text SHOUT to 85258</strong> for free, confidential 24/7 crisis text support.</p>
           </div>
           <div class="callout" style="margin:0;">
             <h4>Samaritans</h4>
-            <p><strong>Call 116 123</strong> • Free 24/7 listening support.</p>
+            <p><strong>Call 116 123</strong> (free, 24/7) for confidential emotional support.</p>
           </div>
           <div class="callout teal" style="margin:0;">
             <h4>Childline</h4>
-            <p><strong>Call 0800 1111</strong> • Free support for under-19s.</p>
+            <p><strong>Call 0800 1111</strong> (free, 24/7) for children and young people under 19.</p>
           </div>
           <div class="callout teal" style="margin:0;">
-            <h4>YoungMinds Parents</h4>
-            <p><strong>Call 0808 802 5544</strong> • Mon–Fri 9:30am–4pm parent helpline.</p>
+            <h4>YoungMinds Parents Helpline</h4>
+            <p><strong>Call 0808 802 5544</strong> for free advice on child and young person mental health.</p>
           </div>
         </div>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><span>⚖️</span> Bullying, Equality Act 2010 &amp; Section 19 Duties</h3>
+          <h3 class="card-title"><span>⚖️</span> Bullying, Equality Act 2010 &amp; Education Duties</h3>
         </div>
         <div class="grid-3">
           <div class="callout amber" style="margin:0;">
-            <h4>Equality Act 2010</h4>
-            <p>Schools must make reasonable adjustments for disabled pupils and avoid disability-related disadvantage.</p>
+            <h4>Equality Act 2010 — Reasonable Adjustments</h4>
+            <p>Schools and colleges have a legal duty to take reasonable steps so disabled pupils are not placed at a substantial disadvantage.</p>
           </div>
           <div class="callout" style="margin:0;">
-            <h4>Section 19 Education Act 1996</h4>
-            <p>Local Authorities must arrange suitable alternative education if a child cannot attend school due to illness, exclusion, or anxiety/EBSA.</p>
+            <h4>Anti-Bullying &amp; Safeguarding</h4>
+            <p>Schools must safeguard pupils and act on bullying—including disability, SEND, or identity-related bullying—under safeguarding and behaviour policies.</p>
           </div>
           <div class="callout teal" style="margin:0;">
-            <h4>Bullying &amp; Safeguarding</h4>
-            <p>Schools must log and address bullying promptly under safeguarding and anti-bullying duties.</p>
+            <h4>Section 19 Education Act 1996</h4>
+            <p>Local Authorities must arrange suitable education where a child cannot attend school due to illness, exclusion, or anxiety/EBSA.</p>
           </div>
         </div>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><span>🩺</span> Common Childhood SEND &amp; Health Conditions Guide</h3>
+          <h3 class="card-title"><span>🩺</span> Top 20 Childhood Conditions &amp; External UK Organisations</h3>
+          <span class="tag-pill teal">20 Conditions + External Links</span>
         </div>
-        <label for="condition-search">Search Conditions &amp; Adjustments</label>
-        <input type="search" id="condition-search" placeholder="e.g., Autism, ADHD, PDA, Dyslexia, DLD, Sensory, Epilepsy..." oninput="renderConditions()" />
-        <div id="conditions-grid" class="grid-2"></div>
+        <label for="cond-search-input">Search Top 20 Conditions</label>
+        <input type="search" id="cond-search-input" placeholder="Search condition or UK organisation..." oninput="renderTop20Conditions()" />
+        <div id="top20-conditions-grid" class="grid-2"></div>
       </div>
     </section>
 
-    <!-- TAB 6: EVIDENCE VAULT -->
-    <section id="panel-evidence" data-panel="evidence" class="tab-panel" role="tabpanel" hidden>
+    <!-- 6. EVIDENCE VAULT (PICTURES & VIDEOS IN INDEXEDDB + LOCALSTORAGE FALLBACK) -->
+    <section id="panel-evidence-vault" data-panel="evidence-vault" class="tab-panel" role="tabpanel" hidden>
       <div class="card">
         <div class="card-header">
-          <h2 class="card-title"><span>📸</span> Picture Evidence Vault</h2>
-          <div class="btn-row">
-            <button type="button" class="btn btn-outline" style="min-height:36px;padding:6px 12px;" onclick="openModal('vault-modal')">🔒 PIN Lock</button>
-            <span class="tag-pill teal">Local Compressed Storage</span>
-          </div>
+          <h2 class="card-title"><span>🎬</span> Evidence Vault (Pictures &amp; Videos)</h2>
+          <span class="tag-pill teal">IndexedDB + LocalStorage Fallback</span>
         </div>
+        <p style="margin-top:0;font-size:0.9rem;">Upload pictures and videos (for example, school work, sensory environment photos, or video clips of real-world impact). Pictures are compressed automatically; videos up to ~35 MB are stored locally in IndexedDB.</p>
+
         <div class="grid-2">
           <div>
-            <label for="ev-photo-input">Choose Photo or Take Picture</label>
-            <input type="file" id="ev-photo-input" accept="image/*" />
+            <label for="ev-file-input">Choose Picture or Video File</label>
+            <input type="file" id="ev-file-input" accept="image/*,video/*" onchange="updateEvidenceLivePreview()" />
 
-            <label for="ev-area">SEND Area of Need</label>
+            <label for="ev-area">SEND / EHCP Area</label>
             <select id="ev-area">
               <option value="Cognition & Learning">Cognition &amp; Learning</option>
               <option value="Communication & Interaction">Communication &amp; Interaction</option>
               <option value="Social, Emotional & Mental Health (SEMH)">Social, Emotional &amp; Mental Health (SEMH)</option>
-              <option value="Sensory &/or Physical Needs">Sensory &amp;/or Physical Needs</option>
-              <option value="Health / Medical Care">Health / Medical Care</option>
+              <option value="Sensory & Physical Needs">Sensory &amp; Physical Needs</option>
+              <option value="Health & Medical Care">Health &amp; Medical Care</option>
             </select>
           </div>
           <div>
             <label for="ev-setting">Setting &amp; Date</label>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
               <select id="ev-setting">
-                <option value="Home (After School)">Home (After School)</option>
-                <option value="School / Classroom">School / Classroom</option>
-                <option value="Clinic / Therapy">Clinic / Therapy</option>
-                <option value="Community / Outing">Community / Outing</option>
+                <option value="Home">Home</option>
+                <option value="School">School</option>
+                <option value="Therapy / Clinic">Therapy / Clinic</option>
+                <option value="Community">Community</option>
               </select>
               <input type="date" id="ev-date" />
             </div>
 
-            <label for="ev-desc">Factual Note</label>
-            <input type="text" id="ev-desc" placeholder="e.g., Handwriting fatigue sample or sensory space photo" />
+            <label for="ev-caption">Caption / Notes</label>
+            <input type="text" id="ev-caption" placeholder="Describe what the picture or video shows..." />
           </div>
         </div>
 
+        <div id="ev-live-preview-wrap" style="display:none;margin-bottom:12px;padding:10px;border:1px solid #cbd5e1;border-radius:10px;background:#f8fafc;"></div>
+
         <div class="grid-2" style="align-items:end;">
           <div>
-            <button type="button" class="btn btn-teal" onclick="addPictureEvidence()">➕ Save Photo to Vault</button>
+            <button type="button" class="btn btn-teal" onclick="saveEvidenceMedia()">➕ Save Picture or Video</button>
           </div>
           <div>
-            <label for="ev-filter-area">Filter Saved Evidence by Area</label>
-            <select id="ev-filter-area" onchange="renderEvidenceGallery()">
-              <option value="all">All Areas</option>
-              <option value="Cognition & Learning">Cognition &amp; Learning</option>
-              <option value="Communication & Interaction">Communication &amp; Interaction</option>
-              <option value="Social, Emotional & Mental Health (SEMH)">Social, Emotional &amp; Mental Health (SEMH)</option>
-              <option value="Sensory &/or Physical Needs">Sensory &amp;/or Physical Needs</option>
-              <option value="Health / Medical Care">Health / Medical Care</option>
+            <label for="ev-filter-kind">Filter Vault Items</label>
+            <select id="ev-filter-kind" onchange="renderEvidenceGallery()">
+              <option value="all">All (Pictures &amp; Videos)</option>
+              <option value="image">Pictures Only</option>
+              <option value="video">Videos Only</option>
             </select>
           </div>
         </div>
 
-        <div id="evidence-gallery" class="evidence-grid"></div>
+        <div id="ev-gallery" class="evidence-grid"></div>
       </div>
     </section>
 
-    <!-- TAB 7: DAILY & MASKING -->
-    <section id="panel-daily-log" data-panel="daily-log" class="tab-panel" role="tabpanel" hidden>
+    <!-- 7. DAILY & MASKING (12-ITEM CHECKLIST + DAILY IMPACT & MASKING LOG + JSON BACKUP/RESTORE) -->
+    <section id="panel-daily-masking" data-panel="daily-masking" class="tab-panel" role="tabpanel" hidden>
       <div class="grid-2">
         <div class="card">
           <div class="card-header">
-            <h2 class="card-title"><span>📓</span> Daily Impact &amp; After-School Masking Log</h2>
+            <h2 class="card-title"><span>✅</span> 12-Item EHCP Preparation Checklist</h2>
+            <span id="prep-check-badge" class="tag-pill teal">0 / 12 Done</span>
           </div>
-          <div class="grid-2">
-            <div>
-              <label for="log-date">Date</label>
-              <input type="date" id="log-date" />
-            </div>
-            <div>
-              <label for="log-trigger">Pattern / Trigger</label>
-              <select id="log-trigger">
-                <option value="After-School Masking Release">After-School Masking Release</option>
-                <option value="Morning Distress / EBSA">Morning Distress / EBSA</option>
-                <option value="Sensory Overload">Sensory Overload</option>
-                <option value="Communication / Unmet Adjustment">Communication / Unmet Adjustment</option>
-                <option value="Sleep / Physical Exhaustion">Sleep / Physical Exhaustion</option>
-              </select>
-            </div>
-          </div>
-          <label for="log-notes">What Happened &amp; Impact</label>
-          <textarea id="log-notes" style="min-height:85px;" placeholder="Describe what happened at home or school and what support was needed..."></textarea>
-          <button type="button" class="btn btn-primary" onclick="addImpactLogEntry()">💾 Save Log Entry</button>
-          <div id="impact-log-list" style="margin-top:14px;max-height:300px;overflow-y:auto;"></div>
+          <div id="prep-checklist-box"></div>
         </div>
 
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title"><span>✅</span> 12-Item EHCP Readiness Checklist</h3>
-            <span id="bundle-progress-badge" class="tag-pill teal">0 / 12</span>
+            <h2 class="card-title"><span>📓</span> Daily Impact &amp; Masking Log</h2>
+            <span class="tag-pill">Saved Locally</span>
           </div>
-          <div id="bundle-checklist-container"></div>
+          <div class="grid-2">
+            <div>
+              <label for="dm-date">Date</label>
+              <input type="date" id="dm-date" />
+            </div>
+            <div>
+              <label for="dm-pattern">Impact / Masking Pattern</label>
+              <select id="dm-pattern">
+                <option value="After-School Masking Collapse">After-School Masking Collapse</option>
+                <option value="Morning Anxiety / EBSA">Morning Anxiety / EBSA</option>
+                <option value="Sensory Overload">Sensory Overload</option>
+                <option value="Unmet Reasonable Adjustment">Unmet Reasonable Adjustment</option>
+                <option value="Sleep / Fatigue Impact">Sleep / Fatigue Impact</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="dm-notes">Daily Impact &amp; Masking Notes</label>
+          <textarea id="dm-notes" style="min-height:90px;" placeholder="Record masking signs, triggers, recovery time, and home/school impact..."></textarea>
+          <button type="button" class="btn btn-primary" onclick="addDailyLog()">💾 Add Log Entry</button>
+
+          <div id="dm-log-list" style="margin-top:14px;"></div>
         </div>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><span>📦</span> JSON Backup &amp; Restore</h3>
+          <h3 class="card-title"><span>💾</span> JSON Backup &amp; Restore</h3>
+          <span class="tag-pill teal">Portable Local Data</span>
         </div>
+        <p style="margin-top:0;font-size:0.88rem;">Export your timeline, SENCO notes, checklist, custom contacts, and daily logs to a JSON file, or restore a JSON backup.</p>
         <div class="btn-row">
-          <button type="button" class="btn btn-teal" onclick="exportJsonBackup()">⬇️ Export JSON Backup</button>
-          <label class="btn btn-outline" style="margin:0;cursor:pointer;">
-            ⬆️ Import JSON Backup
-            <input type="file" accept=".json,application/json" style="display:none;" onchange="importJsonBackup(event)" />
-          </label>
+          <button type="button" class="btn btn-teal" onclick="exportBackupJson()">⬇️ Export Backup JSON</button>
+          <label for="restore-json-input" class="btn btn-outline" style="margin:0;cursor:pointer;">⬆️ Restore Backup JSON</label>
+          <input type="file" id="restore-json-input" accept="application/json,.json" onchange="restoreBackupJson(this)" style="display:none;" />
         </div>
       </div>
     </section>
 
-    <!-- TAB 8: EHCP LETTERS & LAW -->
-    <section id="panel-rights-letters" data-panel="rights-letters" class="tab-panel" role="tabpanel" hidden>
+    <!-- 8. EHCP LETTERS & LAW (SECTION 36 REQUEST LETTER + SECTION F WEASEL WORDS SCANNER + SECTIONS A–I GUIDE) -->
+    <section id="panel-ehcp-letters-law" data-panel="ehcp-letters-law" class="tab-panel" role="tabpanel" hidden>
       <div class="card">
         <div class="card-header">
-          <h2 class="card-title"><span>✉️</span> Section 36 EHC Assessment Request Letter Builder</h2>
+          <h2 class="card-title"><span>✉️</span> Section 36 EHC Needs Assessment Request Letter Builder</h2>
           <span class="tag-pill teal">Children &amp; Families Act 2014 s.36</span>
         </div>
+        <p style="margin-top:0;">Draft a formal written request to your Local Authority for an EHC needs assessment. No Local Authority name is filled in by default.</p>
+
         <div class="grid-3">
           <div>
-            <label for="ltr-parent-name">Parent / Carer Name</label>
-            <input type="text" id="ltr-parent-name" placeholder="e.g., Alex Morgan" oninput="generateSection36Letter()" />
+            <label for="s36-parent-name">Parent / Carer Full Name</label>
+            <input type="text" id="s36-parent-name" placeholder="Your full name" oninput="buildSection36Letter()" />
           </div>
           <div>
-            <label for="ltr-parent-address">Address &amp; Postcode</label>
-            <input type="text" id="ltr-parent-address" placeholder="e.g., Knutsford, Cheshire East" oninput="generateSection36Letter()" />
+            <label for="s36-address">Your Address &amp; Postcode</label>
+            <input type="text" id="s36-address" placeholder="Street, town, postcode" oninput="buildSection36Letter()" />
           </div>
           <div>
-            <label for="ltr-child-dob">Child's Date of Birth</label>
-            <input type="date" id="ltr-child-dob" onchange="generateSection36Letter()" />
+            <label for="s36-dob">Child's Date of Birth</label>
+            <input type="date" id="s36-dob" onchange="buildSection36Letter()" />
           </div>
           <div>
-            <label for="ltr-la-name">Local Authority Name</label>
-            <input type="text" id="ltr-la-name" value="Cheshire East Council" oninput="generateSection36Letter()" />
+            <label for="s36-la-name">Local Authority Name</label>
+            <input type="text" id="s36-la-name" placeholder="Enter Local Authority name" oninput="buildSection36Letter()" />
           </div>
           <div>
-            <label for="ltr-la-email">LA SEND Email</label>
-            <input type="email" id="ltr-la-email" value="send@cheshireeast.gov.uk" oninput="generateSection36Letter()" />
+            <label for="s36-la-email">Local Authority SEND Email</label>
+            <input type="email" id="s36-la-email" placeholder="send@council.example.gov.uk" oninput="buildSection36Letter()" />
           </div>
           <div>
-            <label for="ltr-needs-summary">Key Needs / Diagnoses</label>
-            <input type="text" id="ltr-needs-summary" placeholder="e.g., Autism, ADHD, sensory needs" oninput="generateSection36Letter()" />
+            <label for="s36-needs">Summary of SEND Needs</label>
+            <input type="text" id="s36-needs" placeholder="e.g., communication, sensory, learning" oninput="buildSection36Letter()" />
           </div>
         </div>
-        <label for="ltr-evidence-points">Key Evidence Points</label>
-        <textarea id="ltr-evidence-points" style="min-height:80px;" placeholder="- Difficulties despite SEN Support&#10;- Impact on learning, regulation &amp; attendance" oninput="generateSection36Letter()"></textarea>
 
-        <label for="ltr-generated-output">Generated Section 36 Letter</label>
-        <textarea id="ltr-generated-output" style="min-height:220px;font-family:Georgia,serif;"></textarea>
+        <label for="s36-evidence">Evidence &amp; Reasons for EHC Needs Assessment</label>
+        <textarea id="s36-evidence" style="min-height:85px;" placeholder="Summarise SEN Support cycles, specialist reports, attendance/anxiety impact, or evidence..." oninput="buildSection36Letter()"></textarea>
+
+        <label for="s36-output">Generated Section 36 Request Letter</label>
+        <textarea id="s36-output" style="min-height:210px;font-family:Georgia,serif;"></textarea>
+
         <div class="btn-row">
-          <button type="button" class="btn btn-primary" onclick="copyTextFromId('ltr-generated-output', 'Section 36 letter copied!')">📋 Copy Letter</button>
-          <button type="button" class="btn btn-teal" onclick="openSection36Mailto()">✉️ Email LA</button>
-          <button type="button" class="btn btn-outline" onclick="downloadSection36Txt()">⬇️ Download .TXT</button>
+          <button type="button" class="btn btn-primary" onclick="copyField('s36-output', 'Section 36 letter copied!')">📋 Copy Letter</button>
+          <button type="button" class="btn btn-teal" onclick="sendSection36Mailto()">✉️ Open in Email App</button>
+          <button type="button" class="btn btn-outline" onclick="downloadText('Section-36-Request.txt', document.getElementById('s36-output').value, 'text/plain')">⬇️ Download .TXT</button>
           <button type="button" class="btn btn-outline" onclick="window.print()">🖨️ Print</button>
         </div>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><span>🔍</span> Section F "Weasel Word" Scanner</h3>
+          <h3 class="card-title"><span>🔍</span> Section F "Weasel Words" Scanner</h3>
           <span class="tag-pill amber">Specific &amp; Quantified Check</span>
         </div>
-        <textarea id="secf-input" style="min-height:105px;" placeholder="Paste draft Section F provision text here to check for vague 'weasel words'..."></textarea>
+        <p style="margin-top:0;">Section F contains special educational provision. Vague wording such as <em>"would benefit from"</em>, <em>"as required"</em>, <em>"as appropriate"</em>, or <em>"support from"</em> without clear detail can leave provision hard to enforce. Paste draft Section F text below to scan and highlight vague phrases.</p>
+
+        <label for="fscan-input">Draft Section F Wording</label>
+        <textarea id="fscan-input" style="min-height:125px;" placeholder="Paste draft Section F wording here..."></textarea>
+
         <div class="btn-row" style="margin-bottom:12px;">
-          <button type="button" class="btn btn-amber" onclick="scanSectionF()">🔎 Scan Section F Text</button>
-          <button type="button" class="btn btn-outline" onclick="loadSampleWeaselText()">Load Sample Draft</button>
+          <button type="button" class="btn btn-amber" onclick="runSectionFScanner()">🔎 Scan for Weasel Words</button>
+          <button type="button" class="btn btn-outline" onclick="loadSampleSectionF()">Load Sample Draft</button>
+          <button type="button" class="btn btn-outline" onclick="copyField('fscan-input', 'Section F wording copied!')">📋 Copy Wording</button>
         </div>
-        <div id="secf-results" class="callout" style="display:none;"></div>
+
+        <div id="fscan-output" class="callout" style="display:none;"></div>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><span>📚</span> EHCP Sections A–I &amp; Jargon Buster</h3>
+          <h3 class="card-title"><span>📋</span> EHCP Sections A–I — Clear Parent Instructions for Each Section</h3>
+          <span class="tag-pill teal">Sections A to I</span>
         </div>
-        <div class="grid-3" id="sections-guide-grid"></div>
-      </div>
-    </section>
-
-    <!-- TAB 9: COMMUNITY & CHAT -->
-    <section id="panel-community" data-panel="community" class="tab-panel" role="tabpanel" hidden>
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-header">
-            <h2 class="card-title"><span>🤖</span> Offline SEND Advisor Q&amp;A</h2>
-          </div>
-          <label for="advisor-question">Ask a Question</label>
-          <input type="text" id="advisor-question" placeholder="e.g., Refusal to assess, annual review, transport, EBSA..." />
-          <div class="btn-row" style="margin-bottom:12px;">
-            <button type="button" class="btn btn-primary" onclick="runSendAdvisor()">Ask Advisor</button>
-            <button type="button" class="btn btn-outline" onclick="askPresetQuestion('Refusal to assess')">Refusal</button>
-            <button type="button" class="btn btn-outline" onclick="askPresetQuestion('Annual review')">Annual Review</button>
-            <button type="button" class="btn btn-outline" onclick="askPresetQuestion('School transport')">Transport</button>
-          </div>
-          <div id="advisor-answer" class="callout teal">
-            <h4>SEND Statutory Guide</h4>
-            <p>Ask a question above or choose a topic button for instant guidance.</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title"><span>⭐</span> Rating &amp; Suggestion Box</h3>
-          </div>
-          <div id="star-rating-row" style="margin-bottom:10px;">
-            <button type="button" class="star-btn lit" data-star="1" onclick="setRating(1)">★</button>
-            <button type="button" class="star-btn lit" data-star="2" onclick="setRating(2)">★</button>
-            <button type="button" class="star-btn lit" data-star="3" onclick="setRating(3)">★</button>
-            <button type="button" class="star-btn lit" data-star="4" onclick="setRating(4)">★</button>
-            <button type="button" class="star-btn lit" data-star="5" onclick="setRating(5)">★</button>
-          </div>
-          <label for="feedback-text">Suggestion or Feedback</label>
-          <textarea id="feedback-text" style="min-height:80px;" placeholder="Share ideas for new templates or improvements..."></textarea>
-          <button type="button" class="btn btn-teal" onclick="saveFeedbackNote()">Save Suggestion</button>
-          <div id="feedback-saved-msg" style="font-size:0.85rem;color:#047857;font-weight:700;margin-top:8px;"></div>
-        </div>
+        <p style="margin-top:0;">How to fill in and check each statutory section of an EHCP so nothing important is missed.</p>
+        <div id="sections-ai-cards" class="grid-2"></div>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><span>💬</span> Parent Community Tips Board</h3>
+          <h3 class="card-title"><span>📖</span> SEND &amp; EHCP Jargon Buster</h3>
         </div>
-        <div class="grid-2" style="align-items:end;">
-          <div>
-            <label for="peer-tip-author">Your Name / Area</label>
-            <input type="text" id="peer-tip-author" placeholder="e.g., Parent in Cheshire East" />
-          </div>
-          <div>
-            <label for="peer-tip-text">Practical Tip</label>
-            <input type="text" id="peer-tip-text" placeholder="Share a helpful tip with other SEND families..." />
-          </div>
-        </div>
-        <button type="button" class="btn btn-primary" onclick="addPeerTip()">Post Tip</button>
-        <div id="peer-tips-list" style="margin-top:14px;"></div>
+        <div id="jargon-cards" class="grid-3"></div>
       </div>
     </section>
 
-    <!-- TAB 10: APP & STORE KIT -->
-    <section id="panel-store-launch" data-panel="store-launch" class="tab-panel" role="tabpanel" hidden>
-      <div class="card">
-        <div class="hero-card">
-          <div class="hero-emblem-box">
-            <img src="./1000166861.png" alt="EHCP Parent Compass App Emblem" onerror="window.applyEmblemFallback(this);" />
-          </div>
-          <div>
-            <h2 class="card-title" style="font-size:1.2rem;">App &amp; Store Kit (GitHub Pages, Privacy Policy &amp; Store Wrapping)</h2>
-            <p style="margin:6px 0 0;">Keep <code>index.html</code>, <code>privacy-policy.html</code>, and <code>1000166861.png</code> in your repository root so your GitHub Pages site serves the app cleanly over HTTPS and links to your public privacy policy.</p>
-          </div>
-        </div>
-      </div>
-
+    <!-- 9. COMMUNITY & CHAT (MODERATED COMMUNITY BOARD, 1–5 STAR RATING, SUGGESTION BOX) -->
+    <section id="panel-community-chat" data-panel="community-chat" class="tab-panel" role="tabpanel" hidden>
       <div class="grid-2">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title"><span>📄</span> Privacy Policy &amp; PWA Files</h3>
+            <h2 class="card-title"><span>🤝</span> Parent Community Board</h2>
+            <span class="tag-pill teal">Moderated Peer Space</span>
           </div>
-          <p style="font-size:0.9rem;margin-top:0;">Public link: <a href="./privacy-policy.html">./privacy-policy.html</a> (once uploaded to your GitHub Pages root).</p>
+          <div class="callout amber" style="margin-bottom:12px;">
+            <h4>Community Guidelines</h4>
+            <p>Keep posts respectful, supportive, and free of personal identifying details or identifiable photos. Posts are checked locally before adding to your board.</p>
+          </div>
+
+          <label for="comm-author">Display Name / Role</label>
+          <input type="text" id="comm-author" placeholder="e.g., Parent of two" />
+
+          <label for="comm-topic">Topic</label>
+          <select id="comm-topic">
+            <option value="SEN Support & APDR">SEN Support &amp; APDR</option>
+            <option value="20-Week Process & Drafts">20-Week Process &amp; Drafts</option>
+            <option value="Masking & Sensory Support">Masking &amp; Sensory Support</option>
+            <option value="Annual Reviews & Transitions">Annual Reviews &amp; Transitions</option>
+          </select>
+
+          <label for="comm-message">Message</label>
+          <textarea id="comm-message" style="min-height:90px;" placeholder="Share a supportive tip or question..."></textarea>
+          <button type="button" class="btn btn-primary" onclick="addCommunityPost()">Post to Community Board</button>
+
+          <div id="comm-board-list" style="margin-top:14px;"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title"><span>⭐</span> App Rating &amp; Suggestion Box</h3>
+            <span id="rating-summary-badge" class="tag-pill">No ratings yet</span>
+          </div>
+          <p style="margin-top:0;font-size:0.88rem;">Rate EHCP Parent Compass (1–5 stars) and share suggestions for improving guides, tools, or local information.</p>
+
+          <div class="btn-row" style="margin-bottom:12px;" role="group" aria-label="Rate 1 to 5 stars">
+            <button type="button" class="star-btn" data-star="1" onclick="selectStarRating(1)">1 ★</button>
+            <button type="button" class="star-btn" data-star="2" onclick="selectStarRating(2)">2 ★</button>
+            <button type="button" class="star-btn" data-star="3" onclick="selectStarRating(3)">3 ★</button>
+            <button type="button" class="star-btn" data-star="4" onclick="selectStarRating(4)">4 ★</button>
+            <button type="button" class="star-btn" data-star="5" onclick="selectStarRating(5)">5 ★</button>
+          </div>
+
+          <label for="suggestion-input">Suggestion / Feedback</label>
+          <textarea id="suggestion-input" style="min-height:95px;" placeholder="What would make this app more helpful for parents and carers?"></textarea>
+          <button type="button" class="btn btn-teal" onclick="saveFeedbackAndRating()">Submit Rating &amp; Suggestion</button>
+
+          <div id="suggestion-list" style="margin-top:14px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. AI COMPASS (EMPATHETIC CONVERSATIONAL SEND & EHCP ADVISOR) -->
+    <section id="panel-ai-compass" data-panel="ai-compass" class="tab-panel" role="tabpanel" hidden>
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title"><span>💬</span> AI Compass — Empathetic SEND &amp; EHCP Assistant</h2>
+          <span class="tag-pill teal">Human Guidance + Tab &amp; UK Links</span>
+        </div>
+        <p style="margin-top:0;">Talk openly with AI Compass about what you're facing—such as <em>"my child is in crisis"</em>, <em>"the school aren't helping"</em>, Section F wording, Sections A–I, 20-week deadlines, photo/video evidence, masking logs, conditions, or finding the right tab or external UK support.</p>
+
+        <div id="ai-chat-log" class="ai-chat-log" aria-live="polite"></div>
+
+        <label for="ai-prompt-input">Message AI Compass</label>
+        <input type="text" id="ai-prompt-input" placeholder="Tell AI Compass what's happening or ask a question..." onkeydown="if(event.key==='Enter'){sendAiMessage();}" />
+
+        <div class="btn-row" style="margin-bottom:14px;">
+          <button type="button" class="btn btn-primary" onclick="sendAiMessage()">Send Message</button>
+          <button type="button" class="btn btn-outline" onclick="quickAiPrompt('My child is in crisis right now')">My child is in crisis</button>
+          <button type="button" class="btn btn-outline" onclick="quickAiPrompt('The school aren\'t helping my child')">School aren't helping</button>
+          <button type="button" class="btn btn-outline" onclick="quickAiPrompt('Help me check Section F and Sections A-I')">Section F &amp; A-I</button>
+        </div>
+
+        <div class="callout teal" style="margin-bottom:0;">
+          <h4>External UK SEND &amp; Legal Resources</h4>
+          <p>
+            <a href="https://www.ipsea.org.uk" target="_blank" rel="noopener noreferrer">IPSEA</a> •
+            <a href="https://www.sossen.org.uk" target="_blank" rel="noopener noreferrer">SOS!SEN</a> •
+            <a href="https://councilfordisabledchildren.org.uk" target="_blank" rel="noopener noreferrer">Council for Disabled Children</a> •
+            <a href="https://www.gov.uk/government/publications/send-code-of-practice-0-to-25" target="_blank" rel="noopener noreferrer">GOV.UK SEND Code of Practice</a> •
+            <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ICO (UK GDPR)</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. APP & STORE KIT -->
+    <section id="panel-app-store-kit" data-panel="app-store-kit" class="tab-panel" role="tabpanel" hidden>
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title"><span>📱</span> PWA, Capacitor &amp; TWA Store-Wrapping Checklist</h2>
+          <span class="tag-pill teal">Google Play &amp; App Store</span>
+        </div>
+        <div class="story-hero">
+          <div class="story-emblem-box" style="width:96px;height:96px;">
+            <img src="./1000166861.png" alt="EHCP Parent Compass Emblem" onerror="window.applyEmblemFallback(this);" />
+          </div>
+          <div>
+            <p style="margin:0 0 10px;font-size:0.92rem;">Hosting at <code>https://simonfarrell86-ui.github.io/EHCP-PARENT-COMPASS-/</code> gives you HTTPS for web access, Android TWA (Trusted Web Activity), and Capacitor packaging for Android and iOS.</p>
+            <ul style="margin:0;padding-left:18px;font-size:0.88rem;">
+              <li>Verify <code>index.html</code>, <code>1000166861.png</code>, and <code>privacy-policy.html</code> are committed at the repository root with a green GitHub Actions build.</li>
+              <li>Ensure your public privacy policy URL (<code>/privacy-policy.html</code>) is linked in both Google Play Console and App Store Connect.</li>
+              <li>Configure your PWA manifest / service worker, store icons, and Capacitor/TWA wrapper before store submission.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. PRIVACY & SECURITY -->
+    <section id="panel-privacy-security" data-panel="privacy-security" class="tab-panel" role="tabpanel" hidden>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title"><span>🔒</span> Security PIN Lock &amp; Auto-Lock</h2>
+            <span class="tag-pill teal">Local Device Protection</span>
+          </div>
+          <p style="margin-top:0;font-size:0.9rem;">Protect your local EHCP notes, checklists, and photo/video evidence on this device with a 4–8 digit PIN.</p>
+
+          <label for="vault-pin-setup">Set or Update PIN (4–8 digits)</label>
+          <input type="password" id="vault-pin-setup" inputmode="numeric" maxlength="8" placeholder="Enter 4–8 digits" />
+
+          <label for="vault-autolock-select">Auto-Lock Inactivity Timer</label>
+          <select id="vault-autolock-select" onchange="saveVaultConfig()">
+            <option value="0">Manual lock only</option>
+            <option value="5">Lock after 5 minutes inactive</option>
+            <option value="15">Lock after 15 minutes inactive</option>
+          </select>
+
           <div class="btn-row">
-            <button type="button" class="btn btn-primary" onclick="downloadTextFile('privacy-policy.html', buildPrivacyPolicyHtml(), 'text/html')">⬇️ privacy-policy.html</button>
-            <button type="button" class="btn btn-primary" onclick="downloadTextFile('manifest.json', buildManifestJson(), 'application/json')">⬇️ manifest.json</button>
-            <button type="button" class="btn btn-primary" onclick="downloadTextFile('sw.js', buildServiceWorkerJs(), 'application/javascript')">⬇️ sw.js</button>
-            <button type="button" class="btn btn-teal" onclick="downloadCanvasIcon(192)">⬇️ icon-192.png</button>
-            <button type="button" class="btn btn-teal" onclick="downloadCanvasIcon(512)">⬇️ icon-512.png</button>
+            <button type="button" class="btn btn-primary" onclick="saveVaultPin()">💾 Save PIN</button>
+            <button type="button" class="btn btn-teal" onclick="lockVaultNow()">🔒 Lock Now</button>
+            <button type="button" class="btn btn-outline" onclick="clearVaultPin()">Disable PIN</button>
           </div>
         </div>
 
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title"><span>📱</span> Google Play &amp; Apple App Store Checklist</h3>
+            <h3 class="card-title"><span>🛡️</span> Local Storage Status &amp; Full Data Wipe</h3>
           </div>
-          <ul style="padding-left:20px;margin:0;font-size:0.9rem;">
-            <li><strong>GitHub Pages Live:</strong> Confirm <code>index.html</code> is at the root of <code>main</code> and loads with a green build in <em>Actions</em>.</li>
-            <li><strong>Privacy Policy URL:</strong> Publish <code>privacy-policy.html</code> at your live <code>https://</code> site and add the link to Google Play Console &amp; App Store Connect.</li>
-            <li><strong>Wrapping &amp; Accounts:</strong> Wrap your live HTTPS URL with Capacitor or Android Trusted Web Activity (TWA), complete Google Play testing &amp; App Store metadata, and submit.</li>
-          </ul>
+          <p style="margin-top:0;font-size:0.9rem;">All data stays in browser storage on your device. See <a href="./privacy-policy.html">privacy-policy.html</a> and <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ICO UK GDPR guidance</a>.</p>
+
+          <div id="storage-inspector-box" class="callout" style="margin-bottom:12px;"></div>
+
+          <div class="btn-row">
+            <button type="button" class="btn btn-outline" onclick="refreshStorageInspector()">🔄 Refresh Status</button>
+            <button type="button" class="btn btn-teal" onclick="exportBackupJson()">⬇️ Export JSON</button>
+            <button type="button" class="btn btn-danger" onclick="clearAllLocalStorageAndMedia()">🗑️ Wipe All Local Data</button>
+          </div>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- SECURITY VAULT MODAL -->
-  <div id="vault-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="vault-modal-title">
-    <div class="modal-box">
-      <div class="card-header">
-        <h2 id="vault-modal-title" class="card-title"><span>🔒</span> Security &amp; Privacy Vault</h2>
-        <button type="button" class="btn btn-outline" style="min-height:36px;padding:6px 12px;" onclick="closeModal('vault-modal')">✕</button>
-      </div>
-      <p style="font-size:0.9rem;margin-top:0;">Set a 4–8 digit PIN to lock local access on shared devices, or wipe local data anytime.</p>
-
-      <label for="vault-new-pin">Set or Update PIN (4–8 digits)</label>
-      <input type="password" id="vault-new-pin" inputmode="numeric" maxlength="8" placeholder="Enter 4–8 digit PIN" />
-
-      <label for="vault-autolock">Auto-Lock Timer</label>
-      <select id="vault-autolock" onchange="saveVaultSettings()">
-        <option value="0">Manual Lock Only</option>
-        <option value="5">After 5 Minutes</option>
-        <option value="15">After 15 Minutes</option>
-      </select>
-
-      <div class="btn-row" style="margin-bottom:14px;">
-        <button type="button" class="btn btn-primary" onclick="setVaultPin()">💾 Save PIN</button>
-        <button type="button" class="btn btn-teal" onclick="lockVaultNow()">🔒 Lock Now</button>
-        <button type="button" class="btn btn-outline" onclick="disableVaultPin()">Remove PIN</button>
-      </div>
-
-      <div class="callout rose" style="margin-bottom:0;">
-        <h4>Wipe All Local Data</h4>
-        <p style="margin-bottom:8px;">Permanently erase saved dates, SENCO contacts, logs, and photos from this browser.</p>
-        <button type="button" class="btn btn-danger" onclick="emergencyWipeAllData()">🗑️ Wipe All Local Data</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- LIGHTBOX MODAL FOR EVIDENCE PHOTOS -->
-  <div id="lightbox-modal" class="modal-backdrop" role="dialog" aria-modal="true" onclick="closeModal('lightbox-modal')">
-    <div class="modal-box" style="max-width:720px;text-align:center;" onclick="event.stopPropagation()">
-      <img id="lightbox-img" alt="Full size evidence preview" style="max-width:100%;max-height:70vh;border-radius:10px;display:block;margin:0 auto 12px;" />
-      <p id="lightbox-caption" style="font-size:0.92rem;font-weight:700;margin:0 0 12px;"></p>
-      <button type="button" class="btn btn-primary" onclick="closeModal('lightbox-modal')">Close Preview</button>
+  <!-- Full-Size Picture / Video Preview Modal -->
+  <div id="media-preview-modal" class="modal-backdrop" role="dialog" aria-modal="true" onclick="closeModal('media-preview-modal')">
+    <div class="modal-box" style="max-width:760px;text-align:center;" onclick="event.stopPropagation()">
+      <div id="media-preview-stage" style="margin-bottom:12px;"></div>
+      <p id="media-preview-caption" style="font-size:0.92rem;font-weight:700;margin:0 0 12px;"></p>
+      <button type="button" class="btn btn-primary" onclick="closeModal('media-preview-modal')">Close Preview</button>
     </div>
   </div>
 
@@ -1482,126 +1670,69 @@
   <div id="app-toast" class="toast-banner" role="status" aria-live="polite"></div>
 
   <script>
-    /* ==========================================================================
-       1. EVENT DELEGATION & DIRECT TAB LISTENER WIRING
-       ========================================================================== */
-    (function wireTabNavigation() {
+    /* ========================================================================
+       1. LAYER 3 TAB DELEGATION & INACTIVITY AUTO-LOCK
+       ======================================================================== */
+    var _lastActivityTs = Date.now();
+
+    function touchActivity() {
+      _lastActivityTs = Date.now();
+    }
+
+    ["click", "keydown", "touchstart", "input"].forEach(function (evtName) {
+      document.addEventListener(evtName, touchActivity, { passive: true });
+    });
+
+    setInterval(function () {
+      try {
+        var cfg = lsGet("vaultCfg", {});
+        var mins = Number(cfg.autoLockMins || 0);
+        if (cfg.pinHash && mins > 0) {
+          var elapsedMins = (Date.now() - _lastActivityTs) / 60000;
+          if (elapsedMins >= mins) {
+            lockVaultNow();
+          }
+        }
+      } catch (e) {}
+    }, 30000);
+
+    (function setupTabDelegation() {
       try {
         var nav = document.getElementById("main-tab-nav");
         if (nav) {
           nav.addEventListener("click", function (e) {
-            var target = e.target;
-            while (target && target !== nav && !target.classList.contains("tab-btn")) {
-              target = target.parentElement;
+            var el = e.target;
+            while (el && el !== nav && !el.classList.contains("tab-btn")) {
+              el = el.parentElement;
             }
-            if (target && target.classList && target.classList.contains("tab-btn")) {
+            if (el && el.classList && el.classList.contains("tab-btn")) {
               e.preventDefault();
-              window.switchTab(target.getAttribute("data-tab"), target);
+              window.switchTab(el.getAttribute("data-tab"), el);
             }
           });
         }
-
-        var allBtns = document.querySelectorAll(".tab-btn");
-        for (var i = 0; i < allBtns.length; i++) {
-          (function (btn) {
-            btn.addEventListener("click", function (e) {
-              e.preventDefault();
-              window.switchTab(btn.getAttribute("data-tab"), btn);
-            });
-          })(allBtns[i]);
-        }
-      } catch (err) {
-        console.error("Tab listener setup error:", err);
-      }
-    })();
-
-    /* ==========================================================================
-       2. SAFE PWA MANIFEST & SERVICE WORKER REGISTRATION
-       ========================================================================== */
-    (function registerSafePwaAssets() {
-      try {
-        var iconUrl = "./1000166861.png";
-        var manifestObj = {
-          name: "EHCP Parent Compass",
-          short_name: "EHCP Compass",
-          description: "Cheshire East & England SEND / EHCP Parent Navigation PWA",
-          start_url: "./index.html",
-          display: "standalone",
-          background_color: "#0f2942",
-          theme_color: "#0f2942",
-          icons: [
-            { src: iconUrl, sizes: "192x192", type: "image/png" },
-            { src: iconUrl, sizes: "512x512", type: "image/png" }
-          ]
-        };
-        var manifestBlob = new Blob([JSON.stringify(manifestObj)], { type: "application/manifest+json" });
-        var manifestUrl = URL.createObjectURL(manifestBlob);
-        var link = document.createElement("link");
-        link.rel = "manifest";
-        link.href = manifestUrl;
-        document.head.appendChild(link);
-      } catch (e) {}
-
-      try {
-        if ("serviceWorker" in navigator && window.location.protocol === "https:") {
-          navigator.serviceWorker.register("./sw.js").catch(function () {});
-        }
       } catch (e) {}
     })();
 
-    /* ==========================================================================
-       3. STORAGE, OPTIONAL AES-GCM HELPER & TEXT UTILITIES
-       ========================================================================== */
-    var STORAGE_PREFIX = "ehcp_compass_v5_";
+    /* ========================================================================
+       2. LOCAL STORAGE & INDEXEDDB MEDIA VAULT
+       ======================================================================== */
+    var LS_PREFIX = "ehcp_compass_v9_";
 
-    function readStore(key, fallback) {
+    function lsGet(key, fallback) {
       try {
-        var raw = localStorage.getItem(STORAGE_PREFIX + key);
+        var raw = localStorage.getItem(LS_PREFIX + key);
         return raw ? JSON.parse(raw) : fallback;
       } catch (e) {
         return fallback;
       }
     }
 
-    function writeStore(key, val) {
+    function lsSet(key, val) {
       try {
-        localStorage.setItem(STORAGE_PREFIX + key, JSON.stringify(val));
+        localStorage.setItem(LS_PREFIX + key, JSON.stringify(val));
       } catch (e) {
-        window.showToast("Storage full — export a JSON backup or remove old photos.");
-      }
-    }
-
-    async function encryptNoteAesGcm(plainText, passphrase) {
-      try {
-        if (!window.crypto || !window.crypto.subtle || !passphrase) {
-          return { cipher: btoa(unescape(encodeURIComponent(plainText))), fallback: true };
-        }
-        var enc = new TextEncoder();
-        var keyMaterial = await window.crypto.subtle.importKey(
-          "raw",
-          enc.encode(passphrase),
-          { name: "PBKDF2" },
-          false,
-          ["deriveKey"]
-        );
-        var salt = window.crypto.getRandomValues(new Uint8Array(12));
-        var iv = window.crypto.getRandomValues(new Uint8Array(12));
-        var aesKey = await window.crypto.subtle.deriveKey(
-          { name: "PBKDF2", salt: salt, iterations: 50000, hash: "SHA-256" },
-          keyMaterial,
-          { name: "AES-GCM", length: 256 },
-          false,
-          ["encrypt"]
-        );
-        var buf = await window.crypto.subtle.encrypt({ name: "AES-GCM", iv: iv }, aesKey, enc.encode(plainText));
-        return {
-          fallback: false,
-          iv: Array.from(iv),
-          salt: Array.from(salt),
-          data: Array.from(new Uint8Array(buf))
-        };
-      } catch (e) {
-        return { cipher: btoa(unescape(encodeURIComponent(plainText))), fallback: true };
+        window.showToast("Local storage full — export JSON or clear older entries.");
       }
     }
 
@@ -1613,698 +1744,517 @@
         .replace(/"/g, "&quot;");
     }
 
-    function copyTextFromId(id, toastMsg) {
+    function copyField(id, msg) {
       var el = document.getElementById(id);
       if (!el) return;
       el.select();
       el.setSelectionRange(0, 99999);
       try {
         document.execCommand("copy");
-        window.showToast(toastMsg || "Copied to clipboard!");
+        window.showToast(msg || "Copied!");
       } catch (e) {
-        window.showToast("Select text and tap Copy.");
+        window.showToast("Select text to copy.");
       }
     }
 
-    /* ==========================================================================
-       4. TAB 2: 20-WEEK STATUTORY TIMELINE & STAGES
-       ========================================================================== */
-    var EHCP_STAGES = [
-      { id: "s1", title: "Stage 1: Written Section 36 Request Sent", desc: "Written request submitted to Local Authority SEND Team with dated copy saved." },
-      { id: "s2", title: "Stage 2: Week 6 Decision", desc: "LA notifies decision on whether to carry out an EHC needs assessment." },
-      { id: "s3", title: "Stage 3: Multi-Agency Advice (Weeks 6–12)", desc: "EP, school, health, social care, and parent views gathered." },
-      { id: "s4", title: "Stage 4: Week 16 Draft EHCP", desc: "Draft EHCP issued with Section I blank for parent school preference." },
-      { id: "s5", title: "Stage 5: 15-Day Draft Review & School Naming", desc: "Review Sections B & F and express preferred school/setting." },
-      { id: "s6", title: "Stage 6: 15-Day School Consultation", desc: "LA consults preferred school/college under Section 39." },
-      { id: "s7", title: "Stage 7: Week 20 Final EHCP", desc: "Final EHCP issued with named school in Section I." }
-    ];
+    function downloadText(filename, content, mime) {
+      var blob = new Blob([content || ""], { type: mime || "text/plain" });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    }
 
-    function formatUkDate(dateObj) {
-      if (!dateObj || isNaN(dateObj.getTime())) return "—";
-      return dateObj.toLocaleDateString("en-GB", {
-        weekday: "short",
-        day: "numeric",
-        month: "short",
-        year: "numeric"
+    var IDB_NAME = "ehcp_compass_media_db_v9";
+    var IDB_STORE = "evidence_media";
+
+    function openMediaDb() {
+      return new Promise(function (resolve, reject) {
+        if (!("indexedDB" in window)) {
+          reject(new Error("IndexedDB unavailable"));
+          return;
+        }
+        var req = indexedDB.open(IDB_NAME, 1);
+        req.onupgradeneeded = function (e) {
+          var db = e.target.result;
+          if (!db.objectStoreNames.contains(IDB_STORE)) {
+            db.createObjectStore(IDB_STORE, { keyPath: "id" });
+          }
+        };
+        req.onsuccess = function () { resolve(req.result); };
+        req.onerror = function () { reject(req.error); };
       });
     }
 
-    function addWeeks(baseDate, weeks) {
-      var d = new Date(baseDate.getTime());
-      d.setDate(d.getDate() + weeks * 7);
-      return d;
+    function idbPutMedia(record) {
+      return openMediaDb().then(function (db) {
+        return new Promise(function (resolve, reject) {
+          var tx = db.transaction(IDB_STORE, "readwrite");
+          tx.objectStore(IDB_STORE).put(record);
+          tx.oncomplete = function () { resolve(); };
+          tx.onerror = function () { reject(tx.error); };
+        });
+      });
     }
 
-    function calculateEhcpDeadlines() {
-      var dateVal = document.getElementById("ehcp-request-date").value;
-      saveTimelineState();
-      if (!dateVal) {
-        document.getElementById("ms-day0").textContent = "Select request date";
-        document.getElementById("ms-week6").textContent = "—";
-        document.getElementById("ms-week16").textContent = "—";
-        document.getElementById("ms-week20").textContent = "—";
-        return;
-      }
-      var parts = dateVal.split("-");
-      var start = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
-      document.getElementById("ms-day0").textContent = formatUkDate(start);
-      document.getElementById("ms-week6").textContent = formatUkDate(addWeeks(start, 6));
-      document.getElementById("ms-week16").textContent = formatUkDate(addWeeks(start, 16));
-      document.getElementById("ms-week20").textContent = formatUkDate(addWeeks(start, 20));
+    function idbGetAllMedia() {
+      return openMediaDb().then(function (db) {
+        return new Promise(function (resolve, reject) {
+          var tx = db.transaction(IDB_STORE, "readonly");
+          var req = tx.objectStore(IDB_STORE).getAll();
+          req.onsuccess = function () { resolve(req.result || []); };
+          req.onerror = function () { reject(req.error); };
+        });
+      });
+    }
+
+    function idbDeleteMedia(id) {
+      return openMediaDb().then(function (db) {
+        return new Promise(function (resolve, reject) {
+          var tx = db.transaction(IDB_STORE, "readwrite");
+          tx.objectStore(IDB_STORE).delete(id);
+          tx.oncomplete = function () { resolve(); };
+          tx.onerror = function () { reject(tx.error); };
+        });
+      });
+    }
+
+    function idbClearMedia() {
+      return openMediaDb().then(function (db) {
+        return new Promise(function (resolve) {
+          var tx = db.transaction(IDB_STORE, "readwrite");
+          tx.objectStore(IDB_STORE).clear();
+          tx.oncomplete = function () { resolve(); };
+          tx.onerror = function () { resolve(); };
+        });
+      });
+    }
+
+    /* ========================================================================
+       3. 20-WEEK CLOCK & 7-STAGE MILESTONE TRACKER
+       ======================================================================== */
+    var TIMELINE_STAGES = [
+      { id: "st1", title: "1. Written Section 36 Request Sent", desc: "Written request submitted to the Local Authority SEND team and dated proof kept." },
+      { id: "st2", title: "2. Week 6 Assessment Decision", desc: "Local Authority decides whether to assess or refuse (providing mediation/appeal rights)." },
+      { id: "st3", title: "3. Multi-Agency Advice (Weeks 6–12)", desc: "Educational Psychology, school, health, social care, and parent/child views gathered." },
+      { id: "st4", title: "4. Week 16 Draft EHCP", desc: "Draft EHCP sent to parent/carer with Section I left blank for setting preference." },
+      { id: "st5", title: "5. 15-Day Draft Comments & Preference", desc: "Parent reviews sections, proposes edits, and names preferred school/setting." },
+      { id: "st6", title: "6. 15-Day School Consultation", desc: "Local Authority consults the preferred school/college under Section 39." },
+      { id: "st7", title: "7. Week 20 Final EHCP Issued", desc: "Final EHCP issued naming the setting in Section I." }
+    ];
+
+    function fmtDate(d) {
+      if (!d || isNaN(d.getTime())) return "—";
+      return d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", year: "numeric" });
+    }
+
+    function plusWeeks(baseDate, wks) {
+      var copy = new Date(baseDate.getTime());
+      copy.setDate(copy.getDate() + wks * 7);
+      return copy;
     }
 
     function saveTimelineState() {
-      var state = readStore("timeline", { childName: "", requestDate: "", completedStages: {} });
-      state.childName = document.getElementById("ehcp-child-name").value;
-      state.requestDate = document.getElementById("ehcp-request-date").value;
-      writeStore("timeline", state);
-      generateSection36Letter();
-      renderSencoTemplate();
+      var cur = lsGet("timeline", { childName: "", reqDate: "", stages: {} });
+      cur.childName = document.getElementById("tl-child-name").value;
+      cur.reqDate = document.getElementById("tl-request-date").value;
+      lsSet("timeline", cur);
+      updateSencoTemplate();
+      buildSection36Letter();
     }
 
-    function toggleEhcpStage(stageId) {
-      var state = readStore("timeline", { childName: "", requestDate: "", completedStages: {} });
-      state.completedStages = state.completedStages || {};
-      state.completedStages[stageId] = !state.completedStages[stageId];
-      writeStore("timeline", state);
-      renderEhcpStages();
-    }
-
-    function renderEhcpStages() {
-      var container = document.getElementById("ehcp-stages-list");
-      if (!container) return;
-      var state = readStore("timeline", { completedStages: {} });
-      var doneMap = state.completedStages || {};
-      var doneCount = 0;
-      var html = "";
-      for (var i = 0; i < EHCP_STAGES.length; i++) {
-        var st = EHCP_STAGES[i];
-        var checked = !!doneMap[st.id];
-        if (checked) doneCount++;
-        html += '<label class="check-item ' + (checked ? 'done' : '') + '">' +
-          '<input type="checkbox" ' + (checked ? 'checked' : '') + ' onchange="toggleEhcpStage(\'' + st.id + '\')" />' +
-          '<div><div class="check-label" style="font-weight:700;">' + escapeHtml(st.title) + '</div>' +
-          '<div style="font-size:0.84rem;color:#475569;">' + escapeHtml(st.desc) + '</div></div></label>';
-      }
-      container.innerHTML = html;
-      var badge = document.getElementById("stage-progress-label");
-      if (badge) badge.textContent = doneCount + " / " + EHCP_STAGES.length + " Completed";
-    }
-
-    /* ==========================================================================
-       5. TAB 3: SCHOOL & SENCO CARD + TEMPLATES
-       ========================================================================== */
-    function saveSencoCard() {
-      writeStore("senco", {
-        school: document.getElementById("senco-school-name").value,
-        name: document.getElementById("senco-person-name").value,
-        email: document.getElementById("senco-email").value,
-        phone: document.getElementById("senco-phone").value,
-        notes: document.getElementById("senco-apdr-notes").value
-      });
-      renderSencoTemplate();
-    }
-
-    function renderSencoTemplate() {
-      var sel = document.getElementById("senco-template-select");
-      if (!sel) return;
-      var tKey = sel.value;
-      var senco = readStore("senco", {});
-      var tl = readStore("timeline", {});
-      var child = (tl.childName || "[Child's Name]").trim();
-      var sencoName = (senco.name || "SENCO").trim();
-      var parentName = (document.getElementById("ltr-parent-name").value || "[Parent/Carer Name]").trim();
-
-      var templates = {
-        meeting: {
-          sub: "SEN Support & APDR Meeting Request — " + child,
-          body: "Dear " + sencoName + ",\n\nI would like to arrange an Assess-Plan-Do-Review (APDR) meeting regarding " + child + "'s SEN Support under Chapter 6 of the SEND Code of Practice 2015.\n\nPlease share available times over the next two weeks so we can review current provision, home observations, and next steps.\n\nKind regards,\n" + parentName
-        },
-        followup: {
-          sub: "Follow-Up Summary: SEN Support for " + child,
-          body: "Dear " + sencoName + ",\n\nThank you for speaking with me about " + child + ". For clarity, here are the key points we covered:\n\n- Agreed adjustments / interventions: [Add details]\n- Next review date: [Add date]\n\nPlease let me know if any corrections are needed.\n\nKind regards,\n" + parentName
-        },
-        ep: {
-          sub: "Request for Educational Psychologist / Specialist Input — " + child,
-          body: "Dear " + sencoName + ",\n\nAs " + child + " continues to face significant barriers despite SEN Support, please confirm when a referral to the Educational Psychologist (or relevant specialist) can be made and share copies of recent APDR notes.\n\nKind regards,\n" + parentName
-        },
-        review: {
-          sub: "Parent Views Ahead of Annual Review — " + child,
-          body: "Dear " + sencoName + ",\n\nAhead of " + child + "'s Annual Review, please find our parent views and recent home/evidence notes to circulate with the review papers.\n\nKind regards,\n" + parentName
-        }
-      };
-
-      var chosen = templates[tKey] || templates.meeting;
-      document.getElementById("senco-template-subject").value = chosen.sub;
-      document.getElementById("senco-template-body").value = chosen.body;
-    }
-
-    function openSencoMailto() {
-      var email = (document.getElementById("senco-email").value || "").trim();
-      var sub = encodeURIComponent(document.getElementById("senco-template-subject").value || "");
-      var body = encodeURIComponent(document.getElementById("senco-template-body").value || "");
-      window.location.href = "mailto:" + email + "?subject=" + sub + "&body=" + body;
-    }
-
-    /* ==========================================================================
-       6. TAB 4: LOCAL & GRANTS DIRECTORY
-       ========================================================================== */
-    var DIRECTORY_ITEMS = [
-      {
-        name: "Cheshire East Council — SEND Assessment & Monitoring",
-        cat: "council",
-        badge: "Cheshire East LA",
-        info: "Statutory EHCP assessments, annual reviews, and SEND Local Offer information for Cheshire East families.",
-        contact: "Email: send@cheshireeast.gov.uk • Tel: 01625 378042"
-      },
-      {
-        name: "CEIAS — Cheshire East SENDIASS",
-        cat: "council",
-        badge: "Free SENDIASS",
-        info: "Free, confidential, impartial advice and support on SEN Support, EHCPs, and SEND appeals in Cheshire East.",
-        contact: "Tel: 0300 123 5166 • Email: ceias@cheshireeast.gov.uk"
-      },
-      {
-        name: "Cheshire East Parent Carer Forum (CEPCF)",
-        cat: "forum",
-        badge: "Parent Carer Forum",
-        info: "Parent-led forum for families of children/young people (0–25) with SEND in Cheshire East.",
-        contact: "Search: Cheshire East Parent Carer Forum"
-      },
-      {
-        name: "Local SEN Groups, Sensory Play & Access / CEA Cards",
-        cat: "groups",
-        badge: "Groups & Leisure Cards",
-        info: "Look for local neurodivergent/sensory groups (such as Ruby's Fund in Congleton and Space4Autism in Macclesfield) plus CEA Card & Access Card options.",
-        contact: "CEA Card: ceacard.co.uk • Access Card: accesscard.online"
-      },
-      {
-        name: "IPSEA & SOS!SEN",
-        cat: "charity",
-        badge: "Free SEND Legal Charities",
-        info: "Free legal advice, model letters, and Tribunal guidance for parents across England.",
-        contact: "IPSEA: ipsea.org.uk • SOS!SEN: 020 8538 3731"
-      },
-      {
-        name: "DLA for Children & Family Grants",
-        cat: "aid",
-        badge: "Financial Aid & Grants",
-        info: "Disability Living Allowance (no formal diagnosis required) and charities such as Family Fund & Caudwell Children.",
-        contact: "DLA: 0800 121 4600 • Family Fund: 01904 550055"
-      }
-    ];
-
-    function renderDirectory() {
-      var grid = document.getElementById("directory-grid");
-      if (!grid) return;
-      var q = (document.getElementById("dir-search").value || "").toLowerCase().trim();
-      var cat = document.getElementById("dir-category").value;
-      var html = "";
-      for (var i = 0; i < DIRECTORY_ITEMS.length; i++) {
-        var item = DIRECTORY_ITEMS[i];
-        if (cat !== "all" && item.cat !== cat) continue;
-        var hay = (item.name + " " + item.badge + " " + item.info + " " + item.contact).toLowerCase();
-        if (q && hay.indexOf(q) === -1) continue;
-        html += '<div class="dir-card">' +
-          '<div><span class="tag-pill">' + escapeHtml(item.badge) + '</span>' +
-          '<h4 style="margin:8px 0 6px;color:#0f2942;">' + escapeHtml(item.name) + '</h4>' +
-          '<p style="margin:0;font-size:0.88rem;color:#334155;">' + escapeHtml(item.info) + '</p></div>' +
-          '<div style="background:#f8fafc;padding:9px 11px;border-radius:8px;font-size:0.83rem;font-weight:700;color:#0f2942;border:1px solid #e2e8f0;">' +
-          escapeHtml(item.contact) + '</div></div>';
-      }
-      grid.innerHTML = html || '<p>No matching resources found.</p>';
-    }
-
-    function applyCheshireEastPreset() {
-      document.getElementById("ltr-la-name").value = "Cheshire East Council";
-      document.getElementById("ltr-la-email").value = "send@cheshireeast.gov.uk";
-      document.getElementById("dir-search").value = "Cheshire East";
-      renderDirectory();
-      generateSection36Letter();
-      window.showToast("Cheshire East details applied!");
-    }
-
-    /* ==========================================================================
-       7. TAB 5: COMMON CONDITIONS & ADJUSTMENTS
-       ========================================================================== */
-    var CONDITIONS_LIST = [
-      { name: "Autism Spectrum Condition (ASC)", area: "Communication & Interaction", tip: "Visual schedules, predictable routines, clear expectations, and sensory regulation breaks." },
-      { name: "ADHD", area: "SEMH / Cognition", tip: "Short chunked tasks, movement breaks, working-memory prompts, and strengths-based support." },
-      { name: "Pathological Demand Avoidance (PDA Profile)", area: "Communication & SEMH", tip: "Low-demand, collaborative phrasing and avoiding direct confrontation or public pressure." },
-      { name: "Developmental Language Disorder (DLD)", area: "Communication & Interaction", tip: "SALT-led language strategies, visual supports, and extra processing time." },
-      { name: "Dyslexia & Dyscalculia", area: "Cognition & Learning", tip: "Structured teaching, assistive tools/overlays, and concrete visual models." },
-      { name: "Dyspraxia / DCD & Hypermobility", area: "Sensory & Physical", tip: "OT/physio advice, ergonomic seating, keyboard/scribe options, and fatigue pacing." },
-      { name: "Sensory Processing & EBSA", area: "Sensory & SEMH", tip: "Sensory adjustments, safe spaces, and gradual anxiety-informed reintegration." },
-      { name: "Epilepsy, Diabetes & Medical Needs", area: "Health / Medical", tip: "Clear Individual Healthcare Plan (IHP), trained staff, and emergency protocols." }
-    ];
-
-    function renderConditions() {
-      var grid = document.getElementById("conditions-grid");
-      if (!grid) return;
-      var q = (document.getElementById("condition-search").value || "").toLowerCase().trim();
-      var html = "";
-      for (var i = 0; i < CONDITIONS_LIST.length; i++) {
-        var c = CONDITIONS_LIST[i];
-        if (q && (c.name + " " + c.area + " " + c.tip).toLowerCase().indexOf(q) === -1) continue;
-        html += '<div class="dir-card">' +
-          '<div><span class="tag-pill teal">' + escapeHtml(c.area) + '</span>' +
-          '<h4 style="margin:7px 0 5px;color:#0f2942;">' + escapeHtml(c.name) + '</h4>' +
-          '<p style="margin:0;font-size:0.87rem;color:#334155;">' + escapeHtml(c.tip) + '</p></div></div>';
-      }
-      grid.innerHTML = html || '<p>No matching condition found.</p>';
-    }
-
-    /* ==========================================================================
-       8. TAB 6: PICTURE EVIDENCE VAULT
-       ========================================================================== */
-    function addPictureEvidence() {
-      var fileInput = document.getElementById("ev-photo-input");
-      var file = fileInput && fileInput.files && fileInput.files[0];
-      if (!file) {
-        window.showToast("Please select or take a photo first.");
+    function calculateTimeline() {
+      saveTimelineState();
+      var val = document.getElementById("tl-request-date").value;
+      if (!val) {
+        document.getElementById("ms-start").textContent = "Select a date";
+        document.getElementById("ms-wk6").textContent = "—";
+        document.getElementById("ms-wk16").textContent = "—";
+        document.getElementById("ms-wk20").textContent = "—";
         return;
       }
-      var area = document.getElementById("ev-area").value;
-      var setting = document.getElementById("ev-setting").value;
-      var dateVal = document.getElementById("ev-date").value || new Date().toISOString().slice(0, 10);
-      var desc = (document.getElementById("ev-desc").value || "Evidence photo").trim();
-
-      var reader = new FileReader();
-      reader.onload = function (ev) {
-        var img = new Image();
-        img.onload = function () {
-          var canvas = document.createElement("canvas");
-          var maxW = 760;
-          var scale = img.width > maxW ? (maxW / img.width) : 1;
-          canvas.width = Math.round(img.width * scale);
-          canvas.height = Math.round(img.height * scale);
-          var ctx = canvas.getContext("2d");
-          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-          var dataUrl = canvas.toDataURL("image/jpeg", 0.72);
-
-          var items = readStore("evidence", []);
-          items.unshift({
-            id: "ev_" + Date.now(),
-            dataUrl: dataUrl,
-            area: area,
-            setting: setting,
-            date: dateVal,
-            desc: desc
-          });
-          writeStore("evidence", items);
-          fileInput.value = "";
-          document.getElementById("ev-desc").value = "";
-          renderEvidenceGallery();
-          window.showToast("Evidence photo saved locally!");
-        };
-        img.src = ev.target.result;
-      };
-      reader.readAsDataURL(file);
+      var p = val.split("-");
+      var dt = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+      document.getElementById("ms-start").textContent = fmtDate(dt);
+      document.getElementById("ms-wk6").textContent = fmtDate(plusWeeks(dt, 6));
+      document.getElementById("ms-wk16").textContent = fmtDate(plusWeeks(dt, 16));
+      document.getElementById("ms-wk20").textContent = fmtDate(plusWeeks(dt, 20));
     }
 
-    function deleteEvidenceItem(id) {
-      var items = readStore("evidence", []).filter(function (x) { return x.id !== id; });
-      writeStore("evidence", items);
-      renderEvidenceGallery();
-      window.showToast("Photo deleted.");
+    function toggleTimelineStage(id) {
+      var cur = lsGet("timeline", { childName: "", reqDate: "", stages: {} });
+      cur.stages = cur.stages || {};
+      cur.stages[id] = !cur.stages[id];
+      lsSet("timeline", cur);
+      renderTimelineStages();
     }
 
-    function openEvidenceLightbox(id) {
-      var items = readStore("evidence", []);
-      for (var i = 0; i < items.length; i++) {
-        if (items[i].id === id) {
-          document.getElementById("lightbox-img").src = items[i].dataUrl;
-          document.getElementById("lightbox-caption").textContent = items[i].date + " • " + items[i].area + " (" + items[i].setting + ") — " + items[i].desc;
-          window.openModal("lightbox-modal");
-          break;
-        }
-      }
-    }
-
-    function renderEvidenceGallery() {
-      var gal = document.getElementById("evidence-gallery");
-      var badge = document.getElementById("evidence-count-badge");
-      var filterEl = document.getElementById("ev-filter-area");
-      var filterVal = filterEl ? filterEl.value : "all";
-      var items = readStore("evidence", []);
-      if (badge) badge.textContent = String(items.length);
-      if (!gal) return;
-
-      var filtered = items.filter(function (it) {
-        return filterVal === "all" || it.area === filterVal;
-      });
-
-      if (!filtered.length) {
-        gal.innerHTML = '<p style="color:#475569;font-size:0.9rem;">No photos saved in this category yet.</p>';
-        return;
-      }
-      var html = "";
-      for (var i = 0; i < filtered.length; i++) {
-        var it = filtered[i];
-        html += '<div class="evidence-item">' +
-          '<img src="' + it.dataUrl + '" alt="' + escapeHtml(it.desc) + '" onclick="openEvidenceLightbox(\'' + it.id + '\')" />' +
-          '<div class="evidence-meta">' +
-          '<span class="tag-pill teal">' + escapeHtml(it.area) + '</span>' +
-          '<div style="font-weight:700;margin:6px 0 3px;color:#0f2942;">' + escapeHtml(it.date) + ' • ' + escapeHtml(it.setting) + '</div>' +
-          '<p style="margin:0 0 8px;color:#334155;">' + escapeHtml(it.desc) + '</p>' +
-          '<button type="button" class="btn btn-outline" style="min-height:34px;padding:4px 10px;font-size:0.78rem;" onclick="deleteEvidenceItem(\'' + it.id + '\')">Delete</button>' +
-          '</div></div>';
-      }
-      gal.innerHTML = html;
-    }
-
-    /* ==========================================================================
-       9. TAB 7: DAILY LOG, 12-ITEM CHECKLIST & JSON BACKUP
-       ========================================================================== */
-    var BUNDLE_ITEMS = [
-      "1. Section A Parent & Child Views",
-      "2. Chronology of Concerns & Milestones",
-      "3. School SEN Support / APDR Plans",
-      "4. Attainment & Assessment Summaries",
-      "5. Attendance & Absence / Exclusion Record",
-      "6. Educational Psychologist (EP) Reports",
-      "7. Paediatrician / CAMHS Letters",
-      "8. Speech & Language Therapy (SALT) Notes",
-      "9. Occupational Therapy (OT) / Sensory Notes",
-      "10. Daily Masking & Home Impact Log",
-      "11. Work Samples & Picture Evidence",
-      "12. Copies of Key Emails & Letters"
-    ];
-
-    function toggleBundleItem(idx) {
-      var checks = readStore("bundleChecks", {});
-      checks[idx] = !checks[idx];
-      writeStore("bundleChecks", checks);
-      renderBundleChecklist();
-    }
-
-    function renderBundleChecklist() {
-      var box = document.getElementById("bundle-checklist-container");
-      var badge = document.getElementById("bundle-progress-badge");
+    function renderTimelineStages() {
+      var box = document.getElementById("tl-stages-list");
       if (!box) return;
-      var checks = readStore("bundleChecks", {});
-      var count = 0;
+      var cur = lsGet("timeline", { stages: {} });
+      var map = cur.stages || {};
+      var done = 0;
       var html = "";
-      for (var i = 0; i < BUNDLE_ITEMS.length; i++) {
-        var isDone = !!checks[i];
-        if (isDone) count++;
-        html += '<label class="check-item ' + (isDone ? 'done' : '') + '">' +
-          '<input type="checkbox" ' + (isDone ? 'checked' : '') + ' onchange="toggleBundleItem(' + i + ')" />' +
-          '<span class="check-label" style="font-size:0.89rem;font-weight:600;">' + escapeHtml(BUNDLE_ITEMS[i]) + '</span></label>';
+      for (var i = 0; i < TIMELINE_STAGES.length; i++) {
+        var s = TIMELINE_STAGES[i];
+        var checked = !!map[s.id];
+        if (checked) done++;
+        html += '<label class="check-item ' + (checked ? 'done' : '') + '">' +
+          '<input type="checkbox" ' + (checked ? 'checked' : '') + ' onchange="toggleTimelineStage(\'' + s.id + '\')" />' +
+          '<div><div class="check-label" style="font-weight:700;">' + escapeHtml(s.title) + '</div>' +
+          '<div style="font-size:0.84rem;color:#475569;">' + escapeHtml(s.desc) + '</div></div></label>';
       }
       box.innerHTML = html;
-      if (badge) badge.textContent = count + " / " + BUNDLE_ITEMS.length;
+      var badge = document.getElementById("tl-stage-badge");
+      if (badge) badge.textContent = done + " / " + TIMELINE_STAGES.length + " Completed";
     }
 
-    function addImpactLogEntry() {
-      var dateVal = document.getElementById("log-date").value || new Date().toISOString().slice(0, 10);
-      var trigger = document.getElementById("log-trigger").value;
-      var notes = (document.getElementById("log-notes").value || "").trim();
-      if (!notes) {
-        window.showToast("Please enter notes first.");
-        return;
-      }
-      var logs = readStore("impactLogs", []);
-      logs.unshift({ id: "lg_" + Date.now(), date: dateVal, trigger: trigger, notes: notes });
-      writeStore("impactLogs", logs);
-      document.getElementById("log-notes").value = "";
-      renderImpactLogs();
-      window.showToast("Log entry saved!");
+    /* ========================================================================
+       4. SCHOOL & SENCO
+       ======================================================================== */
+    function saveSencoState() {
+      lsSet("senco", {
+        school: document.getElementById("senco-school").value,
+        name: document.getElementById("senco-name").value,
+        email: document.getElementById("senco-email").value,
+        phone: document.getElementById("senco-phone").value,
+        notes: document.getElementById("senco-notes").value
+      });
+      updateSencoTemplate();
+      buildSection36Letter();
     }
 
-    function deleteImpactLog(id) {
-      var logs = readStore("impactLogs", []).filter(function (x) { return x.id !== id; });
-      writeStore("impactLogs", logs);
-      renderImpactLogs();
-    }
+    function updateSencoTemplate() {
+      var sel = document.getElementById("senco-tpl-select");
+      if (!sel) return;
+      var sc = lsGet("senco", {});
+      var tl = lsGet("timeline", {});
+      var child = (tl.childName || "[Child's Name]").trim();
+      var senco = (sc.name || "SENCO").trim();
+      var parentName = (document.getElementById("s36-parent-name").value || "[Parent/Carer Name]").trim();
+      var mode = sel.value;
 
-    function renderImpactLogs() {
-      var list = document.getElementById("impact-log-list");
-      if (!list) return;
-      var logs = readStore("impactLogs", []);
-      if (!logs.length) {
-        list.innerHTML = '<p style="color:#475569;font-size:0.86rem;">No log entries yet.</p>';
-        return;
-      }
-      var html = "";
-      for (var i = 0; i < logs.length; i++) {
-        var lg = logs[i];
-        html += '<div class="callout" style="padding:10px 12px;margin-bottom:8px;">' +
-          '<div style="display:flex;justify-content:space-between;gap:8px;align-items:center;">' +
-          '<strong style="font-size:0.84rem;color:#0f2942;">' + escapeHtml(lg.date) + ' • ' + escapeHtml(lg.trigger) + '</strong>' +
-          '<button type="button" class="btn btn-outline" style="min-height:28px;padding:2px 8px;font-size:0.74rem;" onclick="deleteImpactLog(\'' + lg.id + '\')">✕</button>' +
-          '</div><p style="font-size:0.86rem;margin-top:4px;">' + escapeHtml(lg.notes) + '</p></div>';
-      }
-      list.innerHTML = html;
-    }
-
-    function exportJsonBackup() {
-      var backup = {
-        app: "EHCP Parent Compass",
-        exportedAt: new Date().toISOString(),
-        timeline: readStore("timeline", {}),
-        senco: readStore("senco", {}),
-        bundleChecks: readStore("bundleChecks", {}),
-        impactLogs: readStore("impactLogs", []),
-        evidence: readStore("evidence", []),
-        peerTips: readStore("peerTips", [])
-      };
-      downloadTextFile("ehcp-compass-backup-" + new Date().toISOString().slice(0, 10) + ".json", JSON.stringify(backup, null, 2), "application/json");
-      window.showToast("JSON backup downloaded!");
-    }
-
-    function importJsonBackup(event) {
-      var file = event.target && event.target.files && event.target.files[0];
-      if (!file) return;
-      var reader = new FileReader();
-      reader.onload = function (e) {
-        try {
-          var data = JSON.parse(e.target.result);
-          if (data.timeline) writeStore("timeline", data.timeline);
-          if (data.senco) writeStore("senco", data.senco);
-          if (data.bundleChecks) writeStore("bundleChecks", data.bundleChecks);
-          if (data.impactLogs) writeStore("impactLogs", data.impactLogs);
-          if (data.evidence) writeStore("evidence", data.evidence);
-          if (data.peerTips) writeStore("peerTips", data.peerTips);
-          hydrateAllSavedState();
-          window.showToast("Backup restored!");
-        } catch (err) {
-          window.showToast("Could not read JSON backup file.");
+      var drafts = {
+        apdr: {
+          sub: "SEN Support / APDR Meeting Request — " + child,
+          body: "Dear " + senco + ",\n\nI would like to arrange an Assess-Plan-Do-Review (APDR) meeting regarding " + child + "'s SEN Support under the SEND Code of Practice.\n\nPlease let me know suitable times so we can review current provision, home observations, and next steps.\n\nKind regards,\n" + parentName
+        },
+        summary: {
+          sub: "Summary of SEN Support Discussion — " + child,
+          body: "Dear " + senco + ",\n\nThank you for speaking with me about " + child + ". For clarity, here are the key points noted:\n\n- Agreed support / adjustments: [Add details]\n- Review date: [Add date]\n\nPlease let me know if anything needs updating.\n\nKind regards,\n" + parentName
+        },
+        specialist: {
+          sub: "Specialist / Educational Psychologist Support — " + child,
+          body: "Dear " + senco + ",\n\nPlease share what specialist or Educational Psychologist involvement is planned or available for " + child + ", along with recent SEN Support records.\n\nKind regards,\n" + parentName
+        },
+        annual: {
+          sub: "Parent Views for Annual Review — " + child,
+          body: "Dear " + senco + ",\n\nAhead of " + child + "'s Annual Review, please include our parent views and recent notes with the review paperwork.\n\nKind regards,\n" + parentName
         }
       };
-      reader.readAsText(file);
+
+      var pick = drafts[mode] || drafts.apdr;
+      document.getElementById("senco-tpl-subject").value = pick.sub;
+      document.getElementById("senco-tpl-body").value = pick.body;
     }
 
-    /* ==========================================================================
-       10. TAB 8: SECTION 36 LETTER, SECTION F SCANNER & SECTIONS A-I
-       ========================================================================== */
-    function generateSection36Letter() {
-      var parentName = (document.getElementById("ltr-parent-name").value || "[Parent/Carer Name]").trim();
-      var address = (document.getElementById("ltr-parent-address").value || "[Address & Postcode]").trim();
-      var dob = document.getElementById("ltr-child-dob").value || "[DOB]";
-      var laName = (document.getElementById("ltr-la-name").value || "Cheshire East Council").trim();
-      var childName = (document.getElementById("ehcp-child-name").value || "[Child's Name]").trim();
-      var schoolName = (document.getElementById("senco-school-name").value || "[School/Setting]").trim();
-      var needs = (document.getElementById("ltr-needs-summary").value || "[Key SEND needs]").trim();
-      var points = (document.getElementById("ltr-evidence-points").value || "- Ongoing difficulties despite SEN Support").trim();
-      var todayStr = formatUkDate(new Date());
-
-      var letter = parentName + "\n" +
-        address + "\n" +
-        "Date: " + todayStr + "\n\n" +
-        "SEND Assessment Team\n" +
-        laName + "\n\n" +
-        "Dear Sir / Madam,\n\n" +
-        "RE: REQUEST FOR AN EHC NEEDS ASSESSMENT (SECTION 36(1), CHILDREN AND FAMILIES ACT 2014)\n" +
-        "Child: " + childName + " | DOB: " + dob + " | Setting: " + schoolName + "\n\n" +
-        "I am writing as parent/carer of " + childName + " to request an EHC needs assessment under Section 36(1) of the Children and Families Act 2014. " + childName + " has needs involving: " + needs + ".\n\n" +
-        points + "\n\n" +
-        "Please confirm receipt and provide your decision within 6 weeks under the SEND Regulations 2014.\n\n" +
-        "Yours faithfully,\n\n" +
-        parentName;
-
-      var out = document.getElementById("ltr-generated-output");
-      if (out) out.value = letter;
-    }
-
-    function openSection36Mailto() {
-      var to = (document.getElementById("ltr-la-email").value || "").trim();
-      var childName = (document.getElementById("ehcp-child-name").value || "Child").trim();
-      var sub = encodeURIComponent("Section 36 EHC Needs Assessment Request — " + childName);
-      var body = encodeURIComponent(document.getElementById("ltr-generated-output").value || "");
+    function sendSencoMailto() {
+      var to = encodeURIComponent((document.getElementById("senco-email").value || "").trim());
+      var sub = encodeURIComponent(document.getElementById("senco-tpl-subject").value || "");
+      var body = encodeURIComponent(document.getElementById("senco-tpl-body").value || "");
       window.location.href = "mailto:" + to + "?subject=" + sub + "&body=" + body;
     }
 
-    function downloadSection36Txt() {
-      downloadTextFile("Section-36-Request-Letter.txt", document.getElementById("ltr-generated-output").value || "", "text/plain");
-      window.showToast("Letter downloaded!");
-    }
-
-    var WEASEL_TERMS = [
-      { term: "access to", fix: "State exact frequency, duration, and adult support (e.g., '30 mins daily 1:1')." },
-      { term: "opportunities for", fix: "Specify guaranteed sessions rather than 'opportunities'." },
-      { term: "regular", fix: "Give exact numbers/times per week." },
-      { term: "as required", fix: "Define clear triggers or scheduled baseline support." },
-      { term: "as appropriate", fix: "Specify exact criteria, role, and delivery." },
-      { term: "when necessary", fix: "State concrete support and who provides it." },
-      { term: "periodic", fix: "State exact intervals (e.g., weekly/fortnightly)." },
-      { term: "support from", fix: "Specify staff training/qualification, 1:1 or group size, and hours." },
-      { term: "would benefit from", fix: "Use clear 'will receive' provision wording." }
+    /* ========================================================================
+       5. UK LOCAL AUTHORITIES, SCHOOL LINKING & ALL POINTS OF CONTACT
+       ======================================================================== */
+    var UK_LOCAL_AUTHORITIES = [
+      "Barking and Dagenham", "Barnet", "Barnsley", "Bath and North East Somerset", "Bedford",
+      "Bexley", "Birmingham", "Blackburn with Darwen", "Blackpool", "Bournemouth, Christchurch and Poole",
+      "Bracknell Forest", "Bradford", "Brent", "Brighton and Hove", "Bristol",
+      "Bromley", "Buckinghamshire", "Bury", "Calderdale", "Cambridgeshire",
+      "Camden", "Central Bedfordshire", "Cheshire East", "Cheshire West and Chester", "City of London",
+      "Cornwall", "County Durham", "Coventry", "Croydon", "Cumberland",
+      "Darlington", "Derby", "Derbyshire", "Devon", "Doncaster",
+      "Dorset", "Dudley", "Ealing", "East Riding of Yorkshire", "East Sussex",
+      "Enfield", "Essex", "Gateshead", "Gloucestershire", "Greenwich",
+      "Hackney", "Halton", "Hammersmith and Fulham", "Hampshire", "Haringey",
+      "Harrow", "Hartlepool", "Havering", "Herefordshire", "Hertfordshire",
+      "Hillingdon", "Hounslow", "Isle of Wight", "Islington", "Kensington and Chelsea",
+      "Kent", "Kingston upon Hull", "Kingston upon Thames", "Kirklees", "Knowsley",
+      "Lambeth", "Lancashire", "Leeds", "Leicester", "Leicestershire",
+      "Lewisham", "Lincolnshire", "Liverpool", "Luton", "Manchester",
+      "Medway", "Merton", "Middlesbrough", "Milton Keynes", "Newcastle upon Tyne",
+      "Newham", "Norfolk", "Northamptonshire (North)", "Northamptonshire (West)", "North East Lincolnshire",
+      "North Lincolnshire", "North Somerset", "North Tyneside", "North Yorkshire", "Northumberland",
+      "Nottingham", "Nottinghamshire", "Oldham", "Oxfordshire", "Peterborough",
+      "Plymouth", "Portsmouth", "Reading", "Redbridge", "Redcar and Cleveland",
+      "Richmond upon Thames", "Rochdale", "Rotherham", "Rutland", "Salford",
+      "Sandwell", "Sefton", "Sheffield", "Shropshire", "Slough",
+      "Solihull", "Somerset", "South Gloucestershire", "South Tyneside", "Southwark",
+      "Staffordshire", "Stockport", "Stockton-on-Tees", "Stoke-on-Trent", "Suffolk",
+      "Surrey", "Sutton", "Swindon", "Tameside", "Telford and Wrekin",
+      "Thurrock", "Torbay", "Tower Hamlets", "Trafford", "Wakefield",
+      "Walsall", "Waltham Forest", "Wandsworth", "Warrington", "Warwickshire",
+      "West Berkshire", "Westmorland and Furness", "West Sussex", "Westminster", "Wigan",
+      "Wiltshire", "Windsor and Maidenhead", "Wirral", "Wokingham", "Wolverhampton",
+      "Worcestershire", "York",
+      "Blaenau Gwent", "Bridgend", "Caerphilly", "Cardiff", "Carmarthenshire",
+      "Ceredigion", "Conwy", "Denbighshire", "Flintshire", "Gwynedd",
+      "Isle of Anglesey", "Merthyr Tydfil", "Monmouthshire", "Neath Port Talbot", "Newport",
+      "Pembrokeshire", "Powys", "Rhondda Cynon Taf", "Swansea", "Torfaen",
+      "Vale of Glamorgan", "Wrexham",
+      "Aberdeen City", "Aberdeenshire", "Angus", "Argyll and Bute", "City of Edinburgh",
+      "Clackmannanshire", "Comhairle nan Eilean Siar", "Dumfries and Galloway", "Dundee City", "East Ayrshire",
+      "East Dunbartonshire", "East Lothian", "East Renfrewshire", "Falkirk", "Fife",
+      "Glasgow City", "Highland", "Inverclyde", "Midlothian", "Moray",
+      "North Ayrshire", "North Lanarkshire", "Orkney Islands", "Perth and Kinross", "Renfrewshire",
+      "Scottish Borders", "Shetland Islands", "South Ayrshire", "South Lanarkshire", "Stirling",
+      "West Dunbartonshire", "West Lothian",
+      "Antrim and Newtownabbey", "Ards and North Down", "Armagh City, Banbridge and Craigavon", "Belfast", "Causeway Coast and Glens",
+      "Derry City and Strabane", "Fermanagh and Omagh", "Lisburn and Castlereagh", "Mid and East Antrim", "Mid Ulster",
+      "Newry, Mourne and Down"
     ];
 
-    function loadSampleWeaselText() {
-      document.getElementById("secf-input").value =
-        "The child would benefit from regular access to a quiet space as required and opportunities for support from a familiar adult when necessary.";
-      scanSectionF();
+    var SAMPLE_SCHOOL_LINKS = [
+      { school: "Example Primary Academy", la: "", senco: "School SENCO (check school website SEND Information Report)", schoolContact: "Main school office & SENCO email/phone" },
+      { school: "Example Secondary & Sixth Form", la: "", senco: "Head of Learning Support / SENCO", schoolContact: "School main reception & SEND office line" },
+      { school: "Example Specialist SEND School", la: "", senco: "Deputy Head / SENDCo", schoolContact: "Specialist setting office & therapy/SEN contact" },
+      { school: "Cheshire East Example Setting (Personal Example)", la: "Cheshire East", senco: "School SENCO via Cheshire East SEND / Local Offer", schoolContact: "School office + Cheshire East SEND / Local Offer" }
+    ];
+
+    var POINTS_OF_CONTACT_ROLES = [
+      { side: "School", role: "SENCO (Special Educational Needs Co-ordinator)", handles: "SEN Support, APDR plans, school SEND Information Report, classroom adjustments, annual reviews.", contact: "Listed on school website SEND page or via school main office" },
+      { side: "School", role: "Headteacher / Principal", handles: "Whole-school SEND policy, exclusions/attendance decisions, formal complaints, governance escalation.", contact: "Via school office / PA to Headteacher" },
+      { side: "School", role: "Designated Safeguarding Lead (DSL)", handles: "Child safety, welfare concerns, safeguarding referrals, urgent pastoral protection.", contact: "Published on school safeguarding policy & main reception" },
+      { side: "School", role: "Class Teacher / Form Tutor / Key Worker", handles: "Day-to-day teaching adaptations, homework/sensory adjustments, daily check-ins.", contact: "Via school communication channel / year team" },
+      { side: "School", role: "Governing Body SEND Link Governor", handles: "Board-level oversight of SEND provision, accessibility, and statutory compliance.", contact: "Via Clerk to Governors / school office" },
+      { side: "Local Authority", role: "LA SEND / EHCP Statutory Team & Case Officer", handles: "Section 36 assessment requests, 20-week timeline, draft/final EHCPs, consultations, annual reviews.", contact: "Assigned Case Officer & Local Authority SEND Team" },
+      { side: "Local Authority", role: "Local Offer & Family Information Service", handles: "Local SEND services directory, short breaks, holiday activities, family support signposting.", contact: "Published on your Local Authority's Local Offer portal" },
+      { side: "Local Authority", role: "SENDIASS (Information, Advice & Support Service)", handles: "Free, confidential, impartial advice on SEN Support, EHCPs, mediation, and tribunal rights.", contact: "Your Local Authority SENDIASS team" },
+      { side: "Local Authority", role: "Parent Carer Forum (PCF)", handles: "Parent-led voice feeding lived family experience into council & health SEND planning.", contact: "Your local Parent Carer Forum / NNPCF directory" },
+      { side: "Local Authority", role: "Educational Psychology & Inclusion / Advisory Team", handles: "Specialist assessments, advice for EHC assessments, inclusion and behaviour/SEMH support.", contact: "Via school SENCO referral or Local Authority SEND/Inclusion service" },
+      { side: "Local Authority", role: "Home-to-School Transport Team", handles: "Travel assistance applications, escorts, pick-up/drop-off arrangements, transport appeals.", contact: "Local Authority School Transport / Travel Assistance team" },
+      { side: "Local Authority", role: "Children's Social Care / Early Help", handles: "Early help support, social care assessments, Section H1/H2 social care provision, urgent safeguarding.", contact: "Local Authority Children's Social Care / MASH duty line" }
+    ];
+
+    var SEN_CARDS_AND_GRANTS = [
+      { title: "Local SEND Leisure, Activity & Max Cards", badge: "Activities & Cards", desc: "Discounted or free entry to attractions, leisure centres, and family activities for children and young people with SEND.", linkText: "GOV.UK — Local SEND Support", url: "https://www.gov.uk/children-with-special-educational-needs/support-from-local-authority" },
+      { title: "Disability Living Allowance (DLA) for Children", badge: "Financial Support", desc: "Tax-free benefit for children under 16 who need significantly more care or mobility support than children of the same age.", linkText: "GOV.UK — DLA for Children", url: "https://www.gov.uk/dla-for-children" },
+      { title: "Family Fund Grants", badge: "Family Grants", desc: "Grants for families raising disabled or seriously ill children and young people (equipment, breaks, essentials).", linkText: "Visit familyfund.org.uk", url: "https://www.familyfund.org.uk" },
+      { title: "NNPCF — Parent Carer Forums", badge: "Parent Forums", desc: "Find your local Parent Carer Forum across England for peer support and co-production.", linkText: "Visit nnpcf.org.uk", url: "https://nnpcf.org.uk" }
+    ];
+
+    function populateLaDropdown() {
+      var sel = document.getElementById("la-selector-dropdown");
+      if (!sel) return;
+      var html = '<option value="">— Choose a Local Authority (None selected by default) —</option>';
+      for (var i = 0; i < UK_LOCAL_AUTHORITIES.length; i++) {
+        var name = UK_LOCAL_AUTHORITIES[i];
+        html += '<option value="' + escapeHtml(name) + '">' + escapeHtml(name) + '</option>';
+      }
+      sel.innerHTML = html;
+      var cnt = document.getElementById("la-count-badge");
+      if (cnt) cnt.textContent = UK_LOCAL_AUTHORITIES.length + " UK Local Authorities";
     }
 
-    function scanSectionF() {
-      var raw = (document.getElementById("secf-input").value || "").trim();
-      var out = document.getElementById("secf-results");
-      if (!raw) {
-        window.showToast("Paste draft Section F text first.");
-        return;
+    function onSelectLocalAuthority() {
+      var la = document.getElementById("la-selector-dropdown").value;
+      renderSchoolLinks();
+      renderPointsOfContactTable(la);
+    }
+
+    function renderSchoolLinks() {
+      var box = document.getElementById("school-link-results");
+      if (!box) return;
+      var q = (document.getElementById("school-search-input").value || "").toLowerCase().trim();
+      var selectedLa = (document.getElementById("la-selector-dropdown").value || "").trim();
+      var custom = lsGet("customPoc", { school: "", senco: "", la: "" });
+
+      var cards = [];
+      if (custom.school || custom.la) {
+        cards.push({
+          school: custom.school || "Your Saved School",
+          la: custom.la || selectedLa || "Your Local Authority",
+          senco: custom.senco || "Saved SENCO contact",
+          schoolContact: "Saved locally on your device",
+          isCustom: true
+        });
       }
-      var highlighted = escapeHtml(raw);
-      var found = [];
-      for (var i = 0; i < WEASEL_TERMS.length; i++) {
-        var item = WEASEL_TERMS[i];
-        var rx = new RegExp("(" + item.term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "gi");
-        if (rx.test(raw)) {
-          found.push(item);
-          highlighted = highlighted.replace(rx, '<span class="weasel-mark">$1</span>');
+
+      for (var i = 0; i < SAMPLE_SCHOOL_LINKS.length; i++) {
+        var s = SAMPLE_SCHOOL_LINKS[i];
+        var linkedLa = selectedLa || s.la || "Select or type your Local Authority";
+        cards.push({
+          school: s.school,
+          la: linkedLa,
+          senco: s.senco,
+          schoolContact: s.schoolContact,
+          isCustom: false
+        });
+      }
+
+      if (q) {
+        var matchingLas = UK_LOCAL_AUTHORITIES.filter(function (l) { return l.toLowerCase().indexOf(q) !== -1; });
+        for (var m = 0; m < Math.min(4, matchingLas.length); m++) {
+          cards.push({
+            school: "School in " + matchingLas[m] + " (Search school name or enter below)",
+            la: matchingLas[m],
+            senco: "School SENCO — verify via school SEND Information Report",
+            schoolContact: matchingLas[m] + " SEND / Local Offer / SENDIASS",
+            isCustom: false
+          });
         }
       }
-      out.style.display = "block";
-      if (!found.length) {
-        out.className = "callout teal";
-        out.innerHTML = "<h4>No Common Vague Phrases Flagged</h4><p>Check that each item specifies <strong>who</strong> delivers it, <strong>how often</strong>, <strong>for how long</strong>, and <strong>staff training/qualifications</strong>.</p>";
-      } else {
-        out.className = "callout amber";
-        var tipsHtml = "<ul style='margin:8px 0 0;padding-left:20px;font-size:0.88rem;'>";
-        for (var j = 0; j < found.length; j++) {
-          tipsHtml += "<li><strong>\"" + escapeHtml(found[j].term) + "\":</strong> " + escapeHtml(found[j].fix) + "</li>";
-        }
-        tipsHtml += "</ul>";
-        out.innerHTML = "<h4>Flagged " + found.length + " Vague Phrase(s):</h4>" +
-          "<p style='background:#fff;padding:10px;border-radius:8px;border:1px solid #fcd34d;margin:6px 0;'>" + highlighted + "</p>" +
-          tipsHtml;
-      }
-    }
 
-    function renderSectionsGuide() {
-      var grid = document.getElementById("sections-guide-grid");
-      if (!grid) return;
-      var secs = [
-        ["Section A", "Child & parent views, interests & aspirations."],
-        ["Section B", "All Special Educational Needs (should align with F)."],
-        ["Section C", "Health needs related to SEND."],
-        ["Section D", "Social care needs related to SEND."],
-        ["Section E", "Outcomes to be achieved."],
-        ["Section F", "Special Educational Provision (must be specific & quantified)."],
-        ["Section G", "Health provision reasonably required."],
-        ["Section H1 / H2", "Social care provision."],
-        ["Section I", "Named school or setting (Final EHCP)."]
-      ];
-      var html = "";
-      for (var i = 0; i < secs.length; i++) {
-        html += '<div class="callout" style="margin:0;"><h4>' + secs[i][0] + '</h4><p>' + secs[i][1] + '</p></div>';
-      }
-      grid.innerHTML = html;
-    }
-
-    /* ==========================================================================
-       11. TAB 9: OFFLINE ADVISOR, RATING & COMMUNITY TIPS
-       ========================================================================== */
-    function askPresetQuestion(q) {
-      document.getElementById("advisor-question").value = q;
-      runSendAdvisor();
-    }
-
-    function runSendAdvisor() {
-      var q = (document.getElementById("advisor-question").value || "").toLowerCase();
-      var box = document.getElementById("advisor-answer");
-      var title = "SEND Statutory Guidance";
-      var body = "Under Section 36(8) of the Children and Families Act 2014, an EHC needs assessment is required if the child has or may have SEN and it may be necessary for special educational provision to be made via an EHCP. Contact your local SENDIASS (e.g., CEIAS on 0300 123 5166) or IPSEA for advice.";
-
-      if (q.indexOf("refus") !== -1) {
-        title = "Challenge / Appeal a Refusal";
-        body = "You have appeal rights to the SEND Tribunal (time limits apply from the decision letter or mediation certificate). Contact mediation early so you hold a mediation certificate if needed.";
-      } else if (q.indexOf("review") !== -1) {
-        title = "Annual Review Process";
-        body = "Annual reviews happen at least once every 12 months, with statutory timescales for review reports and LA decisions to maintain, amend, or cease the EHCP.";
-      } else if (q.indexOf("transport") !== -1) {
-        title = "School Transport";
-        body = "Check eligibility under your Local Authority's home-to-school transport policy and ensure Section I accurately reflects placement needs.";
-      }
-      box.innerHTML = "<h4>" + title + "</h4><p>" + body + "</p>";
-    }
-
-    function setRating(stars) {
-      var btns = document.querySelectorAll("#star-rating-row .star-btn");
-      for (var i = 0; i < btns.length; i++) {
-        var s = Number(btns[i].getAttribute("data-star"));
-        if (s <= stars) btns[i].classList.add("lit");
-        else btns[i].classList.remove("lit");
-      }
-      writeStore("rating", stars);
-    }
-
-    function saveFeedbackNote() {
-      var txt = (document.getElementById("feedback-text").value || "").trim();
-      var stars = readStore("rating", 5);
-      encryptNoteAesGcm(txt, "ehcp-feedback").then(function (encObj) {
-        writeStore("feedbackNote", { stars: stars, note: txt, encrypted: encObj, savedAt: new Date().toISOString() });
+      var filtered = cards.filter(function (c) {
+        if (!q) return true;
+        return (c.school + " " + c.la + " " + c.senco + " " + c.schoolContact).toLowerCase().indexOf(q) !== -1;
       });
-      document.getElementById("feedback-saved-msg").textContent = "Saved (" + stars + "/5 stars) locally on your device.";
-      window.showToast("Feedback saved!");
-    }
 
-    var DEFAULT_PEER_TIPS = [
-      { author: "Cheshire East Parent", tip: "Keep a clear date-stamped record of emails, phone follow-ups, and home impact after school." },
-      { author: "SEND Parent", tip: "Check draft Section F carefully for specific hours, frequency, and adult support rather than vague terms." }
-    ];
-
-    function addPeerTip() {
-      var author = (document.getElementById("peer-tip-author").value || "SEND Parent").trim();
-      var tip = (document.getElementById("peer-tip-text").value || "").trim();
-      if (!tip) {
-        window.showToast("Enter a tip first.");
-        return;
-      }
-      var custom = readStore("peerTips", []);
-      custom.unshift({ author: author, tip: tip });
-      writeStore("peerTips", custom);
-      document.getElementById("peer-tip-text").value = "";
-      renderPeerTips();
-      window.showToast("Tip posted!");
-    }
-
-    function renderPeerTips() {
-      var list = document.getElementById("peer-tips-list");
-      if (!list) return;
-      var all = readStore("peerTips", []).concat(DEFAULT_PEER_TIPS);
       var html = "";
-      for (var i = 0; i < all.length; i++) {
-        html += '<div class="callout teal" style="margin-bottom:8px;">' +
-          '<h4>' + escapeHtml(all[i].author) + '</h4>' +
-          '<p>' + escapeHtml(all[i].tip) + '</p></div>';
+      for (var k = 0; k < filtered.length; k++) {
+        var item = filtered[k];
+        html += '<div class="dir-card">' +
+          '<div><span class="tag-pill ' + (item.isCustom ? 'teal' : '') + '">' + (item.isCustom ? 'Saved School Link' : 'School & Council Link') + '</span>' +
+          '<h4 style="margin:8px 0 4px;color:#0f2942;">' + escapeHtml(item.school) + '</h4>' +
+          '<p style="margin:0 0 4px;font-size:0.88rem;"><strong>Linked Local Authority:</strong> ' + escapeHtml(item.la) + '</p>' +
+          '<p style="margin:0 0 4px;font-size:0.86rem;"><strong>SENCO Contact:</strong> ' + escapeHtml(item.senco) + '</p>' +
+          '<p style="margin:0;font-size:0.84rem;color:#475569;"><strong>School Contact Info:</strong> ' + escapeHtml(item.schoolContact) + '</p></div>' +
+          '<div class="btn-row"><button type="button" class="btn btn-outline" style="min-height:36px;padding:6px 12px;font-size:0.8rem;" onclick="useSchoolLink(\'' + escapeHtml(item.school).replace(/'/g, "\\'") + '\', \'' + escapeHtml(item.la).replace(/'/g, "\\'") + '\')">Use This Link</button></div></div>';
       }
-      list.innerHTML = html;
+      box.innerHTML = html || '<p>No matching schools or councils found. Enter your own school and Local Authority in the contact saver below.</p>';
     }
 
-    /* ==========================================================================
-       12. SECURITY VAULT & STORE FILE GENERATORS
-       ========================================================================== */
-    function hashPinSimple(pin) {
-      var h = 2166136261;
-      for (var i = 0; i < pin.length; i++) {
-        h ^= pin.charCodeAt(i);
-        h += (h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24);
+    function useSchoolLink(schoolName, laName) {
+      var cur = lsGet("customPoc", { school: "", senco: "", la: "" });
+      cur.school = schoolName;
+      if (laName && laName.indexOf("Select or type") === -1) {
+        cur.la = laName;
+        var dd = document.getElementById("la-selector-dropdown");
+        if (dd && UK_LOCAL_AUTHORITIES.indexOf(laName) !== -1) dd.value = laName;
       }
-      return "v5_" + (h >>> 0).toString(16);
+      lsSet("customPoc", cur);
+      hydrateCustomPocInputs();
+      renderPointsOfContactTable(cur.la);
+      window.showToast("Linked school and Local Authority updated.");
     }
 
-    function setVaultPin() {
-      var pin = (document.getElementById("vault-new-pin").value || "").tr
+    function saveCustomPoc() {
+      lsSet("customPoc", {
+        school: document.getElementById("custom-poc-school").value,
+        senco: document.getElementById("custom-poc-senco").value,
+        la: document.getElementById("custom-poc-la").value
+      });
+      renderSchoolLinks();
+      renderPointsOfContactTable(document.getElementById("custom-poc-la").value || document.getElementById("la-selector-dropdown").value);
+    }
+
+    function hydrateCustomPocInputs() {
+      var cur = lsGet("customPoc", { school: "", senco: "", la: "" });
+      document.getElementById("custom-poc-school").value = cur.school || "";
+      document.getElementById("custom-poc-senco").value = cur.senco || "";
+      document.getElementById("custom-poc-la").value = cur.la || "";
+    }
+
+    function renderPointsOfContactTable(laName) {
+      var tbody = document.getElementById("poc-table-body");
+      var badge = document.getElementById("poc-active-la-badge");
+      var custom = lsGet("customPoc", { school: "", senco: "", la: "" });
+      var activeLa = (laName || custom.la || "").trim();
+      var activeSchool = (custom.school || "").trim();
+
+      if (badge) {
+        badge.textContent = (activeSchool || activeLa)
+          ? ((activeSchool ? activeSchool + " • " : "") + (activeLa || "Selected Local Authority"))
+          : "All School & Local Authority Roles";
+      }
+
+      if (!tbody) return;
+      var html = "";
+      for (var i = 0; i < POINTS_OF_CONTACT_ROLES.length; i++) {
+        var r = POINTS_OF_CONTACT_ROLES[i];
+        var detail = r.contact;
+        if (r.side === "School" && r.role.indexOf("SENCO") !== -1 && custom.senco) {
+          detail = custom.senco + (activeSchool ? " (" + activeSchool + ")" : "");
+        } else if (r.side === "School" && activeSchool) {
+          detail = r.contact + " — " + activeSchool;
+        } else if (r.side === "Local Authority" && activeLa) {
+          detail = activeLa + " — " + r.contact;
+        }
+        html += "<tr>" +
+          "<td><span class='tag-pill " + (r.side === "Local Authority" ? "teal" : "") + "'>" + escapeHtml(r.side) + "</span></td>" +
+          "<td><strong>" + escapeHtml(r.role) + "</strong></td>" +
+          "<td>" + escapeHtml(r.handles) + "</td>" +
+          "<td>" + escapeHtml(detail) + "</td>" +
+          "</tr>";
+      }
+      tbody.innerHTML = html;
+    }
+
+    function renderAllLocalAuthorities() {
+      var list = document.getElementById("la-dir-list");
+      if (!list) return;
+      var q = (document.getElementById("la-dir-search").value || "").toLowerCase().trim();
+      var matches = UK_LOCAL_AUTHORITIES.filter(function (name) {
+        return !q || name.toLowerCase().indexOf(q) !== -1;
+      });
+      var html = "";
+      for (var i = 0; i < matches.length; i++) {
+        var name = matches[i];
+        html += '<div class="dir-card">' +
+          '<div><h4 style="margin:0 0 4px;color:#0f2942;font-size:0.96rem;">' + escapeHtml(name) + '</h4>' +
+          '<p style="margin:0;font-size:0.82rem;color:#475569;">SEND Local Offer, SENDIASS, EHCP Team &amp; School Links</p></div>' +
+          '<div class="btn-row">' +
+          '<button type="button" class="btn btn-outline" style="min-height:34px;padding:4px 10px;font-size:0.78rem;" onclick="selectCouncilForPoc(\'' + escapeHtml(name).replace(/'/g, "\\'") + '\')">Load Contacts</button>' +
+          '<a href="https://www.gov.uk/children-with-special-educational-needs/support-from-local-authority" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;">GOV.UK ↗</a>' +
+          '</div></div>';
+      }
+      list.innerHTML = html || "<p>No matching Local Authority found.</p>";
+    }
+
+    function selectCouncilForPoc(name) {
+      var dd = document.getElementById("la-selector-dropdown");
+      if (dd) dd.value = name;
+      var cur = lsGet("customPoc", { school: "", senco: "", la: "" });
+      cur.la = name;
+      lsSet("customPoc", cur);
+      hydrateCustomPocInputs();
+      renderSchoolLinks();
+      renderPointsOfContactTable(name);
+      window.showToast("Loaded points of contact for " + name);
+    }
+
+    function renderSenCardsAndGrants() {
+      var box = document.getElementById("sen-cards-grants-list");
+      if (!box) return;
+      var html = "";
+      for (var i = 0; i < SEN_CARDS_AND_GRANTS.length; i++) {
+        var g = SEN_CARDS_AND_GRANTS[i];
+        html += '<div class="dir-card">' +
+          '<div><span class="tag-pill teal">' + escapeHtml(g.badge) + '</span>' +
+          '<h4 style="margin:8px 0 6px;color:#0f2942;">' + escapeHtml(g.title) + '</h4>' +
+          '<p style="margin:0;font-size:0.88rem;color:#334155;">' + escapeHtml(g.desc) + '</p></div>' +
+          '<div><a href="' + g.url + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(g.linkText) + ' ↗</a></div></div>';
+      }
+      box.innerHTML = html;
+    }
+
+    /* ========================================================================
+       6. TOP 20 CONDITIONS WITH EXTERNAL UK ORGANISATION LINKS
+       ======================================================================== */
+    var TOP_20_CONDITIONS = [
+      { rank: 1, name: "Autism Spectrum Condition (Autism)", summary: "Differences in social communication, sensory processing, routines, and focus.", org: "National Autistic Society", url: "https://www.autism.org.uk" },
+      { rank: 2, name: "ADHD (Attention Deficit Hyperactivity Disorder)", summary: "Differences in attention regulation, impulsivity, executive functioning, and activity.", org: "ADHD UK", url: "https://adhduk.co.uk" },
+      { rank: 3, name: "Pathological Demand Avoidance (PDA Profile)", summary: "An anxiety-driven profile within autism involving a strong drive to resist everyday demands.", org: "PDA Society", url: "https://www.pdasociety.org.uk" },
+      { rank: 4, name: "Developmental Language Disorder (DLD)", summary: "Ongoing difficulty understanding and/or using spoken language not explained by another condition.", org: "Speech and Language UK", url: "https://speechandlanguage.org.uk" },
+      { rank: 5, name: "Dyslexia", summary: "A learning difference affecting reading accuracy, fluency, phonological processing, and spelling.", org: "British Dyslexia Association", url: "https://www.bdadyslexia.org.uk" },
+      { rank: 6, name: "Dyscalculia", summary: "A specific learning difference affecting number sense, calculation, and mathematical reasoning.", org: "British Dyslexia Association — Dyscalculia", url: "https://www.bdadyslexia.org.uk/dyscalculia" },
+      { rank: 7, name: "Developmental Coordination Disorder (Dyspraxia)", summary: "Affects motor planning, coordination, fine/gross motor skills, and organisation.", org: "Dyspraxia Foundation", url: "https://dyspraxiafoundation.org.uk" },
+      { rank: 8, name: "Sensory Processing Differences", summary: "Heightened or reduced sensitivity to sound, light, touch, movement, taste, or interoception.", org: "Sensory Integration Education", url: "https:
 </html>
