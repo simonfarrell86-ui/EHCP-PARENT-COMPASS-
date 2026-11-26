@@ -70,36 +70,51 @@
 
     /* Header */
     .app-header {
-      background: linear-gradient(135deg, var(--navy-950) 0%, var(--navy-900) 58%, var(--navy-800) 100%);
+      position: relative;
+      background: linear-gradient(135deg, rgba(8, 24, 40, 0.88) 0%, rgba(15, 41, 66, 0.82) 55%, rgba(15, 118, 110, 0.78) 100%);
       color: #ffffff;
-      padding: calc(12px + env(safe-area-inset-top)) 16px 14px;
+      padding: calc(16px + env(safe-area-inset-top)) 16px 18px;
       border-bottom: 3px solid var(--teal-600);
+      overflow: hidden;
+    }
+
+    .header-scenic-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.44;
+      pointer-events: none;
     }
 
     .header-inner {
+      position: relative;
+      z-index: 1;
       max-width: 1260px;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 14px;
     }
 
     .brand-group {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       min-width: 0;
     }
 
     .brand-logo-wrap {
-      width: 58px;
-      height: 58px;
-      border-radius: 14px;
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
       background: #ffffff;
       padding: 2px;
-      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.28);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.34);
       flex-shrink: 0;
       display: flex;
       align-items: center;
@@ -111,58 +126,40 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 12px;
+      border-radius: 13px;
       display: block;
     }
 
     .brand-text h1 {
       margin: 0;
-      font-size: 1.24rem;
+      font-size: 1.32rem;
       font-weight: 800;
       letter-spacing: -0.01em;
       line-height: 1.2;
       color: #ffffff;
+      text-shadow: 0 2px 8px rgba(8, 24, 40, 0.72);
     }
 
     .brand-text p {
-      margin: 3px 0 0;
-      font-size: 0.82rem;
-      color: #cbd8e8;
-      line-height: 1.3;
+      margin: 4px 0 0;
+      font-size: 0.85rem;
+      color: #f1f5f9;
+      line-height: 1.35;
+      text-shadow: 0 1px 6px rgba(8, 24, 40, 0.72);
     }
 
-    .header-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .hdr-btn {
-      appearance: none;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
-      border-radius: 999px;
-      padding: 8px 13px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      cursor: pointer;
+    .header-calm-note {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      min-height: 40px;
-      touch-action: manipulation;
-    }
-
-    .hdr-btn.crisis-pill {
-      background: #be123c;
-      border-color: #fda4af;
-    }
-
-    .hdr-btn.ai-pill {
-      background: var(--teal-700);
-      border-color: #5eead4;
+      gap: 7px;
+      background: rgba(8, 24, 40, 0.56);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      backdrop-filter: blur(4px);
+      color: #f8fafc;
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
     }
 
     /* Sticky Tab Navigation */
@@ -518,6 +515,83 @@
     .check-item.done .check-label {
       text-decoration: line-through;
       color: var(--slate-600);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 10px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 10px 0 14px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--teal-600), #10b981);
+      border-radius: 999px;
+      transition: width 0.25s ease;
+    }
+
+    .stage-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 13px 14px;
+      border: 1.5px solid #dbe4ee;
+      border-radius: var(--radius-md);
+      margin-bottom: 10px;
+      background: #ffffff;
+      cursor: pointer;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+      touch-action: manipulation;
+    }
+
+    .stage-row:hover {
+      border-color: var(--teal-600);
+    }
+
+    .stage-row.done {
+      background: #f0fdf4;
+      border-color: #86efac;
+    }
+
+    .stage-row input[type="checkbox"] {
+      width: 24px;
+      height: 24px;
+      margin: 2px 0 0;
+      accent-color: var(--teal-700);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .stage-meta-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 4px;
+    }
+
+    .stage-time-pill {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+
+    .stage-row.done .stage-time-pill {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .stage-row.done .stage-title-text {
+      text-decoration: line-through;
+      color: #475569;
     }
 
     .dir-card {
@@ -889,49 +963,56 @@
       return false;
     };
 
-    window.showToast = function (msg) {
-      try {
-        var el = document.getElementById("app-toast");
-        if (!el) return;
-        el.textContent = msg;
-        el.classList.add("show");
-        clearTimeout(window._toastTimer);
-        window._toastTimer = setTimeout(function () {
-          el.classList.remove("show");
-        }, 3000);
-      } catch (e) {}
-    };
-
-    window.openModal = function (id) {
-      var m = document.getElementById(id);
-      if (m) m.classList.add("open");
-    };
-
-    window.closeModal = function (id) {
-      var m = document.getElementById(id);
-      if (m) m.classList.remove("open");
-    };
-  </script>
-</head>
-<body>
-
-  <!-- PIN Vault Lock Overlay -->
-  <div id="vault-lock-screen" class="lock-overlay" role="dialog" aria-modal="true" aria-labelledby="lock-title">
-    <div class="lock-card">
-      <div style="width:82px;height:82px;margin:0 auto 12px;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
-        <img src="./1000166861.png" alt="EHCP Parent Compass Emblem" onerror="window.applyEmblemFallback(this);" style="width:100%;height:100%;object-fit:cover;display:block;" />
-      </div>
-      <h2 id="lock-title" style="margin:0 0 6px;color:#0f2942;">Compass Vault Locked</h2>
-      <p style="font-size:0.88rem;color:#475569;margin:0 0 14px;">Enter your 4–8 digit PIN to unlock your local EHCP notes, checklists, and photo/video evidence.</p>
-      <input type="password" id="unlock-pin-input" inputmode="numeric" maxlength="8" placeholder="Enter PIN" style="text-align:center;font-size:1.25rem;letter-spacing:0.25em;" />
-      <p id="unlock-error" style="color:#be123c;font-size:0.84rem;font-weight:700;min-height:20px;margin:0 0 10px;"></p>
-      <button type="button" class="btn btn-primary" style="width:100%;margin-bottom:10px;" onclick="attemptUnlockVault()">Unlock Compass</button>
-      <button type="button" class="btn btn-outline" style="width:100%;font-size:0.8rem;" onclick="clearAllLocalStorageAndMedia()">Forgot PIN? Wipe Local Data &amp; Reset</button>
-    </div>
-  </div>
-
-  <!-- Top Header -->
+  <!-- Top Header with Calming Sunset Meadow & Children Playing Scenic Backdrop -->
   <header class="app-header">
+    <svg class="header-scenic-bg" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="calmSunsetSky" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0f2942" />
+          <stop offset="38%" stop-color="#1d6fa5" />
+          <stop offset="72%" stop-color="#f59e0b" />
+          <stop offset="100%" stop-color="#fde68a" />
+        </linearGradient>
+        <radialGradient id="warmSunGlow" cx="78%" cy="34%" r="36%">
+          <stop offset="0%" stop-color="#fef3c7" stop-opacity="0.95" />
+          <stop offset="55%" stop-color="#fbbf24" stop-opacity="0.45" />
+          <stop offset="100%" stop-color="#fbbf24" stop-opacity="0" />
+        </radialGradient>
+        <linearGradient id="meadowHillBack" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.72" />
+          <stop offset="100%" stop-color="#0f766e" stop-opacity="0.9" />
+        </linearGradient>
+        <linearGradient id="meadowHillFront" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.88" />
+          <stop offset="100%" stop-color="#064e3b" stop-opacity="0.96" />
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="260" fill="url(#calmSunsetSky)" />
+      <rect width="1200" height="260" fill="url(#warmSunGlow)" />
+      <circle cx="940" cy="86" r="44" fill="#fef9c3" opacity="0.88" />
+      <!-- Soft distant hills -->
+      <path d="M0 165 Q260 110 560 155 T1200 135 L1200 260 L0 260 Z" fill="url(#meadowHillBack)" />
+      <!-- Foreground sunlit meadow -->
+      <path d="M0 190 Q340 150 720 185 T1200 165 L1200 260 L0 260 Z" fill="url(#meadowHillFront)" />
+      <!-- Gentle winding path -->
+      <path d="M620 260 C650 220, 740 205, 810 175 C835 165, 855 162, 875 164 C850 172, 825 186, 795 210 C760 235, 735 248, 725 260 Z" fill="#fef3c7" opacity="0.55" />
+      <!-- Playful kite in the breeze -->
+      <polygon points="845,54 862,70 845,92 828,70" fill="#fbbf24" stroke="#ffffff" stroke-width="2" />
+      <path d="M845 92 Q832 115 805 148" fill="none" stroke="#fef3c7" stroke-width="1.8" stroke-dasharray="4 3" />
+      <!-- Silhouettes of children playing joyfully on the meadow -->
+      <g fill="#082f49" opacity="0.85">
+        <!-- Child 1 flying kite -->
+        <circle cx="792" cy="144" r="7" />
+        <path d="M784 176 L788 153 L805 147 L807 152 L795 157 L798 176 L803 194 L797 195 L792 180 L786 195 L781 194 Z" />
+        <!-- Child 2 running with arms out -->
+        <circle cx="848" cy="148" r="6.5" />
+        <path d="M833 157 L848 155 L864 152 L865 157 L853 160 L855 176 L863 192 L858 194 L849 180 L841 194 L836 192 L843 175 Z" />
+        <!-- Child 3 jumping happily -->
+        <circle cx="902" cy="140" r="6.5" />
+        <path d="M889 135 L898 148 L906 148 L915 135 L919 138 L908 153 L908 168 L916 181 L911 184 L902 172 L893 184 L888 181 L896 168 L896 153 L885 138 Z" />
+      </g>
+    </svg>
+
     <div class="header-inner">
       <div class="brand-group">
         <div class="brand-logo-wrap">
@@ -942,16 +1023,9 @@
           <p>Children &amp; Families Act 2014 • UK SEND &amp; EHCP Navigation for Parents &amp; Carers</p>
         </div>
       </div>
-      <div class="header-actions">
-        <button type="button" class="hdr-btn" onclick="window.switchTab('privacy-security')" title="Privacy & Security">
-          <span>🔒</span> <span>Privacy &amp; Security</span>
-        </button>
-        <button type="button" class="hdr-btn crisis-pill" onclick="window.switchTab('crisis-send')" title="Crisis & SEND">
-          <span>🆘</span> <span>Crisis &amp; SEND</span>
-        </button>
-        <button type="button" class="hdr-btn ai-pill" onclick="window.switchTab('ai-compass')" title="AI Compass">
-          <span>💬</span> <span>AI Compass</span>
-        </button>
+      <div class="header-calm-note">
+        <span>🌿</span>
+        <span>Calm, step-by-step SEND &amp; EHCP guidance stored privately on your device</span>
       </div>
     </div>
   </header>
@@ -1079,7 +1153,82 @@
           <h3 class="card-title"><span>🪜</span> 7-Stage Statutory Milestone Tracker</h3>
           <span id="tl-stage-badge" class="tag-pill teal">0 / 7 Completed</span>
         </div>
-        <div id="tl-stages-list"></div>
+        <p style="margin:0 0 6px;font-size:0.88rem;color:#475569;">Tap each stage below as you reach it to track your child's progress through the 20-week statutory EHCP process.</p>
+        <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" id="tl-progress-bar-wrap">
+          <div class="progress-fill" id="tl-progress-fill"></div>
+        </div>
+        <div id="tl-stages-list">
+          <label class="stage-row" id="stage-row-st1">
+            <input type="checkbox" id="chk-st1" onchange="toggleTimelineStage('st1')" />
+            <div>
+              <div class="stage-meta-top">
+                <span class="stage-time-pill">Stage 1 • Day 0</span>
+              </div>
+              <div class="stage-title-text" style="font-weight:800;color:#0f2942;">EHC Needs Assessment Request Submitted &amp; Logged</div>
+              <div style="font-size:0.84rem;color:#475569;">Written request sent to the Local Authority SEND team under Section 36(1) of the Children &amp; Families Act 2014, with dated proof saved.</div>
+            </div>
+          </label>
+          <label class="stage-row" id="stage-row-st2">
+            <input type="checkbox" id="chk-st2" onchange="toggleTimelineStage('st2')" />
+            <div>
+              <div class="stage-meta-top">
+                <span class="stage-time-pill">Stage 2 • By Week 6</span>
+              </div>
+              <div class="stage-title-text" style="font-weight:800;color:#0f2942;">Local Authority Decision Whether to Assess Issued</div>
+              <div style="font-size:0.84rem;color:#475569;">Local Authority confirms whether it will carry out an EHC needs assessment (or issues formal refusal with mediation &amp; SEND Tribunal appeal rights).</div>
+            </div>
+          </label>
+          <label class="stage-row" id="stage-row-st3">
+            <input type="checkbox" id="chk-st3" onchange="toggleTimelineStage('st3')" />
+            <div>
+              <div class="stage-meta-top">
+                <span class="stage-time-pill">Stage 3 • Weeks 6–12</span>
+              </div>
+              <div class="stage-title-text" style="font-weight:800;color:#0f2942;">Statutory Multi-Agency Advice Gathered</div>
+              <div style="font-size:0.84rem;color:#475569;">Educational Psychologist, school/setting, health, social care, and parent &amp; child views collected within 6 weeks of request.</div>
+            </div>
+          </label>
+          <label class="stage-row" id="stage-row-st4">
+            <input type="checkbox" id="chk-st4" onchange="toggleTimelineStage('st4')" />
+            <div>
+              <div class="stage-meta-top">
+                <span class="stage-time-pill">Stage 4 • Weeks 12–16</span>
+              </div>
+              <div class="stage-title-text" style="font-weight:800;color:#0f2942;">LA Panel Review &amp; Decision Whether to Issue an EHCP</div>
+              <div style="font-size:0.84rem;color:#475569;">Local Authority reviews all statutory advice and decides whether to issue an Education, Health and Care Plan.</div>
+            </div>
+          </label>
+          <label class="stage-row" id="stage-row-st5">
+            <input type="checkbox" id="chk-st5" onchange="toggleTimelineStage('st5')" />
+            <div>
+              <div class="stage-meta-top">
+                <span class="stage-time-pill">Stage 5 • By Week 16</span>
+              </div>
+              <div class="stage-title-text" style="font-weight:800;color:#0f2942;">Draft EHCP Issued to Parent / Carer</div>
+              <div style="font-size:0.84rem;color:#475569;">Draft EHCP sent to you with Section I left blank so you can review Sections A–H and express your school/setting preference.</div>
+            </div>
+          </label>
+          <label class="stage-row" id="stage-row-st6">
+            <input type="checkbox" id="chk-st6" onchange="toggleTimelineStage('st6')" />
+            <div>
+              <div class="stage-meta-top">
+                <span class="stage-time-pill">Stage 6 • Weeks 16–18</span>
+              </div>
+              <div class="stage-title-text" style="font-weight:800;color:#0f2942;">15-Calendar-Day Parent Consultation, Section F Check &amp; Preferred Setting</div>
+              <div style="font-size:0.84rem;color:#475569;">Submit draft edits, check Section F for specific &amp; quantified wording, and name your preferred school/setting for LA consultation.</div>
+            </div>
+          </label>
+          <label class="stage-row" id="stage-row-st7">
+            <input type="checkbox" id="chk-st7" onchange="toggleTimelineStage('st7')" />
+            <div>
+              <div class="stage-meta-top">
+                <span class="stage-time-pill">Stage 7 • By Week 20</span>
+              </div>
+              <div class="stage-title-text" style="font-weight:800;color:#0f2942;">Final EHCP Issued Naming Setting in Section I</div>
+              <div style="font-size:0.84rem;color:#475569;">Final EHCP issued naming the educational placement in Section I, with statutory mediation and SEND Tribunal appeal rights.</div>
+            </div>
+          </label>
+        </div>
       </div>
     </section>
 
@@ -1838,13 +1987,13 @@
        3. 20-WEEK CLOCK & 7-STAGE MILESTONE TRACKER
        ======================================================================== */
     var TIMELINE_STAGES = [
-      { id: "st1", title: "1. Written Section 36 Request Sent", desc: "Written request submitted to the Local Authority SEND team and dated proof kept." },
-      { id: "st2", title: "2. Week 6 Assessment Decision", desc: "Local Authority decides whether to assess or refuse (providing mediation/appeal rights)." },
-      { id: "st3", title: "3. Multi-Agency Advice (Weeks 6–12)", desc: "Educational Psychology, school, health, social care, and parent/child views gathered." },
-      { id: "st4", title: "4. Week 16 Draft EHCP", desc: "Draft EHCP sent to parent/carer with Section I left blank for setting preference." },
-      { id: "st5", title: "5. 15-Day Draft Comments & Preference", desc: "Parent reviews sections, proposes edits, and names preferred school/setting." },
-      { id: "st6", title: "6. 15-Day School Consultation", desc: "Local Authority consults the preferred school/college under Section 39." },
-      { id: "st7", title: "7. Week 20 Final EHCP Issued", desc: "Final EHCP issued naming the setting in Section I." }
+      { id: "st1", badge: "Stage 1 • Day 0", title: "EHC Needs Assessment Request Submitted & Logged", desc: "Written request sent to the Local Authority SEND team under Section 36(1) of the Children & Families Act 2014, with dated proof saved." },
+      { id: "st2", badge: "Stage 2 • By Week 6", title: "Local Authority Decision Whether to Assess Issued", desc: "Local Authority confirms whether it will carry out an EHC needs assessment (or issues formal refusal with mediation & SEND Tribunal appeal rights)." },
+      { id: "st3", badge: "Stage 3 • Weeks 6–12", title: "Statutory Multi-Agency Advice Gathered", desc: "Educational Psychologist, school/setting, health, social care, and parent & child views collected within 6 weeks of request." },
+      { id: "st4", badge: "Stage 4 • Weeks 12–16", title: "LA Panel Review & Decision Whether to Issue an EHCP", desc: "Local Authority reviews all statutory advice and decides whether to issue an Education, Health and Care Plan." },
+      { id: "st5", badge: "Stage 5 • By Week 16", title: "Draft EHCP Issued to Parent / Carer", desc: "Draft EHCP sent to you with Section I left blank so you can review Sections A–H and express your school/setting preference." },
+      { id: "st6", badge: "Stage 6 • Weeks 16–18", title: "15-Calendar-Day Parent Consultation, Section F Check & Preferred Setting", desc: "Submit draft edits, check Section F for specific & quantified wording, and name your preferred school/setting for LA consultation." },
+      { id: "st7", badge: "Stage 7 • By Week 20", title: "Final EHCP Issued Naming Setting in Section I", desc: "Final EHCP issued naming the educational placement in Section I, with statutory mediation and SEND Tribunal appeal rights." }
     ];
 
     function fmtDate(d) {
@@ -1891,6 +2040,7 @@
       cur.stages[id] = !cur.stages[id];
       lsSet("timeline", cur);
       renderTimelineStages();
+      window.showToast(cur.stages[id] ? "Stage marked as completed!" : "Stage unchecked.");
     }
 
     function renderTimelineStages() {
@@ -1904,14 +2054,22 @@
         var s = TIMELINE_STAGES[i];
         var checked = !!map[s.id];
         if (checked) done++;
-        html += '<label class="check-item ' + (checked ? 'done' : '') + '">' +
-          '<input type="checkbox" ' + (checked ? 'checked' : '') + ' onchange="toggleTimelineStage(\'' + s.id + '\')" />' +
-          '<div><div class="check-label" style="font-weight:700;">' + escapeHtml(s.title) + '</div>' +
-          '<div style="font-size:0.84rem;color:#475569;">' + escapeHtml(s.desc) + '</div></div></label>';
+        html += '<label class="stage-row ' + (checked ? 'done' : '') + '" id="stage-row-' + s.id + '">' +
+          '<input type="checkbox" id="chk-' + s.id + '" ' + (checked ? 'checked' : '') + ' onchange="toggleTimelineStage(\'' + s.id + '\')" />' +
+          '<div>' +
+          '<div class="stage-meta-top"><span class="stage-time-pill">' + escapeHtml(s.badge) + '</span>' +
+          (checked ? '<span class="tag-pill teal">✓ Completed</span>' : '') + '</div>' +
+          '<div class="stage-title-text" style="font-weight:800;color:#0f2942;">' + escapeHtml(s.title) + '</div>' +
+          '<div style="font-size:0.84rem;color:#475569;">' + escapeHtml(s.desc) + '</div>' +
+          '</div></label>';
       }
       box.innerHTML = html;
       var badge = document.getElementById("tl-stage-badge");
       if (badge) badge.textContent = done + " / " + TIMELINE_STAGES.length + " Completed";
+      var fill = document.getElementById("tl-progress-fill");
+      if (fill) fill.style.width = Math.round((done / TIMELINE_STAGES.length) * 100) + "%";
+      var barWrap = document.getElementById("tl-progress-bar-wrap");
+      if (barWrap) barWrap.setAttribute("aria-valuenow", String(done));
     }
 
     /* ========================================================================
@@ -2118,143 +2276,5 @@
       });
 
       var html = "";
-      for (var k = 0; k < filtered.length; k++) {
-        var item = filtered[k];
-        html += '<div class="dir-card">' +
-          '<div><span class="tag-pill ' + (item.isCustom ? 'teal' : '') + '">' + (item.isCustom ? 'Saved School Link' : 'School & Council Link') + '</span>' +
-          '<h4 style="margin:8px 0 4px;color:#0f2942;">' + escapeHtml(item.school) + '</h4>' +
-          '<p style="margin:0 0 4px;font-size:0.88rem;"><strong>Linked Local Authority:</strong> ' + escapeHtml(item.la) + '</p>' +
-          '<p style="margin:0 0 4px;font-size:0.86rem;"><strong>SENCO Contact:</strong> ' + escapeHtml(item.senco) + '</p>' +
-          '<p style="margin:0;font-size:0.84rem;color:#475569;"><strong>School Contact Info:</strong> ' + escapeHtml(item.schoolContact) + '</p></div>' +
-          '<div class="btn-row"><button type="button" class="btn btn-outline" style="min-height:36px;padding:6px 12px;font-size:0.8rem;" onclick="useSchoolLink(\'' + escapeHtml(item.school).replace(/'/g, "\\'") + '\', \'' + escapeHtml(item.la).replace(/'/g, "\\'") + '\')">Use This Link</button></div></div>';
-      }
-      box.innerHTML = html || '<p>No matching schools or councils found. Enter your own school and Local Authority in the contact saver below.</p>';
-    }
-
-    function useSchoolLink(schoolName, laName) {
-      var cur = lsGet("customPoc", { school: "", senco: "", la: "" });
-      cur.school = schoolName;
-      if (laName && laName.indexOf("Select or type") === -1) {
-        cur.la = laName;
-        var dd = document.getElementById("la-selector-dropdown");
-        if (dd && UK_LOCAL_AUTHORITIES.indexOf(laName) !== -1) dd.value = laName;
-      }
-      lsSet("customPoc", cur);
-      hydrateCustomPocInputs();
-      renderPointsOfContactTable(cur.la);
-      window.showToast("Linked school and Local Authority updated.");
-    }
-
-    function saveCustomPoc() {
-      lsSet("customPoc", {
-        school: document.getElementById("custom-poc-school").value,
-        senco: document.getElementById("custom-poc-senco").value,
-        la: document.getElementById("custom-poc-la").value
-      });
-      renderSchoolLinks();
-      renderPointsOfContactTable(document.getElementById("custom-poc-la").value || document.getElementById("la-selector-dropdown").value);
-    }
-
-    function hydrateCustomPocInputs() {
-      var cur = lsGet("customPoc", { school: "", senco: "", la: "" });
-      document.getElementById("custom-poc-school").value = cur.school || "";
-      document.getElementById("custom-poc-senco").value = cur.senco || "";
-      document.getElementById("custom-poc-la").value = cur.la || "";
-    }
-
-    function renderPointsOfContactTable(laName) {
-      var tbody = document.getElementById("poc-table-body");
-      var badge = document.getElementById("poc-active-la-badge");
-      var custom = lsGet("customPoc", { school: "", senco: "", la: "" });
-      var activeLa = (laName || custom.la || "").trim();
-      var activeSchool = (custom.school || "").trim();
-
-      if (badge) {
-        badge.textContent = (activeSchool || activeLa)
-          ? ((activeSchool ? activeSchool + " • " : "") + (activeLa || "Selected Local Authority"))
-          : "All School & Local Authority Roles";
-      }
-
-      if (!tbody) return;
-      var html = "";
-      for (var i = 0; i < POINTS_OF_CONTACT_ROLES.length; i++) {
-        var r = POINTS_OF_CONTACT_ROLES[i];
-        var detail = r.contact;
-        if (r.side === "School" && r.role.indexOf("SENCO") !== -1 && custom.senco) {
-          detail = custom.senco + (activeSchool ? " (" + activeSchool + ")" : "");
-        } else if (r.side === "School" && activeSchool) {
-          detail = r.contact + " — " + activeSchool;
-        } else if (r.side === "Local Authority" && activeLa) {
-          detail = activeLa + " — " + r.contact;
-        }
-        html += "<tr>" +
-          "<td><span class='tag-pill " + (r.side === "Local Authority" ? "teal" : "") + "'>" + escapeHtml(r.side) + "</span></td>" +
-          "<td><strong>" + escapeHtml(r.role) + "</strong></td>" +
-          "<td>" + escapeHtml(r.handles) + "</td>" +
-          "<td>" + escapeHtml(detail) + "</td>" +
-          "</tr>";
-      }
-      tbody.innerHTML = html;
-    }
-
-    function renderAllLocalAuthorities() {
-      var list = document.getElementById("la-dir-list");
-      if (!list) return;
-      var q = (document.getElementById("la-dir-search").value || "").toLowerCase().trim();
-      var matches = UK_LOCAL_AUTHORITIES.filter(function (name) {
-        return !q || name.toLowerCase().indexOf(q) !== -1;
-      });
-      var html = "";
-      for (var i = 0; i < matches.length; i++) {
-        var name = matches[i];
-        html += '<div class="dir-card">' +
-          '<div><h4 style="margin:0 0 4px;color:#0f2942;font-size:0.96rem;">' + escapeHtml(name) + '</h4>' +
-          '<p style="margin:0;font-size:0.82rem;color:#475569;">SEND Local Offer, SENDIASS, EHCP Team &amp; School Links</p></div>' +
-          '<div class="btn-row">' +
-          '<button type="button" class="btn btn-outline" style="min-height:34px;padding:4px 10px;font-size:0.78rem;" onclick="selectCouncilForPoc(\'' + escapeHtml(name).replace(/'/g, "\\'") + '\')">Load Contacts</button>' +
-          '<a href="https://www.gov.uk/children-with-special-educational-needs/support-from-local-authority" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem;">GOV.UK ↗</a>' +
-          '</div></div>';
-      }
-      list.innerHTML = html || "<p>No matching Local Authority found.</p>";
-    }
-
-    function selectCouncilForPoc(name) {
-      var dd = document.getElementById("la-selector-dropdown");
-      if (dd) dd.value = name;
-      var cur = lsGet("customPoc", { school: "", senco: "", la: "" });
-      cur.la = name;
-      lsSet("customPoc", cur);
-      hydrateCustomPocInputs();
-      renderSchoolLinks();
-      renderPointsOfContactTable(name);
-      window.showToast("Loaded points of contact for " + name);
-    }
-
-    function renderSenCardsAndGrants() {
-      var box = document.getElementById("sen-cards-grants-list");
-      if (!box) return;
-      var html = "";
-      for (var i = 0; i < SEN_CARDS_AND_GRANTS.length; i++) {
-        var g = SEN_CARDS_AND_GRANTS[i];
-        html += '<div class="dir-card">' +
-          '<div><span class="tag-pill teal">' + escapeHtml(g.badge) + '</span>' +
-          '<h4 style="margin:8px 0 6px;color:#0f2942;">' + escapeHtml(g.title) + '</h4>' +
-          '<p style="margin:0;font-size:0.88rem;color:#334155;">' + escapeHtml(g.desc) + '</p></div>' +
-          '<div><a href="' + g.url + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(g.linkText) + ' ↗</a></div></div>';
-      }
-      box.innerHTML = html;
-    }
-
-    /* ========================================================================
-       6. TOP 20 CONDITIONS WITH EXTERNAL UK ORGANISATION LINKS
-       ======================================================================== */
-    var TOP_20_CONDITIONS = [
-      { rank: 1, name: "Autism Spectrum Condition (Autism)", summary: "Differences in social communication, sensory processing, routines, and focus.", org: "National Autistic Society", url: "https://www.autism.org.uk" },
-      { rank: 2, name: "ADHD (Attention Deficit Hyperactivity Disorder)", summary: "Differences in attention regulation, impulsivity, executive functioning, and activity.", org: "ADHD UK", url: "https://adhduk.co.uk" },
-      { rank: 3, name: "Pathological Demand Avoidance (PDA Profile)", summary: "An anxiety-driven profile within autism involving a strong drive to resist everyday demands.", org: "PDA Society", url: "https://www.pdasociety.org.uk" },
-      { rank: 4, name: "Developmental Language Disorder (DLD)", summary: "Ongoing difficulty understanding and/or using spoken language not explained by another condition.", org: "Speech and Language UK", url: "https://speechandlanguage.org.uk" },
-      { rank: 5, name: "Dyslexia", summary: "A learning difference affecting reading accuracy, fluency, phonological processing, and spelling.", org: "British Dyslexia Association", url: "https://www.bdadyslexia.org.uk" },
-      { rank: 6, name: "Dyscalculia", summary: "A specific learning difference affecting number sense, calculation, and mathematical reasoning.", org: "British Dyslexia Association — Dyscalculia", url: "https://www.bdadyslexia.org.uk/dyscalculia" },
-      { rank: 7, name: "Developmental Coordination Disorder (Dyspraxia)", summary: "Affects motor planning, coordination, fine/gross motor skills, and organisation.", org: "Dyspraxia Foundation", url: "https://dyspraxiafoundation.org.uk" },
-      { rank: 8, name: "Sensory Processing Differences", summary: "Heightened or reduced sensitivity to sound, light, touch, movement, taste, or interoception.", org: "Sensory Integration Education", url: "https:
+      for (var k = 0; k < filtered.len
 </html>
